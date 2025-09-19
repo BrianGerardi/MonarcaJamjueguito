@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
-[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
+[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://Assets/sonidos/clickboton.wav" id="2_i8vih"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q3fpc"]
 height = 2.5
