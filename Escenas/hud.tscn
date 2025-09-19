@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1maqyy1m4dy2"]
+
+[ext_resource type="Script" uid="uid://fs0a4hj8joy3" path="res://Scripts/hud.gd" id="1_5x6hg"]
+[ext_resource type="Texture2D" uid="uid://ho4asb7kxfql" path="res://assets/cursores mouse/hand_open.svg" id="1_v1vk6"]
+[ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://assets/cursores mouse/dot_small.svg" id="2_5x6hg"]
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("cursor_mano_abierta", "cursor_punto")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5x6hg")
+cursor_mano_abierta = NodePath("LayerCursores/ManoAb")
+cursor_punto = NodePath("LayerCursores/CursorPunto")
+
+[node name="LayerCursores" type="CanvasLayer" parent="."]
+
+[node name="ManoAb" type="TextureRect" parent="LayerCursores"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v1vk6")
+stretch_mode = 3
+
+[node name="CursorPunto" type="TextureRect" parent="LayerCursores"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5x6hg")
+stretch_mode = 3

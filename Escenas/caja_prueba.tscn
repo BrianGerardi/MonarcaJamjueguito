@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cypdw7mmux5m0"]
+
+[ext_resource type="PackedScene" uid="uid://s7n1okiwlnvq" path="res://assets/modelos3d/dadoBlender.fbx" id="1_04mbw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_04mbw"]
+
+[node name="CajaPrueba" type="RigidBody3D" groups=["interactuable"]]
+collision_layer = 2
+collision_mask = 3
+
+[node name="dadoBlender" parent="." instance=ExtResource("1_04mbw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_04mbw")

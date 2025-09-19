@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgl7s4p3tfiyp"]
+
+[ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_masba"]
+[ext_resource type="PackedScene" uid="uid://c1maqyy1m4dy2" path="res://Escenas/hud.tscn" id="2_v8hp2"]
+[ext_resource type="PackedScene" uid="uid://cypdw7mmux5m0" path="res://Escenas/caja_prueba.tscn" id="3_vsyqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4vds"]
+albedo_color = Color(0.4636051, 0.24076608, 0.014501506, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_masba"]
+material = SubResource("StandardMaterial3D_g4vds")
+size = Vector2(32, 32)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g4vds"]
+points = PackedVector3Array(16.25397, 0.25396827, 16.25397, -16.25397, -0.25396827, -16.25397, -16.25397, 0.25396827, -16.25397, 16.25397, -0.25396827, -16.25397, -16.25397, -0.25396827, 16.25397, -16.25397, 0.25396827, 16.25397, 16.25397, 0.25396827, -16.25397, 16.25397, -0.25396827, 16.25397)
+
+[sub_resource type="Environment" id="Environment_v8hp2"]
+background_mode = 1
+background_color = Color(0.6553156, 0.9197493, 0.8733052, 1)
+
+[node name="NivelTestCosas" type="Node3D"]
+
+[node name="Piso" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso"]
+mesh = SubResource("PlaneMesh_masba")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso"]
+shape = SubResource("ConvexPolygonShape3D_g4vds")
+
+[node name="Player" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("1_masba")]
+HUD = NodePath("../HUD")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v8hp2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8, 0)
+
+[node name="HUD" parent="." instance=ExtResource("2_v8hp2")]
+
+[node name="CajaPrueba" parent="." instance=ExtResource("3_vsyqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
