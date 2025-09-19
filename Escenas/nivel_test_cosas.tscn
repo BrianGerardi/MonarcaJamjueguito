@@ -1,8 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgl7s4p3tfiyp"]
+[gd_scene load_steps=12 format=3 uid="uid://bgl7s4p3tfiyp"]
 
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_masba"]
 [ext_resource type="PackedScene" uid="uid://c1maqyy1m4dy2" path="res://Escenas/hud.tscn" id="2_v8hp2"]
 [ext_resource type="PackedScene" uid="uid://cypdw7mmux5m0" path="res://Escenas/caja_prueba.tscn" id="3_vsyqw"]
+[ext_resource type="Shader" uid="uid://bbewmj24r4xsl" path="res://Visuals/CRTShader.gdshader" id="4_fc6a6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc6a6"]
+shader = ExtResource("4_fc6a6")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.006000000285
+shader_parameter/scanlines_width = 0.1870000088825
+shader_parameter/grille_opacity = 0.2000000095
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4vds"]
 albedo_color = Color(0.4636051, 0.24076608, 0.014501506, 1)
@@ -18,7 +43,45 @@ points = PackedVector3Array(16.25397, 0.25396827, 16.25397, -16.25397, -0.253968
 background_mode = 1
 background_color = Color(0.6553156, 0.9197493, 0.8733052, 1)
 
+[sub_resource type="QuadMesh" id="QuadMesh_yan54"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gjg"]
+shader = ExtResource("4_fc6a6")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [node name="NivelTestCosas" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_fc6a6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Piso" type="StaticBody3D" parent="."]
 
@@ -42,3 +105,10 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8
 
 [node name="CajaPrueba" parent="." instance=ExtResource("3_vsyqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7739296, -0.84031105)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_yan54")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d6gjg")
