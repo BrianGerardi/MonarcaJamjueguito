@@ -21,6 +21,8 @@ var rotacion_relativa_objeto : Quaternion #si, esto es basicamente brujeria bria
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
+	Global.set_camara_principal(camara) #se usa para transiciones de camara
+	Global.poner_vhs_tv.connect(_on_poner_vhs_tv)
 	Global.streamer_set_input_mode.connect(_cambiar_set_input_mode) #por ahora sin uso pero por las dudas
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #captura al mouse para que no salga de la pantalla
 	posicion_pivot_camara_inicial = cabeza_pivot.position #para cuando se agacha
@@ -63,6 +65,8 @@ func esta_señalando_interactuable(): #para cambiar del cursor a la manito en el
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 1.5 #un toque mas de gravedad pq sino se sentia fiero
+	
+	Global.set_posicion_player(global_position)
 	
 	if objeto_señalado_actualmente!= null and objeto_señalado_actualmente.is_in_group("presionar_f"):
 		if objeto_señalado_actualmente.has_method("interactuar"):
@@ -163,3 +167,6 @@ func agarrar_objeto_fisico(posicion_mano_b, posicion_objeto_a, delta): #se llama
 
 func _cambiar_set_input_mode(booleano : bool):
 	$".".set_process_input(booleano)
+
+func _on_poner_vhs_tv():
+	quitar_objeto()

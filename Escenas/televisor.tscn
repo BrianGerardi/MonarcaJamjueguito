@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxab6opwqet34"]
+
+[ext_resource type="Script" uid="uid://cp7u0gj28al33" path="res://Scripts/televisor.gd" id="1_1hng1"]
+[ext_resource type="PackedScene" uid="uid://dl4on5emwu5u7" path="res://assets/modelos3d/televisor test/old_tv.glb" id="1_qi25o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qi25o"]
+size = Vector3(2.9779053, 2.2432861, 2.3737183)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hng1"]
+size = Vector3(1.7180176, 0.8616333, 1)
+
+[node name="Televisor" type="Node3D"]
+script = ExtResource("1_1hng1")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_qi25o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.004211426, -0.07809448)
+shape = SubResource("BoxShape3D_qi25o")
+
+[node name="AreaPonerVHS" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaPonerVHS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15710449, -0.6146349, 1.0352372)
+shape = SubResource("BoxShape3D_1hng1")
+debug_color = Color(0.99999994, 0.7779646, 0.3672063, 0.41960785)
+
+[node name="LabelPressF" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18145108, 0.39312738, 1.1853126)
+text = "Press F
+to put VHS"
+font_size = 42
+
+[connection signal="body_entered" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_entered"]
+[connection signal="body_exited" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_exited"]
