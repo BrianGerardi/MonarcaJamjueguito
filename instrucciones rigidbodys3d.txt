@@ -1,0 +1,10 @@
+para que un objeto se pueda agarrar con fisicas hay que hacer lo siguiente:
+	El nodo padre de ese objeto siempre tiene que ser un rigidbody3d
+	en mass lo ponemos en 3kg
+	los colission shape: 
+		Layer: 2
+		Mask: 1 y 2
+	Tiene que estar en el grupo: "interactuable"
+	si quisieramos que tenga una accion como equiparse, lo agregamos al grupo presionar_f
+
+Como referencia el caja_prueba esta configurado asi
