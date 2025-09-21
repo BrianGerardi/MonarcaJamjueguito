@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8wfdak1a6f1a"]
+[gd_scene load_steps=6 format=3 uid="uid://b8wfdak1a6f1a"]
 
 [ext_resource type="Script" uid="uid://12ax0nnmisp0" path="res://Scripts/video.gd" id="1_e6lyq"]
+[ext_resource type="Texture2D" uid="uid://carxd164g728i" path="res://icon.svg" id="1_or7i0"]
 [ext_resource type="Script" uid="uid://deswpj81rgkkm" path="res://Scripts/audio.gd" id="2_cmli1"]
+[ext_resource type="Script" uid="uid://c0o42dwelrgoy" path="res://Escenas/MainMenuLvlButton.gd" id="2_mde8h"]
 [ext_resource type="PackedScene" uid="uid://cld2whxb42kuv" path="res://Escenas/action_button.tscn" id="3_dkwi6"]
 
 [node name="TestScene" type="Node2D"]
@@ -16,10 +18,62 @@ grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
 
+[node name="Niveles" type="TabBar" parent="UI/Settings"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="UI/Settings/Niveles"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 3
+
+[node name="Nivel1" type="Button" parent="UI/Settings/Niveles/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_or7i0")
+script = ExtResource("2_mde8h")
+
+[node name="Nivel2" type="Button" parent="UI/Settings/Niveles/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_or7i0")
+script = ExtResource("2_mde8h")
+
+[node name="Nivel3" type="Button" parent="UI/Settings/Niveles/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_or7i0")
+script = ExtResource("2_mde8h")
+
+[node name="Nivel4" type="Button" parent="UI/Settings/Niveles/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_or7i0")
+script = ExtResource("2_mde8h")
+
+[node name="Nivel5" type="Button" parent="UI/Settings/Niveles/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_or7i0")
+script = ExtResource("2_mde8h")
+
+[node name="Nivel6" type="Button" parent="UI/Settings/Niveles/GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_or7i0")
+script = ExtResource("2_mde8h")
+
 [node name="Video" type="TabBar" parent="UI/Settings"]
+visible = false
 layout_mode = 2
 script = ExtResource("1_e6lyq")
-metadata/_tab_index = 0
+metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Video"]
 layout_mode = 1
@@ -78,7 +132,7 @@ popup/item_3/id = 3
 visible = false
 layout_mode = 2
 script = ExtResource("2_cmli1")
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio"]
 layout_mode = 1
@@ -134,7 +188,7 @@ step = 0.05
 [node name="Controls" type="TabBar" parent="UI/Settings"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
 layout_mode = 1
@@ -196,6 +250,12 @@ layout_mode = 2
 size_flags_vertical = 7
 action = "ui_right"
 
+[connection signal="pressed" from="UI/Settings/Niveles/GridContainer/Nivel1" to="UI/Settings/Niveles/GridContainer/Nivel1" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Niveles/GridContainer/Nivel2" to="UI/Settings/Niveles/GridContainer/Nivel2" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Niveles/GridContainer/Nivel3" to="UI/Settings/Niveles/GridContainer/Nivel3" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Niveles/GridContainer/Nivel4" to="UI/Settings/Niveles/GridContainer/Nivel4" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Niveles/GridContainer/Nivel5" to="UI/Settings/Niveles/GridContainer/Nivel5" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Niveles/GridContainer/Nivel6" to="UI/Settings/Niveles/GridContainer/Nivel6" method="_on_pressed"]
 [connection signal="toggled" from="UI/Settings/Video/HBoxContainer/VBoxContainer2/FullScreen" to="UI/Settings/Video" method="_on_full_screen_toggled"]
 [connection signal="toggled" from="UI/Settings/Video/HBoxContainer/VBoxContainer2/Bordeless" to="UI/Settings/Video" method="_on_bordeless_toggled"]
 [connection signal="item_selected" from="UI/Settings/Video/HBoxContainer/VBoxContainer2/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
