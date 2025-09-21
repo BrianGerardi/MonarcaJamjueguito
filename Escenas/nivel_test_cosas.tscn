@@ -206,6 +206,9 @@ transform = Transform3D(1, 0, 0, 0, -0.5, 0.8660253, 0, -0.8660253, -0.5, 0, 8, 
 [node name="CajaPrueba" parent="." instance=ExtResource("3_vsyqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
 
+[node name="CajaPrueba2" parent="." instance=ExtResource("3_vsyqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -8.202538)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7739296, -0.84031105)
 extra_cull_margin = 16384.0

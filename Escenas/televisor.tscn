@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxab6opwqet34"]
+[gd_scene load_steps=7 format=3 uid="uid://dxab6opwqet34"]
 
 [ext_resource type="Script" uid="uid://cp7u0gj28al33" path="res://Scripts/televisor.gd" id="1_1hng1"]
 [ext_resource type="PackedScene" uid="uid://dl4on5emwu5u7" path="res://assets/modelos3d/televisor test/old_tv.glb" id="1_qi25o"]
+[ext_resource type="PackedScene" uid="uid://cwgnvfvxfl8tf" path="res://Visuals/VHSSHader.tscn" id="3_q3w52"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qi25o"]
 size = Vector3(2.9779053, 2.2432861, 2.3737183)
@@ -9,11 +10,17 @@ size = Vector3(2.9779053, 2.2432861, 2.3737183)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1hng1"]
 size = Vector3(1.7180176, 0.8616333, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_h32lq"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Televisor" type="Node3D"]
 script = ExtResource("1_1hng1")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_qi25o")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="g4" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.1054274e-15, 0, 7.1054274e-15, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -37,5 +44,16 @@ text = "Press F
 to put VHS"
 font_size = 42
 
+[node name="PlanoPantalla" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.41, 0, 0, 0, 0.33, 0, 0, 0, 0.37, -0.28473973, 0.15121031, 1.1631701)
+texture = SubResource("ViewportTexture_h32lq")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="VHSShader" parent="SubViewport" instance=ExtResource("3_q3w52")]
+
 [connection signal="body_entered" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_entered"]
 [connection signal="body_exited" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_exited"]
+
+[editable path="Sketchfab_Scene"]
