@@ -1,6 +1,10 @@
 extends CharacterBody3D
 
 var velocidad := 5.0 #velocidad actual
+@export var camara_zoom_normal : float = 70
+@export var camara_zoom_maximo : float = 15
+@export var velocidad_zoom: float = 27
+var zoom_actual : float
 @export var velocidad_corriendo :float= 7.9
 @export var velocidad_caminando :float= 5.0
 @export var velocidad_agachado :float= 3
@@ -24,6 +28,7 @@ var rotacion_relativa_objeto : Quaternion #si, esto es basicamente brujeria bria
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
+	zoom_actual = camara_zoom_normal
 	Global.set_camara_principal(camara) #se usa para transiciones de camara
 	Global.poner_vhs_tv.connect(_on_poner_vhs_tv)
 	Global.streamer_set_input_mode.connect(_cambiar_set_input_mode) #por ahora sin uso pero por las dudas
@@ -68,6 +73,12 @@ func esta_señalando_interactuable(): #para cambiar del cursor a la manito en el
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 1.5 #un toque mas de gravedad pq sino se sentia fiero
+	
+	if Input.is_action_pressed("z"):
+		print("RUEDA MOUSE ARRIBA PRESSED")
+		aumentar_zoom_camara_op2(delta)
+	if Input.is_action_pressed("x"):
+		quitar_zoom_camara(delta)
 	
 	Global.set_posicion_player(global_position)
 	
@@ -184,6 +195,24 @@ func _cambiar_set_input_mode(booleano : bool):
 func _on_poner_vhs_tv():
 	quitar_objeto()
 
+func aumentar_zoom_camara(delta : float):
+	if zoom_actual<= camara_zoom_maximo:
+		return
+	zoom_actual -= delta * velocidad_zoom
+	camara.fov = zoom_actual
+
+func quitar_zoom_camara(delta: float):
+	if zoom_actual>= camara_zoom_normal:
+		return
+	zoom_actual += delta * velocidad_zoom
+	camara.fov = zoom_actual
+
+
+func aumentar_zoom_camara_op2(delta : float):
+	if zoom_actual<= camara_zoom_maximo:
+		return
+	camara.set_fov(lerp(camara.fov, camara_zoom_maximo, delta * 1.2))
+	zoom_actual = camara.fov
 
 #mecanica de sanity - la camara indica sanity - se cura son botellas
 #sanity aplicable en todos los niveles

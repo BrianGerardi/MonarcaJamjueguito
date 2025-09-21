@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bgl7s4p3tfiyp"]
+[gd_scene load_steps=29 format=3 uid="uid://bgl7s4p3tfiyp"]
 
 [ext_resource type="Script" uid="uid://b3yayh5lglaef" path="res://Escenas/nivel_test_cosas.gd" id="1_f2d03"]
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_masba"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bnhqs702rlgt8" path="res://assets/modelos3d/vhs/vhs_tape.glb" id="10_mnpw2"]
 [ext_resource type="PackedScene" uid="uid://drfq4vnofcw5h" path="res://Escenas/camera_transition.tscn" id="11_0efjf"]
 [ext_resource type="PackedScene" uid="uid://fpxo4816bbbx" path="res://Escenas/enemigo_1.tscn" id="12_wsh5n"]
+[ext_resource type="Texture2D" uid="uid://cy1ui04fehew0" path="res://assets/texturas/the_backrooms_wallpaper_texture_0.jpg" id="13_7wwkt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_0efjf"]
 vertices = PackedVector3Array(0.9960308, 0.7460327, -15.753969, 0.9960308, 0.7460327, -14.253969, 3.2460308, 0.7460327, -14.003969, 15.746031, 0.7460327, -15.753969, -3.0039692, 0.7460327, -14.003969, -0.7539692, 0.7460327, -14.253969, -0.7539692, 0.7460327, -15.753969, -15.753969, 0.7460327, -15.753969, 3.2460308, 0.7460327, -8.253969, -2.7539692, 0.7460327, -8.003969, -15.003969, 0.7460327, -1.5039692, -15.003969, 0.7460327, 14.246031, 15.746031, 0.7460327, 14.246031, -15.753969, 0.7460327, -1.7539692, -2.0039692, 2.9960327, -13.253969, -2.0039692, 2.9960327, -9.003969, 2.2460308, 2.9960327, -9.003969, 2.2460308, 2.9960327, -13.253969, -1.7539692, 0.7460327, -13.003969, -1.7539692, 0.7460327, -9.253969, 1.9960308, 0.7460327, -9.253969, 1.9960308, 0.7460327, -13.003969)
@@ -138,6 +139,9 @@ tracks/2/keys = {
 _data = {
 &"poner_vhs": SubResource("Animation_0wfyr")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afd6m"]
+albedo_texture = ExtResource("13_7wwkt")
 
 [node name="NivelTestCosas" type="Node3D"]
 script = ExtResource("1_f2d03")
@@ -294,3 +298,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -1)
 [node name="MarkerEnemigo3" type="Marker3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -12)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.538841, 2.7964935, 14.873413)
+material = SubResource("StandardMaterial3D_afd6m")
