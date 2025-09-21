@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlr5p6yex7gtp"]
+
+[ext_resource type="Texture2D" uid="uid://cy1ui04fehew0" path="res://assets/texturas/the_backrooms_wallpaper_texture_0.jpg" id="1_5cbiw"]
+
+[resource]
+albedo_texture = ExtResource("1_5cbiw")
+normal_enabled = true
+uv1_scale = Vector3(10, 10, 10)

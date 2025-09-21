@@ -1,5 +1,7 @@
 extends Node
 
+
+signal aumentar_sanity(cantidad : float) #TODO
 signal poner_vhs_tv
 var forzar_mouse_visible: bool =false #por si hay algun bug con el mouse cuando ponemos pausa y esas cosas
 signal streamer_set_input_mode(estado_bool : bool)

@@ -183,3 +183,8 @@ func _cambiar_set_input_mode(booleano : bool):
 
 func _on_poner_vhs_tv():
 	quitar_objeto()
+
+
+#mecanica de sanity - la camara indica sanity - se cura son botellas
+#sanity aplicable en todos los niveles
+#
