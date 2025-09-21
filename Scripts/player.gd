@@ -11,6 +11,9 @@ var velocidad := 5.0 #velocidad actual
 @onready var raycast_objetos : RayCast3D= %RayCastMano
 @onready var mano_marker : Marker3D= %MarkerPosicionObjetos
 @export var HUD : Control
+@export var velocidad_head_bob : float = 2.0
+@export var amplitud_head_bob : float = 0.04
+var tiempo_head_bob: float = 0.0
 var mostrar_mouse: bool = false
 var objeto_señalado_actualmente = null
 var posicion_pivot_camara_inicial :Vector3 #lo uso para cuando se agacha pq sino se me bugueaba
@@ -128,6 +131,16 @@ func _physics_process(delta: float) -> void:
 			quitar_objeto()
 
 	move_and_slide()
+	tiempo_head_bob += delta * velocity.length() * float(is_on_floor())
+	camara.transform.origin = headbob(tiempo_head_bob)
+
+
+
+func headbob(tiempo_headbob):
+	var headbob_position = Vector3.ZERO
+	headbob_position.y = sin(tiempo_headbob * velocidad_head_bob) * amplitud_head_bob
+	headbob_position.x = cos(tiempo_headbob * velocidad_head_bob / 2) * amplitud_head_bob
+	return headbob_position
 
 
 func quitar_objeto():
