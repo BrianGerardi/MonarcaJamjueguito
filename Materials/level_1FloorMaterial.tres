@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c5knq4veqlb2o"]
+
+[ext_resource type="Texture2D" uid="uid://bc5l6smert8k" path="res://Textures/BACKROOMS_ALFOMBRA_V1.png" id="1_7xenw"]
+[ext_resource type="Texture2D" uid="uid://dr3qcth4jtfjv" path="res://Textures/MAPA_NORMAL_2.png" id="2_0ol71"]
+
+[resource]
+albedo_texture = ExtResource("1_7xenw")
+normal_enabled = true
+normal_texture = ExtResource("2_0ol71")
+uv1_scale = Vector3(200, 200, 200)
