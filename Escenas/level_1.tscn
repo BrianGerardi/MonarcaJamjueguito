@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb83fxwlgtiv7"]
+[gd_scene load_steps=10 format=3 uid="uid://cb83fxwlgtiv7"]
 
-[ext_resource type="Material" uid="uid://dlr5p6yex7gtp" path="res://assets/texturas/pared_prueba.tres" id="1_4618c"]
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_m8kpc"]
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_m8kpc"]
-albedo_color = Color(0.4745098, 0.44705883, 0.08235294, 1)
+[ext_resource type="Material" uid="uid://c5knq4veqlb2o" path="res://Materials/level_1FloorMaterial.tres" id="1_nthp5"]
+[ext_resource type="Material" uid="uid://cur6afie3tapt" path="res://Materials/level_1WallMAterial.tres" id="3_lh4tq"]
+[ext_resource type="Material" uid="uid://cl2w16oh6w5g" path="res://Materials/level_1CeilingMaterial.tres" id="3_n7kdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8kpc"]
 
@@ -14,6 +13,17 @@ sky_material = SubResource("ProceduralSkyMaterial_m8kpc")
 [sub_resource type="Environment" id="Environment_gjwfl"]
 background_mode = 2
 sky = SubResource("Sky_4618c")
+ambient_light_color = Color(0.09928868, 0.07518343, 0.00043780456, 1)
+ambient_light_sky_contribution = 0.03
+ambient_light_energy = 0.03
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxg33"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1slf1"]
+emission_enabled = true
+emission = Color(4.456143, 4.456143, 3.60095, 1)
+emission_energy_multiplier = 3.35
 
 [node name="Level1" type="Node3D"]
 
@@ -28,1570 +38,2142 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6114502, 0, 2.0903015)
 use_collision = true
 size = Vector3(500, 1, 500)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("1_nthp5")
 
 [node name="ceiling" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2229004, 6.462722, 4.180603)
-visible = false
 use_collision = true
 size = Vector3(500, 1, 500)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_n7kdt")
 
 [node name="walls" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.00843, 4.050104, -3.037675)
 use_collision = true
 size = Vector3(1.6386719, 8.571655, 10.490356)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls2" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.758473, 3.4061403, 3.3589458)
 use_collision = true
 size = Vector3(1.6386719, 8.571655, 29.358948)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls3" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6167755, 4.1115475, -15.593224)
 use_collision = true
 size = Vector3(57.359863, 8.571655, 2.0429993)
-material = ExtResource("1_4618c")
+material = ExtResource("3_lh4tq")
 
 [node name="walls64" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9016113, 4.1115475, -247.12509)
 use_collision = true
 size = Vector3(500.28107, 8.571655, 2.0429993)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls65" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9016113, 4.1115475, 251.3729)
 use_collision = true
 size = Vector3(500.28107, 8.571655, 2.0429993)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls66" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250.82637, 4.1115475, 2.035736)
 use_collision = true
 size = Vector3(2.431549, 8.571655, 500.7173)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls67" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.14153, 4.1115475, 2.035736)
 use_collision = true
 size = Vector3(2.431549, 8.571655, 500.7173)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls4" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1143026, 4.7324667, -3.9143248)
 use_collision = true
 size = Vector3(1.6386719, 8.571655, 20.887756)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls5" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.174511, 4.1115475, -8.425415)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 57.45307)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls6" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1949, 4.172991, -13.813155)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 57.45307)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls7" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.447136, 4.1115437, -22.753193)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 57.45307)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls29" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.447136, 4.1115437, 42.816345)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 24.48186)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls30" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.165245, 4.1115437, 56.636734)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 51.89299)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls187" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.16525, 4.1115437, 56.636734)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 51.89299)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls188" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.16525, 4.1115437, 71.58323)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls204" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.16525, 4.1115437, -14.416771)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls213" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.81401, 4.1115437, -11.949242)
 use_collision = true
 size = Vector3(1, 8.571655, 17.064941)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls214" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.81401, 4.1115437, -33.984737)
 use_collision = true
 size = Vector3(1, 8.571655, 17.064941)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls195" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.16525, 4.1115437, 71.58323)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls234" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.255615, 4.1115437, 96.58323)
 use_collision = true
 size = Vector3(2, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls235" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.255615, 4.1115437, 96.58323)
 use_collision = true
 size = Vector3(2, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls236" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.255615, 4.1115437, 96.58323)
 use_collision = true
 size = Vector3(2, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls196" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.16525, 4.1115437, 71.58323)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls208" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.16525, 4.1115437, 13.910133)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 21.346191)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls218" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.16525, 4.1115437, -13.762962)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 14)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls222" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.165253, 4.1115437, -35.762962)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 14)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls219" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.16525, 4.1115437, -23.762962)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 14)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls209" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.14621, 4.1115437, 13.832899)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 21.581055)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls210" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.165253, 4.1115437, 13.583229)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls197" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.16525, 4.1115437, 71.58323)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls189" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.16525, 4.1115437, 41.58323)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls190" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.16525, 4.1115437, 10.583229)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls206" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.75662, 4.1115437, 8.928864)
 use_collision = true
 size = Vector3(1, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls215" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.76968, 4.1115437, 4.2364807)
 use_collision = true
 size = Vector3(1, 8.571655, 12.615234)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls216" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.46927, 4.1115437, 2.4288635)
 use_collision = true
 size = Vector3(1, 8.571655, 9)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls251" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.46927, 10.397371, 27.928864)
 use_collision = true
 size = Vector3(1, 8, 12)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls252" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.46927, 10.397371, 27.928864)
 use_collision = true
 size = Vector3(1, 8, 12)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls207" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.75662, 4.1115437, -25.071136)
 use_collision = true
 size = Vector3(1, 8.571655, 22)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls31" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4428005, 4.1115437, 73.46046)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 35.797832)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls238" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.442802, 4.1115437, 84.46046)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 35.797832)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls239" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.442802, 4.1115437, 84.46046)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 35.797832)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls8" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.277154, 4.1115475, 17.925747)
 use_collision = true
 size = Vector3(62.655792, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls62" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.391754, 4.1115475, -4.570068)
 use_collision = true
 size = Vector3(103, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls241" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.391754, 4.1115475, -24.570068)
 use_collision = true
 size = Vector3(3, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls242" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.391754, 4.1115475, -19.570068)
 use_collision = true
 size = Vector3(3, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls243" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.391754, 4.1115475, -14.570068)
 use_collision = true
 size = Vector3(3, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls244" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.391754, 4.1115475, -9.570068)
 use_collision = true
 size = Vector3(3, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls245" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.391754, 4.1115475, -29.570068)
 use_collision = true
 size = Vector3(3, 8.571655, 1.920824)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls9" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5324059, 4.1115475, 42.74604)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls10" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.36098, 4.1115475, -8.425415)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 57.45307)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls63" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.5323, 4.1115475, -36.08405)
 use_collision = true
 size = Vector3(154, 8.571655, 2.6303444)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls11" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.882893, 4.1115475, 8.989733)
 use_collision = true
 size = Vector3(45.83072, 8.571655, 2.785984)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls240" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.03247, 4.1115475, -11.403259)
 use_collision = true
 size = Vector3(2, 8.571655, 50)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls68" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.25954, 4.1115475, 8.096741)
 use_collision = true
 size = Vector3(22.439674, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls81" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.17657, 4.1115475, 8.096741)
 use_collision = true
 size = Vector3(11.675404, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls82" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.17657, 4.1115475, 14.228313)
 use_collision = true
 size = Vector3(11.675404, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls74" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.50246, 4.397375, 0.9950905)
 use_collision = true
 size = Vector3(1, 8, 15.224731)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls77" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.50246, 4.397375, -17.432142)
 use_collision = true
 size = Vector3(1, 8, 15.224731)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls78" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 237.61507, 4.397375, -17.432142)
 use_collision = true
 size = Vector3(1, 8, 15.224731)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls86" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 237.61507, 4.397375, -29.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls87" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.61507, 4.397375, -29.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls88" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.61507, 4.397375, -29.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls89" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.61507, 4.397375, -29.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls90" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -29.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls91" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -31.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls92" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -33.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls93" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -35.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls94" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -37.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls95" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -39.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls96" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -41.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls97" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -43.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls98" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -45.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls99" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -47.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls100" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -49.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls101" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.61507, 4.397375, -51.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls102" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 237.61507, 4.397375, -51.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls103" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.61507, 4.397375, -51.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls104" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.61507, 4.397375, -51.552128)
 use_collision = true
 size = Vector3(1, 8, 1.183136)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls79" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.19334, 4.397375, -35.22264)
 use_collision = true
 size = Vector3(1, 8, 50.805725)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls134" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.72552, 4.397375, -51.902832)
 use_collision = true
 size = Vector3(1, 8, 17.445343)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls135" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.00029, 4.397375, -41.51209)
 use_collision = true
 size = Vector3(1, 8, 25.987068)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls170" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.00029, 4.397375, -52.51209)
 use_collision = true
 size = Vector3(1, 8, 25.987068)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls180" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.00029, 4.397375, -44.018555)
 use_collision = true
 size = Vector3(1, 8, 9)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls181" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.00029, 4.397375, -57.018555)
 use_collision = true
 size = Vector3(1, 8, 9)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls182" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.00029, 4.397375, -30.018555)
 use_collision = true
 size = Vector3(1, 8, 9)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls171" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.00029, 4.397375, -58.51209)
 use_collision = true
 size = Vector3(1, 8, 25.987068)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls173" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.00029, 4.397375, -58.721752)
 use_collision = true
 size = Vector3(1, 8, 13.774296)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls126" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.38217, 4.397375, -35.22264)
 use_collision = true
 size = Vector3(1, 8, 50.805725)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls80" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.18709, 4.397375, -17.432142)
 use_collision = true
 size = Vector3(1, 8, 15.224731)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls76" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.50246, 4.397375, 25.227074)
 use_collision = true
 size = Vector3(1, 8, 27.52356)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls83" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.72643, 4.397375, 14.569927)
 use_collision = true
 size = Vector3(1, 8, 27.52356)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls106" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.63553, 4.397375, -6.1859703)
 use_collision = true
 size = Vector3(1, 8, 15.25592)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls137" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.06252, 0.83389854, -10.901779)
 use_collision = true
 size = Vector3(7.2163086, 0.8730469, 27.52356)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls138" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.07224, 0.863595, -11.120155)
 use_collision = true
 size = Vector3(7.2163086, 1, 27)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls139" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.07224, 1.363595, -11.620155)
 use_collision = true
 size = Vector3(7.2163086, 2, 26)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls142" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.3654, 1.863595, -5.9274063)
 use_collision = true
 size = Vector3(14.861084, 3, 14.614502)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls140" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.1014, 1.863595, -12.120155)
 use_collision = true
 size = Vector3(7.2163086, 3, 25)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls105" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.72643, 4.397375, 33.018055)
 use_collision = true
 size = Vector3(1, 8, 27.52356)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls130" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.65074, 4.397373, -1.0337887)
 use_collision = true
 size = Vector3(1, 8, 27.16336)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls144" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.65074, 3.655674, 21.347029)
 use_collision = true
 size = Vector3(1, 6.5166016, 27.16336)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls145" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.2667, 0.93393326, 33.456284)
 use_collision = true
 size = Vector3(1, 1.0731201, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls146" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.62263, 1.2892494, 33.45321)
 use_collision = true
 size = Vector3(1, 1.7837524, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls147" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.95178, 1.6756325, 33.45321)
 use_collision = true
 size = Vector3(1, 2.5565186, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls148" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.86201, 1.8973732, 33.45321)
 use_collision = true
 size = Vector3(1, 3, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls149" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.8198, 2.3822365, 33.45321)
 use_collision = true
 size = Vector3(1, 3.9697266, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls150" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.8198, 2.3822365, 30.66283)
 use_collision = true
 size = Vector3(1, 3.9697266, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls151" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.8198, 2.3822365, 27.502752)
 use_collision = true
 size = Vector3(1, 3.9697266, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls152" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.8198, 2.3822365, 24.720097)
 use_collision = true
 size = Vector3(1, 3.9697266, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls153" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.57129, 2.3822365, 24.720097)
 use_collision = true
 size = Vector3(1, 3.9697266, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls154" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.04979, 1.7796974, 24.720097)
 use_collision = true
 size = Vector3(3.9674072, 2.7646484, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls155" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.666, 2.1427345, 24.720097)
 use_collision = true
 size = Vector3(1.1326904, 3.4907227, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls156" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.69467, 2.5517921, 24.720097)
 use_collision = true
 size = Vector3(1.1326904, 4.308838, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls157" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.48936, 3.0693703, 24.720097)
 use_collision = true
 size = Vector3(1.1326904, 5.343994, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls158" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.17062, 3.0693703, 24.720097)
 use_collision = true
 size = Vector3(5.0184937, 5.343994, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls159" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.35349, 3.4672585, 24.720097)
 use_collision = true
 size = Vector3(3.3315277, 6.1397705, 1.5983353)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls127" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.22993, 4.397375, 56.740444)
 use_collision = true
 size = Vector3(1, 8, 22.92775)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls107" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.62488, 4.397375, 38.881535)
 use_collision = true
 size = Vector3(39.08203, 8, 9.496155)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls246" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.6659, 9.397375, 28.129612)
 operation = 2
 use_collision = true
 size = Vector3(51, 8, 11)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls247" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.62488, 9.397375, 23.129612)
 operation = 2
 use_collision = true
 size = Vector3(39.08203, 8, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls248" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.1659, 9.397375, 23.129612)
 use_collision = true
 size = Vector3(54, 8, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls249" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.1659, 9.397375, 34.129612)
 use_collision = true
 size = Vector3(54, 8, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls250" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.1659, 13.397375, 28.629612)
 use_collision = true
 size = Vector3(54, 2, 12)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls164" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.62488, 4.397375, 7.461523)
 use_collision = true
 size = Vector3(39.08203, 8, 31.15895)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls109" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.29333, 4.397375, 63.29678)
 use_collision = true
 size = Vector3(29.745117, 8, 9.496155)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls108" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.6659, 4.397375, 50.869606)
 use_collision = true
 size = Vector3(1, 8, 17.27005)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls160" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.79034, 4.397375, 50.869606)
 use_collision = true
 size = Vector3(1, 8, 17.27005)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls161" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.74835, 4.397375, 50.869606)
 use_collision = true
 size = Vector3(1, 8, 17.27005)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls163" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.7028, 4.397375, 50.869606)
 use_collision = true
 size = Vector3(1, 8, 17.27005)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls75" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.4777, 4.397375, 0.8793068)
 use_collision = true
 size = Vector3(1, 8, 14.879883)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls121" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.4777, 4.397375, -44.143837)
 use_collision = true
 size = Vector3(1, 8, 6.8363037)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls133" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.4777, 4.397375, -30.629349)
 use_collision = true
 size = Vector3(1, 8, 6.8363037)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls122" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.4777, 4.397375, -56.204926)
 use_collision = true
 size = Vector3(1, 8, 8.965942)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls73" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.66977, 4.1115475, -0.7287445)
 use_collision = true
 size = Vector3(22.439674, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls69" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.78712, 4.1115475, 18.143768)
 use_collision = true
 size = Vector3(19.384499, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls165" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.78712, 4.1115475, 12.850616)
 use_collision = true
 size = Vector3(19.384499, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls166" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.29903, 4.1115475, 21.45771)
 use_collision = true
 size = Vector3(4.3607063, 8.571655, 6.2280273)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls119" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.03192, 4.1115475, -23.528023)
 use_collision = true
 size = Vector3(5.4666634, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls120" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.30421, 4.1115475, -24.527353)
 use_collision = true
 size = Vector3(12.493219, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls141" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.26805, 4.1115475, -13.348164)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls167" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.53603, 4.1115475, -33.37155)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls191" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.536026, 4.1115475, 11.6284485)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls192" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.536026, 4.1115475, 89.62845)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls233" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.88358, 4.1115475, 100.62845)
 use_collision = true
 size = Vector3(15, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls205" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.536026, 4.1115475, -20.371552)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls220" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.18847, 4.1115475, -31.371552)
 use_collision = true
 size = Vector3(17, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls211" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.27498, 4.1881275, 3.320674)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls212" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.536026, 4.1115475, -20.371552)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls221" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.536026, 4.1115475, -29.371552)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls202" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.18848, 4.1115475, 95.62845)
 use_collision = true
 size = Vector3(17, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls203" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.18848, 4.1115475, 103.62845)
 use_collision = true
 size = Vector3(17, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls201" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.18848, 4.1115475, 74.62845)
 use_collision = true
 size = Vector3(11, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls198" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.18848, 4.1115475, 19.628448)
 use_collision = true
 size = Vector3(11, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls199" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.18848, 4.1115475, 19.628448)
 use_collision = true
 size = Vector3(11, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls193" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.536026, 4.1115475, 41.62845)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls223" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.383583, 4.1115475, 41.62845)
 use_collision = true
 size = Vector3(14, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls224" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.383583, 4.1115475, 51.62845)
 use_collision = true
 size = Vector3(14, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls225" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.383583, 4.1115475, 60.62845)
 use_collision = true
 size = Vector3(14, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls226" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.383583, 4.1115475, 77.62845)
 use_collision = true
 size = Vector3(14, 8.571655, 21)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls232" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.383583, 4.1115475, 104.62845)
 use_collision = true
 size = Vector3(14, 8.571655, 21)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls227" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.383583, 4.1115475, 48.62845)
 use_collision = true
 size = Vector3(14, 8.571655, 21)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls228" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.88358, 4.1115475, 48.62845)
 use_collision = true
 size = Vector3(3, 8.571655, 21)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls229" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.88358, 4.1115475, 5.6284485)
 use_collision = true
 size = Vector3(3, 8.571655, 21)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls230" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.88358, 4.1115475, -4.8715515)
 use_collision = true
 size = Vector3(3, 8.571655, 14)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls231" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.88358, 4.1115475, -18.871552)
 use_collision = true
 size = Vector3(3, 8.571655, 14)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls217" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.536026, 4.1115475, 31.049652)
 use_collision = true
 size = Vector3(32.304886, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls194" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.18847, 4.1115475, 68.62845)
 use_collision = true
 size = Vector3(11, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls200" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.18847, 4.1115475, 68.62845)
 use_collision = true
 size = Vector3(11, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls174" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.68848, 4.1115475, -26.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls175" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.68848, 4.1115475, -26.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls183" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.68848, 4.1115475, -20.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls184" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.68848, 4.1115475, -38.37155)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls185" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.68848, 4.1115475, -47.37155)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls186" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.68848, 4.1115475, -29.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls176" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.68848, 4.1115475, -26.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls177" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.68848, 4.1115475, -19.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls178" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.68848, 4.1115475, -19.371552)
 use_collision = true
 size = Vector3(10, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls179" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.68848, 4.1115475, -11.31015)
 use_collision = true
 size = Vector3(10, 8.571655, 6.3898926)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls168" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.38358, 4.1115475, -39.37155)
 use_collision = true
 size = Vector3(14, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls169" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.38358, 4.1115475, -39.37155)
 use_collision = true
 size = Vector3(14, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls172" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.77689, 4.1115475, -47.37155)
 use_collision = true
 size = Vector3(10.786621, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls131" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.05266, 4.1115475, -33.289856)
 use_collision = true
 size = Vector3(10.151761, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls132" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.05266, 4.1115475, -41.088905)
 use_collision = true
 size = Vector3(10.151761, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls136" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.34326, 4.1115475, -53.480312)
 use_collision = true
 size = Vector3(10.151761, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls72" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.59488, 4.1115475, 37.14377)
 use_collision = true
 size = Vector3(25, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls110" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.59488, 4.1115475, 50.345036)
 use_collision = true
 size = Vector3(25, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls128" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.60677, 4.1115475, 45.764038)
 use_collision = true
 size = Vector3(4.581787, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls162" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.24118, 4.1115475, 58.86662)
 use_collision = true
 size = Vector3(4.581787, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls129" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.36949, 2.2243857, 64.6107)
 operation = 2
 use_collision = true
 size = Vector3(4.582, 3.45, 3.911)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls111" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242.04904, 4.1115475, 43.686935)
 use_collision = true
 size = Vector3(8.091675, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls112" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.87804, 4.1115475, 43.686935)
 use_collision = true
 size = Vector3(8.091675, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls113" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.87804, 4.1115475, 61.90236)
 use_collision = true
 size = Vector3(8.091675, 8.571655, 13.223633)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls143" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.29274, 3.0104656, 65.743904)
 use_collision = true
 size = Vector3(4.7787476, 8.571655, 13.223633)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls114" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.19975, 0.4528408, 61.90236)
 use_collision = true
 size = Vector3(8.091675, 1.254242, 13.223633)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls115" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.19975, 0.6286583, 62.136)
 use_collision = true
 size = Vector3(8.091675, 1.6058769, 12.756348)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls116" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.19975, 0.8449259, 62.326065)
 use_collision = true
 size = Vector3(8.091675, 2.038412, 12.376221)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls117" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.19975, 1.0096393, 62.576126)
 use_collision = true
 size = Vector3(8.091675, 2.3678389, 11.876099)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls118" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.19975, 1.2017982, 62.81053)
 use_collision = true
 size = Vector3(8.091675, 2.7521567, 11.407288)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls70" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.59488, 4.1115475, 31.143766)
 use_collision = true
 size = Vector3(29, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls84" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.3223, 4.1115475, 68.71265)
 use_collision = true
 size = Vector3(100, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls124" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.73852, 4.1115475, 112.15216)
 use_collision = true
 size = Vector3(123.2959, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls125" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.86431, 4.1115475, -35.839226)
 use_collision = true
 size = Vector3(125.547485, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls123" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.88202, 4.1115475, 92.76587)
 use_collision = true
 size = Vector3(3.0351563, 8.571655, 49.106445)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls85" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.86554, 4.1115475, -60.601467)
 use_collision = true
 size = Vector3(96.91351, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls71" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.78712, 4.1115475, 24.19495)
 use_collision = true
 size = Vector3(19.384499, 8.571655, 1)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls12" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.645096, 3.8412266, 42.402534)
 use_collision = true
 size = Vector3(8.077057, 8.571655, 94)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls237" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.645096, 3.8412266, 51.71221)
 use_collision = true
 size = Vector3(8.077057, 8.571655, 18)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls13" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(0.13002439, 0, -0.9915108, 0, 1, 0, 0.9915108, 0, 0.13002439, -22.726564, 4.1115475, 30.79649)
 use_collision = true
 size = Vector3(2.1827393, 8.571655, 65)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls14" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.994843, 4.172991, 87.567474)
 use_collision = true
 size = Vector3(68, 8.571655, 2.8676572)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls19" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.154321, 4.172991, 109.992134)
 use_collision = true
 size = Vector3(35.85295, 8.571655, 7.8264675)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls16" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.969571, 4.0723133, 92.12316)
 use_collision = true
 size = Vector3(13.549118, 8.3703, 11.95274)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls17" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9436178, 4.172991, 79.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls32" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67989, 0.02700138, -7.6180897)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls33" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67989, 0.02700138, -12.61809)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls34" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67989, 0.02700138, -17.61809)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls35" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67989, 0.02700138, -22.61809)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls36" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67989, 0.02700138, -27.61809)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls37" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67989, 0.02700138, -32.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls38" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.67989, 0.02700138, -32.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls39" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.67989, 0.02700138, -27.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls40" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.67989, 0.02700138, -22.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls41" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.67989, 0.02700138, -17.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls42" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.67989, 0.02700138, -12.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls43" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.67989, 0.02700138, -7.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls44" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.67989, 0.02700138, -7.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls45" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.67989, 0.02700138, -12.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls46" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.67989, 0.02700138, -17.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls47" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.67989, 0.02700138, -22.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls48" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.67989, 0.02700138, -27.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls49" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.67989, 0.02700138, -32.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls50" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.67989, 0.02700138, -32.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls56" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67989, 0.02700138, -32.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls57" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67989, 0.02700138, -27.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls58" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67989, 0.02700138, -22.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls59" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67989, 0.02700138, -17.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls60" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67989, 0.02700138, -12.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls61" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67989, 0.02700138, -7.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls51" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.67989, 0.02700138, -27.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls52" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.67989, 0.02700138, -22.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls53" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.67989, 0.02700138, -17.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls54" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.67989, 0.02700138, -12.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls55" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.67989, 0.02700138, -7.618088)
 operation = 2
 use_collision = true
 size = Vector3(4.4735565, 8.882996, 4.233868)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls20" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.943618, 4.172991, 79.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls21" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.943619, 4.172991, 79.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls22" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.943619, 4.172991, 79.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls23" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.943619, 4.172991, 71.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls24" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.296423, 4.172991, 71.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls25" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.296423, 4.172991, 71.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls26" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.296423, 4.172991, 63.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls27" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.296423, 4.172991, 63.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls28" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.296423, 4.172991, 63.68592)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls18" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9436178, 4.172991, 71.114655)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="walls15" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4034138, 4.157324, 58.99827)
 use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
-material = SubResource("ORMMaterial3D_m8kpc")
+material = ExtResource("3_lh4tq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
 environment = SubResource("Environment_gjwfl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 0.96814764, 0.25038, 0, -0.25038, 0.96814764, 0, 0, 0)
+visible = false
 
 [node name="Lights" type="Node3D" parent="Map"]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0742111, 0)
+[node name="CeilingLight" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -52.24315)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight5" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190.34772, 6.6304784, -52.24315)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight5"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight6" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09018, 6.6304784, -52.24315)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight6"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight7" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09018, 6.6304784, -49.429295)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight7"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight8" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09018, 6.6304784, -42.37376)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight8"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight2" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -42.24805)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight2"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight3" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -35.10113)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight3"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight12" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 194.61386, 6.6304784, -35.10113)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight12"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight13" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.56956, 6.6304784, -35.10113)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight13"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight14" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.56956, 6.6304784, -27.06423)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight14"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight15" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.56956, 6.6304784, -20.877821)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight15"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight16" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.83098, 6.6304784, -20.877821)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight16"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight17" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.83098, 6.6304784, -56.5475)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight17"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight18" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -56.5475)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight18"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight19" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -36.5475)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight19"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight20" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -29.797)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight20"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight21" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -21.726238)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight21"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight22" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.62238, 6.6304784, -21.726238)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight22"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight23" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.62238, 6.6304784, -32.112854)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight23"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight24" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.62238, 6.6304784, -42.73378)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight24"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight25" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.51901, 6.6304784, -37.79081)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight25"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight4" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -27.987679)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight4"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight9" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -22.238718)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight9"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight11" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.01077, 6.6304784, -22.238718)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight11"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
+
+[node name="CeilingLight10" type="Node3D" parent="Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -17.954456)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight10"]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_nxg33")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_m8kpc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.5858, 1.4270906, 28.238533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.3277, 1.4270906, -54.997536)

@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl2h81d3h3qw7"
-path.s3tc="res://.godot/imported/escape_the_backrooms_hazmat_1.png-c5affc83bb36f18ed30b403afe963199.s3tc.ctex"
+uid="uid://dwb3xkgpceuh6"
+path="res://.godot/imported/BACKROOMS_W_ZOCALO_V3.png-893d2b5a2be086d70f6b22203bb836f6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "7041fab88b9dbf721d914f958d4f94ba"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/modelos3d/escape_the_backrooms_hazmat_1.png"
-dest_files=["res://.godot/imported/escape_the_backrooms_hazmat_1.png-c5affc83bb36f18ed30b403afe963199.s3tc.ctex"]
+source_file="res://Textures/BACKROOMS_W_ZOCALO_V3.png"
+dest_files=["res://.godot/imported/BACKROOMS_W_ZOCALO_V3.png-893d2b5a2be086d70f6b22203bb836f6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

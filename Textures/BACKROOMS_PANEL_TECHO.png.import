@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl2h81d3h3qw7"
-path.s3tc="res://.godot/imported/escape_the_backrooms_hazmat_1.png-c5affc83bb36f18ed30b403afe963199.s3tc.ctex"
+uid="uid://dxmhbsjsfhyih"
+path.s3tc="res://.godot/imported/BACKROOMS_PANEL_TECHO.png-3131fe00e53fef50ebb116e973ad1c44.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "7041fab88b9dbf721d914f958d4f94ba"
-}
 
 [deps]
 
-source_file="res://Assets/modelos3d/escape_the_backrooms_hazmat_1.png"
-dest_files=["res://.godot/imported/escape_the_backrooms_hazmat_1.png-c5affc83bb36f18ed30b403afe963199.s3tc.ctex"]
+source_file="res://Textures/BACKROOMS_PANEL_TECHO.png"
+dest_files=["res://.godot/imported/BACKROOMS_PANEL_TECHO.png-3131fe00e53fef50ebb116e973ad1c44.s3tc.ctex"]
 
 [params]
 
