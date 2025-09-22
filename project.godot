@@ -22,6 +22,7 @@ Global="*res://Scripts/global.gd"
 
 presionar_f="todos los objetos que tengan funcion de press f para hacer algo, van en este grupo"
 interactuable="todos los rigidbody3d que se puedan agarrar van aca"
+player=""
 
 [input]
 

@@ -5,6 +5,8 @@ var velocidad := 5.0 #velocidad actual
 @export var camara_zoom_maximo : float = 15
 @export var velocidad_zoom: float = 27
 var zoom_actual : float
+var haciendo_zoom : bool = false
+@onready var audio_zoom: AudioStreamPlayer = %AudioZoom
 @export var velocidad_corriendo :float= 7.9
 @export var velocidad_caminando :float= 5.0
 @export var velocidad_agachado :float= 3
@@ -25,6 +27,7 @@ var posicion_pivot_camara_agachado : Vector3 = Vector3(0, 1.332, -0.137) #same c
 var objeto_interactuado : RigidBody3D = null #NOTAAAAAAA ------ Solo podemos agarrar RIGIDBODYS
 var esta_agachado : bool = false
 var rotacion_relativa_objeto : Quaternion #si, esto es basicamente brujeria brian
+var player_escondido: bool = false
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
@@ -77,10 +80,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("z"):
 		print("RUEDA MOUSE ARRIBA PRESSED")
 		aumentar_zoom_camara_op2(delta)
+	if Input.is_action_just_released("z"):
+		haciendo_zoom = false
+		audio_zoom.stop()
 	if Input.is_action_pressed("x"):
 		quitar_zoom_camara(delta)
+	if Input.is_action_just_released("x"):
+		haciendo_zoom = false
+		audio_zoom.stop()
 	
-	Global.set_posicion_player(global_position)
+	if !player_escondido:
+		Global.set_posicion_player(global_position)
 	
 	if objeto_señalado_actualmente!= null and objeto_señalado_actualmente.is_in_group("presionar_f"):
 		if objeto_señalado_actualmente.has_method("interactuar"):
@@ -200,12 +210,16 @@ func aumentar_zoom_camara(delta : float):
 		return
 	zoom_actual -= delta * velocidad_zoom
 	camara.fov = zoom_actual
+	audio_zoom.play()
 
 func quitar_zoom_camara(delta: float):
 	if zoom_actual>= camara_zoom_normal:
 		return
 	zoom_actual += delta * velocidad_zoom
 	camara.fov = zoom_actual
+	if haciendo_zoom == false:
+		audio_zoom.play()
+	haciendo_zoom = true
 
 
 func aumentar_zoom_camara_op2(delta : float):
@@ -213,6 +227,9 @@ func aumentar_zoom_camara_op2(delta : float):
 		return
 	camara.set_fov(lerp(camara.fov, camara_zoom_maximo, delta * 1.2))
 	zoom_actual = camara.fov
+	if haciendo_zoom == false:
+		audio_zoom.play()
+	haciendo_zoom = true
 
 #mecanica de sanity - la camara indica sanity - se cura son botellas
 #sanity aplicable en todos los niveles

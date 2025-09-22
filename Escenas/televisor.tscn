@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp7u0gj28al33" path="res://Scripts/televisor.gd" id="1_1hng1"]
 [ext_resource type="PackedScene" uid="uid://dl4on5emwu5u7" path="res://assets/modelos3d/televisor test/old_tv.glb" id="1_qi25o"]
-[ext_resource type="PackedScene" uid="uid://cwgnvfvxfl8tf" path="res://Visuals/VHSSHader.tscn" id="3_q3w52"]
+[ext_resource type="PackedScene" uid="uid://b8wfdak1a6f1a" path="res://Escenas/test_scene.tscn" id="3_q3w52"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qi25o"]
 size = Vector3(2.9779053, 2.2432861, 2.3737183)
@@ -51,7 +51,7 @@ texture = SubResource("ViewportTexture_h32lq")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
-[node name="VHSShader" parent="SubViewport" instance=ExtResource("3_q3w52")]
+[node name="TestScene" parent="SubViewport" instance=ExtResource("3_q3w52")]
 
 [connection signal="body_entered" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_entered"]
 [connection signal="body_exited" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_exited"]

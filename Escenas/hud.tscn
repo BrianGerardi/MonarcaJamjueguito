@@ -48,3 +48,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5x6hg")
 stretch_mode = 3
+
+[node name="HboxInventario" type="HBoxContainer" parent="LayerCursores"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 65.0
+grow_horizontal = 0
+
+[node name="Obj1" type="TextureRect" parent="LayerCursores/HboxInventario"]
+layout_mode = 2
+texture = ExtResource("2_5x6hg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Obj2" type="TextureRect" parent="LayerCursores/HboxInventario"]
+layout_mode = 2
+texture = ExtResource("2_5x6hg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Obj3" type="TextureRect" parent="LayerCursores/HboxInventario"]
+layout_mode = 2
+texture = ExtResource("2_5x6hg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Obj4" type="TextureRect" parent="LayerCursores/HboxInventario"]
+layout_mode = 2
+texture = ExtResource("2_5x6hg")
+expand_mode = 3
+stretch_mode = 5

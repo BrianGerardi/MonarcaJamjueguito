@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv53lkd0nlsqn"]
+[gd_scene load_steps=6 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
 [ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
 [ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
+[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkc8"]
 height = 2.5
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_cnkc8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -40,3 +41,7 @@ stream = ExtResource("2_i8vih")
 
 [node name="Skin" parent="." instance=ExtResource("3_qgqwx")]
 transform = Transform3D(-1.3, 0, -1.9629454e-07, 0, 1.3, 0, 1.9629454e-07, 0, -1.3, 0, 0, 0.11075902)
+
+[node name="AudioZoom" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_6njrx")
