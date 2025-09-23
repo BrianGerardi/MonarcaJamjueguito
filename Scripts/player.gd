@@ -17,8 +17,8 @@ var haciendo_zoom : bool = false
 @onready var raycast_objetos : RayCast3D= %RayCastMano
 @onready var mano_marker : Marker3D= %MarkerPosicionObjetos
 @export var HUD : Control
-@export var velocidad_head_bob : float = 2.0
-@export var amplitud_head_bob : float = 0.04
+@export var velocidad_head_bob : float = 3.0
+@export var amplitud_head_bob : float = 0.09
 var tiempo_head_bob: float = 0.0
 var mostrar_mouse: bool = false
 var objeto_señalado_actualmente = null
@@ -233,4 +233,6 @@ func aumentar_zoom_camara_op2(delta : float):
 
 #mecanica de sanity - la camara indica sanity - se cura son botellas
 #sanity aplicable en todos los niveles
-#
+
+func set_player_escondido(estado : bool): #agregas area3d 
+	player_escondido = estado

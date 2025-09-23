@@ -172,6 +172,8 @@ shader_parameter/vignette_opacity = 0.5
 [node name="NivelTestCosas" type="Node3D"]
 script = ExtResource("1_f2d03")
 
+[node name="HUD" parent="." instance=ExtResource("2_v8hp2")]
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_0efjf")
 
@@ -247,8 +249,6 @@ environment = SubResource("Environment_v8hp2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.8660253, 0, -0.8660253, -0.5, 0, 8, -12)
-
-[node name="HUD" parent="." instance=ExtResource("2_v8hp2")]
 
 [node name="CajaPrueba" parent="." instance=ExtResource("3_vsyqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
@@ -331,6 +331,24 @@ material = SubResource("StandardMaterial3D_afd6m")
 
 [node name="AguaDeAlmendras" parent="." instance=ExtResource("14_afd6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.666383, 1.3962567, 8.866348)
+
+[node name="AguaDeAlmendras2" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8094697, 1.3962567, 11.614949)
+
+[node name="AguaDeAlmendras3" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 10.823841)
+
+[node name="AguaDeAlmendras4" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 7.382492)
+
+[node name="AguaDeAlmendras5" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 4.2070074)
+
+[node name="AguaDeAlmendras6" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 2.1667695)
+
+[node name="AguaDeAlmendras7" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 0.52099633)
 
 [node name="VHSShader" type="CanvasLayer" parent="."]
 script = ExtResource("15_5aopq")

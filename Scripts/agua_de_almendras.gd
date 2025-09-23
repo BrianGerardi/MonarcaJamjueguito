@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@export var cant_aumento_sanity : int = 1
+@export var cant_aumento_sanity : int = 15
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_agua_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		Global.aumentar_sanity.emit(cant_aumento_sanity)
+		Global.modificar_sanity.emit(cant_aumento_sanity)
 		queue_free()

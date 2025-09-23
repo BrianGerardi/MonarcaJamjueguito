@@ -55,3 +55,10 @@ func _on_timer_patrulla_timeout() -> void:
 func seguir_al_jugador(): #esto despues seria un estado
 	var posicion_jugador = Global.get_posicion_player()
 	set_movement_target(posicion_jugador)
+
+
+#llega a la pos del jugador. navigation termino
+#pasarlo a patrullaje
+
+
+#TODO TERMINAR IA
