@@ -9,6 +9,7 @@
 height = 2.5
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 9
 script = ExtResource("1_cnkc8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
