@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceow2xxsswr2s"]
 
-[ext_resource type="Script" uid="uid://mkgt711b0ioi" path="res://Escenas/vhs.gd" id="1_16nc4"]
+[ext_resource type="Script" uid="uid://mkgt711b0ioi" path="res://Scripts/vhs.gd" id="1_16nc4"]
 [ext_resource type="PackedScene" uid="uid://bnhqs702rlgt8" path="res://assets/modelos3d/vhs/vhs_tape.glb" id="1_rbgmk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbgmk"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://bgl7s4p3tfiyp"]
+[gd_scene load_steps=31 format=3 uid="uid://bgl7s4p3tfiyp"]
 
-[ext_resource type="Script" uid="uid://b3yayh5lglaef" path="res://Escenas/nivel_test_cosas.gd" id="1_f2d03"]
+[ext_resource type="Script" uid="uid://b3yayh5lglaef" path="res://Scripts/nivel_test_cosas.gd" id="1_f2d03"]
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_masba"]
 [ext_resource type="PackedScene" uid="uid://c1maqyy1m4dy2" path="res://Escenas/hud.tscn" id="2_v8hp2"]
 [ext_resource type="PackedScene" uid="uid://cypdw7mmux5m0" path="res://Escenas/caja_prueba.tscn" id="3_vsyqw"]
@@ -11,18 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://ceow2xxsswr2s" path="res://Escenas/vhs.tscn" id="8_0wfyr"]
 [ext_resource type="PackedScene" uid="uid://bnhqs702rlgt8" path="res://assets/modelos3d/vhs/vhs_tape.glb" id="10_mnpw2"]
 [ext_resource type="PackedScene" uid="uid://drfq4vnofcw5h" path="res://Escenas/camera_transition.tscn" id="11_0efjf"]
-[ext_resource type="PackedScene" uid="uid://fpxo4816bbbx" path="res://Escenas/enemigo_1.tscn" id="12_wsh5n"]
 [ext_resource type="Texture2D" uid="uid://cy1ui04fehew0" path="res://assets/texturas/the_backrooms_wallpaper_texture_0.jpg" id="13_7wwkt"]
+[ext_resource type="PackedScene" uid="uid://bd4eh0qc3ua5d" path="res://Escenas/agua_de_almendras.tscn" id="14_afd6m"]
+[ext_resource type="Script" uid="uid://cshnijsge3tl6" path="res://Scripts/vhss_hader.gd" id="15_5aopq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_0efjf"]
 vertices = PackedVector3Array(0.9960308, 0.7460327, -15.753969, 0.9960308, 0.7460327, -14.253969, 3.2460308, 0.7460327, -14.003969, 15.746031, 0.7460327, -15.753969, -3.0039692, 0.7460327, -14.003969, -0.7539692, 0.7460327, -14.253969, -0.7539692, 0.7460327, -15.753969, -15.753969, 0.7460327, -15.753969, 3.2460308, 0.7460327, -8.253969, -2.7539692, 0.7460327, -8.003969, -15.003969, 0.7460327, -1.5039692, -15.003969, 0.7460327, 14.246031, 15.746031, 0.7460327, 14.246031, -15.753969, 0.7460327, -1.7539692, -2.0039692, 2.9960327, -13.253969, -2.0039692, 2.9960327, -9.003969, 2.2460308, 2.9960327, -9.003969, 2.2460308, 2.9960327, -13.253969, -1.7539692, 0.7460327, -13.003969, -1.7539692, 0.7460327, -9.253969, 1.9960308, 0.7460327, -9.253969, 1.9960308, 0.7460327, -13.003969)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(2, 3, 8), PackedInt32Array(8, 3, 12), PackedInt32Array(13, 7, 10), PackedInt32Array(10, 7, 9), PackedInt32Array(9, 7, 4), PackedInt32Array(6, 0, 5), PackedInt32Array(5, 0, 1), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(21, 20, 18), PackedInt32Array(18, 20, 19)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4vds"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5aopq"]
 albedo_color = Color(0.4636051, 0.24076608, 0.014501506, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_masba"]
-material = SubResource("StandardMaterial3D_g4vds")
+material = SubResource("StandardMaterial3D_5aopq")
 size = Vector2(32, 32)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g4vds"]
@@ -143,8 +144,34 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afd6m"]
 albedo_texture = ExtResource("13_7wwkt")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72520"]
+shader = ExtResource("4_fc6a6")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.150000007125
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.170000008075
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [node name="NivelTestCosas" type="Node3D"]
 script = ExtResource("1_f2d03")
+
+[node name="HUD" parent="." instance=ExtResource("2_v8hp2")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_0efjf")
@@ -222,8 +249,6 @@ environment = SubResource("Environment_v8hp2")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.8660253, 0, -0.8660253, -0.5, 0, 8, -12)
 
-[node name="HUD" parent="." instance=ExtResource("2_v8hp2")]
-
 [node name="CajaPrueba" parent="." instance=ExtResource("3_vsyqw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
 
@@ -284,9 +309,6 @@ far = 200.0
 [node name="CameraTransition" parent="." instance=ExtResource("11_0efjf")]
 unique_name_in_owner = true
 
-[node name="Enemigo1" parent="." instance=ExtResource("12_wsh5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0413694, 0, -12.037239)
-
 [node name="MarkerEnemigo1" type="Marker3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -13)
@@ -302,3 +324,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -12)
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.538841, 2.7964935, 14.873413)
 material = SubResource("StandardMaterial3D_afd6m")
+
+[node name="AguaDeAlmendras" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.666383, 1.3962567, 8.866348)
+
+[node name="AguaDeAlmendras2" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8094697, 1.3962567, 11.614949)
+
+[node name="AguaDeAlmendras3" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 10.823841)
+
+[node name="AguaDeAlmendras4" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 7.382492)
+
+[node name="AguaDeAlmendras5" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 4.2070074)
+
+[node name="AguaDeAlmendras6" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 2.1667695)
+
+[node name="AguaDeAlmendras7" parent="." instance=ExtResource("14_afd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.16373, 1.3962567, 0.52099633)
+
+[node name="VHSShader" type="CanvasLayer" parent="."]
+script = ExtResource("15_5aopq")
+
+[node name="ColorRect" type="ColorRect" parent="VHSShader"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_72520")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
