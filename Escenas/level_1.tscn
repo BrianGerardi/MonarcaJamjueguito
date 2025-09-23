@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb83fxwlgtiv7"]
+[gd_scene load_steps=9 format=3 uid="uid://cb83fxwlgtiv7"]
 
-[ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_m8kpc"]
 [ext_resource type="Material" uid="uid://c5knq4veqlb2o" path="res://Materials/level_1FloorMaterial.tres" id="1_nthp5"]
 [ext_resource type="Material" uid="uid://cur6afie3tapt" path="res://Materials/level_1WallMAterial.tres" id="3_lh4tq"]
 [ext_resource type="Material" uid="uid://cl2w16oh6w5g" path="res://Materials/level_1CeilingMaterial.tres" id="3_n7kdt"]
@@ -2174,6 +2173,3 @@ distance_fade_begin = 51.2
 distance_fade_length = 40.85
 omni_range = 15.157
 omni_attenuation = 2.0
-
-[node name="Player" parent="." instance=ExtResource("1_m8kpc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.3277, 1.4270906, -54.997536)

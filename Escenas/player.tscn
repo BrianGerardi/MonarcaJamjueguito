@@ -1,7 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
-
 [ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
 [ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
 [ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
@@ -35,6 +34,10 @@ collision_mask = 3
 light_energy = 4.0
 light_volumetric_fog_energy = 0.1
 spot_range = 100.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="PivotCamara/CameraPrincipal"]
+light_energy = 8.85
+spot_range = 15.36
 
 [node name="Mano" type="Node3D" parent="PivotCamara"]
 

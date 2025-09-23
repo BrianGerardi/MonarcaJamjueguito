@@ -85,6 +85,7 @@ func _physics_process(delta: float) -> void:
 		audio_zoom.stop()
 	if Input.is_action_pressed("x"):
 		quitar_zoom_camara(delta)
+		Global.modificar_sanity.emit(10) #probando
 	if Input.is_action_just_released("x"):
 		haciendo_zoom = false
 		audio_zoom.stop()
