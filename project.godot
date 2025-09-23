@@ -18,6 +18,14 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/global.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 presionar_f="todos los objetos que tengan funcion de press f para hacer algo, van en este grupo"
