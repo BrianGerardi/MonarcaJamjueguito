@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://beokty6tl1c3l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x42am"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxuqf"]
+emission_enabled = true
+emission = Color(4.456143, 4.456143, 3.60095, 1)
+emission_energy_multiplier = 3.35
+
+[node name="CeilingLight" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
+mesh = SubResource("BoxMesh_x42am")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jxuqf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
+light_energy = 1.53
+light_indirect_energy = 2.983
+light_volumetric_fog_energy = 7.134
+light_size = 1.0
+light_specular = 2.367
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 51.2
+distance_fade_length = 40.85
+omni_range = 15.157
+omni_attenuation = 2.0
