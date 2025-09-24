@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb83fxwlgtiv7"]
+[gd_scene load_steps=11 format=3 uid="uid://cb83fxwlgtiv7"]
 
 [ext_resource type="Material" uid="uid://c5knq4veqlb2o" path="res://Materials/level_1FloorMaterial.tres" id="1_nthp5"]
 [ext_resource type="Material" uid="uid://cur6afie3tapt" path="res://Materials/level_1WallMAterial.tres" id="3_lh4tq"]
 [ext_resource type="Material" uid="uid://cl2w16oh6w5g" path="res://Materials/level_1CeilingMaterial.tres" id="3_n7kdt"]
+[ext_resource type="PackedScene" uid="uid://c22t1ybhp44gw" path="res://Escenas/area_segura.tscn" id="4_n7kdt"]
+[ext_resource type="PackedScene" uid="uid://beokty6tl1c3l" path="res://Escenas/ceiling_light.tscn" id="4_nthp5"]
+[ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="5_lh4tq"]
+[ext_resource type="PackedScene" uid="uid://cwgnvfvxfl8tf" path="res://Visuals/VHSSHader.tscn" id="6_hoeqm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8kpc"]
 
@@ -16,13 +20,6 @@ ambient_light_color = Color(0.09928868, 0.07518343, 0.00043780456, 1)
 ambient_light_sky_contribution = 0.03
 ambient_light_energy = 0.03
 glow_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_nxg33"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1slf1"]
-emission_enabled = true
-emission = Color(4.456143, 4.456143, 3.60095, 1)
-emission_energy_multiplier = 3.35
 
 [node name="Level1" type="Node3D"]
 
@@ -803,6 +800,12 @@ use_collision = true
 size = Vector3(1, 8, 17.27005)
 material = ExtResource("3_lh4tq")
 
+[node name="walls253" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.79034, 4.397375, 50.869606)
+use_collision = true
+size = Vector3(1, 8, 17.27005)
+material = ExtResource("3_lh4tq")
+
 [node name="walls161" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.74835, 4.397375, 50.869606)
 use_collision = true
@@ -1020,9 +1023,44 @@ size = Vector3(3, 8.571655, 21)
 material = ExtResource("3_lh4tq")
 
 [node name="walls230" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.88358, 4.1115475, -4.8715515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.176796, 4.1115475, -4.8715515)
 use_collision = true
-size = Vector3(3, 8.571655, 14)
+size = Vector3(10.413574, 8.571655, 14)
+material = ExtResource("3_lh4tq")
+
+[node name="walls254" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.35375, 1.5364137, -4.4099894)
+operation = 2
+use_collision = true
+size = Vector3(2.7776184, 1.9326706, 19.086426)
+material = ExtResource("3_lh4tq")
+
+[node name="walls255" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.180393, 1.5364137, 40.087044)
+operation = 2
+use_collision = true
+size = Vector3(2.7776184, 1.9326706, 6.8372498)
+material = ExtResource("3_lh4tq")
+
+[node name="walls256" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.180393, 1.5364137, 40.087044)
+operation = 2
+use_collision = true
+size = Vector3(2.7776184, 1.9326706, 6.8372498)
+material = ExtResource("3_lh4tq")
+
+[node name="walls257" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.180393, 1.5364137, 68.120514)
+operation = 2
+use_collision = true
+size = Vector3(2.7776184, 1.9326706, 6.8372498)
+material = ExtResource("3_lh4tq")
+
+[node name="walls258" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.031845, 1.5364137, 99.508156)
+operation = 2
+use_collision = true
+size = Vector3(2.7776184, 1.9326706, 6.8372498)
 material = ExtResource("3_lh4tq")
 
 [node name="walls231" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
@@ -1590,6 +1628,27 @@ use_collision = true
 size = Vector3(5.657074, 8.571655, 5.7394648)
 material = ExtResource("3_lh4tq")
 
+[node name="AreaSegura" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.186874, 0.47488356, -3.3859916)
+
+[node name="AreaSegura2" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.186874, 0.47488356, -6.436526)
+
+[node name="AreaSegura3" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.009834, 0.47488356, 43.47667)
+
+[node name="AreaSegura4" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.009834, 0.47488356, 72.44139)
+
+[node name="AreaSegura5" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.360416, 0.47488356, 100.31321)
+
+[node name="AreaSegura6" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(3.5120716, 0, 0, 0, 1, 0, 0, 0, 8.479747, -4.648901, 0.47488356, 39.55499)
+
+[node name="AreaSegura7" parent="Map/GridMap/CSGCombiner3D" instance=ExtResource("4_n7kdt")]
+transform = Transform3D(3.5120716, 0, 0, 0, 1, 0, 0, 0, 3.378967, 150.73158, 0.47488356, 26.963879)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
 environment = SubResource("Environment_gjwfl")
 
@@ -1599,577 +1658,519 @@ visible = false
 
 [node name="Lights" type="Node3D" parent="Map"]
 
-[node name="CeilingLight" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -52.24315)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight5" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190.34772, 6.6304784, -52.24315)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight5"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight6" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09018, 6.6304784, -52.24315)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight6"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight7" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09018, 6.6304784, -49.429295)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight7"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight8" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09018, 6.6304784, -42.37376)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight8"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight2" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -42.24805)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight2"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight3" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -35.10113)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight3"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight12" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 194.61386, 6.6304784, -35.10113)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight12"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight13" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.56956, 6.6304784, -35.10113)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight13"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight14" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.56956, 6.6304784, -27.06423)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight14"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight15" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.56956, 6.6304784, -20.877821)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight15"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight16" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.83098, 6.6304784, -20.877821)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight16"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight17" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.83098, 6.6304784, -56.5475)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight17"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight17"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight18" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -56.5475)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight18"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight18"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight19" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -36.5475)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight19"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight19"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight20" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -29.797)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight20"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight20"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight21" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.83177, 6.6304784, -21.726238)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight21"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight21"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight22" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.62238, 6.6304784, -21.726238)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight22"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight23" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.62238, 6.6304784, -32.112854)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight23"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight24" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.62238, 6.6304784, -42.73378)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight24"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight24"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight25" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.51901, 6.6304784, -37.79081)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight25"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight25"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight4" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -27.987679)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight4"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight9" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -22.238718)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight9"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight11" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.01077, 6.6304784, -22.238718)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight11"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
-
-[node name="CeilingLight10" type="Node3D" parent="Map/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62552, 6.6304784, -17.954456)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Lights/CeilingLight10"]
-transform = Transform3D(1.36, 0, 0, 0, 1.36, 0, 0, 0, 1.36, 0, 0, 0)
-mesh = SubResource("BoxMesh_nxg33")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_1slf1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map/Lights/CeilingLight10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0544024, 0)
-light_energy = 1.53
-light_indirect_energy = 2.983
-light_volumetric_fog_energy = 7.134
-light_size = 1.0
-light_specular = 2.367
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 51.2
-distance_fade_length = 40.85
-omni_range = 15.157
-omni_attenuation = 2.0
+[node name="CeilingLight26" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.8747, 6.6341915, -53.72805)
+flicker_enabled = false
+
+[node name="CeilingLight114" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.85358, 6.6341915, -53.72805)
+flicker_enabled = false
+
+[node name="CeilingLight115" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.07062, 6.6341915, -53.72805)
+flicker_enabled = false
+
+[node name="CeilingLight116" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.07062, 6.6341915, -42.338997)
+flicker_enabled = false
+
+[node name="CeilingLight117" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.04285, 6.6341915, -42.338997)
+flicker_enabled = false
+
+[node name="CeilingLight118" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.9013, 6.6341915, -36.475006)
+flicker_enabled = false
+
+[node name="CeilingLight119" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.9013, 6.6341915, -29.393526)
+flicker_enabled = false
+
+[node name="CeilingLight120" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.9013, 6.6341915, -22.230158)
+flicker_enabled = false
+
+[node name="CeilingLight121" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.9013, 6.6341915, -12.171617)
+flicker_enabled = false
+
+[node name="CeilingLight152" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.27269, 6.6341915, 84.412674)
+flicker_enabled = false
+
+[node name="CeilingLight154" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.31724, 3.1461058, 42.401665)
+flicker_enabled = false
+
+[node name="CeilingLight155" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.31724, 3.1461058, 70.435135)
+
+[node name="CeilingLight156" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.168686, 3.1461058, 101.82278)
+
+[node name="CeilingLight153" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.49346, 3.165369, -4.682056)
+
+[node name="CeilingLight122" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.86403, 6.6341915, -22.230314)
+flicker_enabled = false
+
+[node name="CeilingLight123" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.75162, 6.6341915, -20.787966)
+
+[node name="CeilingLight57" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.82103, 6.6341915, -46.60849)
+flicker_enabled = false
+
+[node name="CeilingLight58" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.95363, 6.6341915, -46.60849)
+flicker_enabled = false
+
+[node name="CeilingLight60" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.76123, 6.6341915, -39.362183)
+flicker_enabled = false
+
+[node name="CeilingLight61" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.76123, 6.6341915, -32.259857)
+flicker_enabled = false
+
+[node name="CeilingLight62" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.93118, 6.6341915, -32.259857)
+flicker_enabled = false
+
+[node name="CeilingLight63" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.93118, 6.6341915, -42.353)
+flicker_enabled = false
+
+[node name="CeilingLight64" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.93118, 6.6341915, -26.534895)
+flicker_enabled = false
+
+[node name="CeilingLight65" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.9131, 6.6341915, -26.60012)
+flicker_enabled = false
+
+[node name="CeilingLight66" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.33438, 6.6341915, -20.821589)
+flicker_enabled = false
+
+[node name="CeilingLight67" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.85191, 6.6341915, -17.920605)
+flicker_enabled = false
+
+[node name="CeilingLight70" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.93118, 6.6341915, -9.402094)
+flicker_enabled = false
+
+[node name="CeilingLight71" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.9131, 6.6341915, -9.4673195)
+flicker_enabled = false
+
+[node name="CeilingLight92" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.9131, 6.6341915, -9.4673195)
+
+[node name="CeilingLight93" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.9131, 6.6341915, -19.409647)
+flicker_enabled = false
+
+[node name="CeilingLight72" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.33438, 6.6341915, -3.6887875)
+flicker_enabled = false
+
+[node name="CeilingLight73" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.85191, 6.6341915, -0.78780365)
+flicker_enabled = false
+
+[node name="CeilingLight74" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.93118, 6.6341915, 12.133527)
+flicker_enabled = false
+
+[node name="CeilingLight75" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.9131, 6.6341915, 12.068301)
+
+[node name="CeilingLight76" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.33438, 6.6341915, 17.846832)
+flicker_enabled = false
+
+[node name="CeilingLight77" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.85191, 6.6341915, 20.747818)
+flicker_enabled = false
+
+[node name="CeilingLight27" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.04109, 6.6341915, -53.72805)
+flicker_enabled = false
+
+[node name="CeilingLight28" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190.38786, 6.6341915, -53.72805)
+flicker_enabled = false
+
+[node name="CeilingLight29" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.00818, 6.6341915, -53.72805)
+flicker_enabled = false
+
+[node name="CeilingLight30" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.00818, 6.6341915, -57.932545)
+flicker_enabled = false
+
+[node name="CeilingLight31" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.66122, 6.6341915, -57.932545)
+flicker_enabled = false
+
+[node name="CeilingLight32" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 216.1082, 6.6341915, -57.932545)
+flicker_enabled = false
+
+[node name="CeilingLight33" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.49411, 6.6341915, -57.932545)
+flicker_enabled = false
+
+[node name="CeilingLight49" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.49411, 6.6341915, -50.810253)
+flicker_enabled = false
+
+[node name="CeilingLight50" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.49411, 6.6341915, -43.74197)
+flicker_enabled = false
+
+[node name="CeilingLight51" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.86691, 6.6341915, -37.954433)
+flicker_enabled = false
+
+[node name="CeilingLight53" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.86691, 6.6341915, -30.832117)
+flicker_enabled = false
+
+[node name="CeilingLight54" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.86691, 6.6341915, -22.239223)
+flicker_enabled = false
+
+[node name="CeilingLight55" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.82443, 6.6341915, -15.015332)
+flicker_enabled = false
+
+[node name="CeilingLight56" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.80125, 6.6341915, -29.41251)
+flicker_enabled = false
+
+[node name="CeilingLight52" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.93831, 6.6341915, -37.954433)
+flicker_enabled = false
+
+[node name="CeilingLight68" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.66103, 6.6341915, -37.954433)
+flicker_enabled = false
+
+[node name="CeilingLight69" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.79025, 6.6341915, -29.44126)
+
+[node name="CeilingLight34" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.966, 6.6341915, -57.932545)
+flicker_enabled = false
+
+[node name="CeilingLight35" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.966, 6.6341915, -46.503338)
+flicker_enabled = false
+
+[node name="CeilingLight36" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.966, 6.6341915, -40.803143)
+flicker_enabled = false
+
+[node name="CeilingLight37" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.89061, 6.6341915, -35.10573)
+flicker_enabled = false
+
+[node name="CeilingLight38" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, -35.10573)
+flicker_enabled = false
+
+[node name="CeilingLight39" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, -26.601852)
+flicker_enabled = false
+
+[node name="CeilingLight40" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, -19.417532)
+flicker_enabled = false
+
+[node name="CeilingLight41" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, -12.220925)
+flicker_enabled = false
+
+[node name="CeilingLight80" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, 27.922821)
+flicker_enabled = false
+
+[node name="CeilingLight81" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, 35.10714)
+flicker_enabled = false
+
+[node name="CeilingLight82" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, 42.30375)
+flicker_enabled = false
+
+[node name="CeilingLight83" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, 47.81802)
+flicker_enabled = false
+
+[node name="CeilingLight84" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, 55.00234)
+flicker_enabled = false
+
+[node name="CeilingLight86" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.0665, 6.6341915, -12.220925)
+flicker_enabled = false
+
+[node name="CeilingLight87" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.0665, 6.6341915, 27.922821)
+flicker_enabled = false
+
+[node name="CeilingLight88" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.0665, 6.6341915, 35.10714)
+flicker_enabled = false
+
+[node name="CeilingLight89" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.0665, 6.6341915, 42.30375)
+flicker_enabled = false
+
+[node name="CeilingLight90" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.0665, 6.6341915, 47.81802)
+flicker_enabled = false
+
+[node name="CeilingLight91" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.0665, 6.6341915, 55.00234)
+flicker_enabled = false
+
+[node name="CeilingLight85" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, 62.198948)
+flicker_enabled = false
+
+[node name="CeilingLight42" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.21126, 6.6341915, -5.2209253)
+flicker_enabled = false
+
+[node name="CeilingLight43" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.07855, 6.6341915, -5.1096916)
+flicker_enabled = false
+
+[node name="CeilingLight45" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.07855, 6.6341915, 3.4940195)
+flicker_enabled = false
+
+[node name="CeilingLight46" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.07855, 6.6341915, 10.585699)
+flicker_enabled = false
+
+[node name="CeilingLight47" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.07855, 6.6341915, 16.30372)
+flicker_enabled = false
+
+[node name="CeilingLight78" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.35432, 6.6341915, 16.30372)
+flicker_enabled = false
+
+[node name="CeilingLight94" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.35432, 6.6341915, 20.592554)
+flicker_enabled = false
+
+[node name="CeilingLight95" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.51552, 6.6341915, 20.592554)
+flicker_enabled = false
+
+[node name="CeilingLight96" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.51552, 6.6341915, 12.078569)
+flicker_enabled = false
+
+[node name="CeilingLight97" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.51552, 6.6341915, 27.713339)
+flicker_enabled = false
+
+[node name="CeilingLight98" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.51552, 6.6341915, 34.87581)
+flicker_enabled = false
+
+[node name="CeilingLight99" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.51552, 6.6341915, 44.879963)
+flicker_enabled = false
+
+[node name="CeilingLight100" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.51552, 6.6341915, 56.27608)
+flicker_enabled = false
+
+[node name="CeilingLight101" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.25948, 6.6341915, 60.579628)
+flicker_enabled = false
+
+[node name="CeilingLight102" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.05826, 6.6341915, 60.579628)
+flicker_enabled = false
+
+[node name="CeilingLight103" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.05826, 6.6341915, 64.77147)
+flicker_enabled = false
+
+[node name="CeilingLight104" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 194.67984, 6.6341915, 64.91072)
+flicker_enabled = false
+
+[node name="CeilingLight129" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5889673, 6.6341915, 64.91072)
+flicker_enabled = false
+
+[node name="CeilingLight130" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252341, 6.6341915, 64.91072)
+flicker_enabled = false
+
+[node name="CeilingLight131" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252341, 6.6341915, 39.20178)
+flicker_enabled = false
+
+[node name="CeilingLight132" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.055477, 6.6341915, 39.20178)
+flicker_enabled = false
+
+[node name="CeilingLight133" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.981094, 6.6341915, 39.20178)
+flicker_enabled = false
+
+[node name="CeilingLight134" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.981094, 6.6341915, 77.720184)
+flicker_enabled = false
+
+[node name="CeilingLight135" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.981094, 6.6341915, 24.970673)
+
+[node name="CeilingLight136" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.153385, 6.6341915, 0.7840462)
+flicker_enabled = false
+
+[node name="CeilingLight140" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.767834, 6.6341915, -32.295265)
+flicker_enabled = false
+
+[node name="CeilingLight141" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.767834, 6.6341915, -20.81437)
+flicker_enabled = false
+
+[node name="CeilingLight142" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.767834, 6.6341915, -9.412994)
+flicker_enabled = false
+
+[node name="CeilingLight143" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.77654, 6.6341915, -32.295265)
+flicker_enabled = false
+
+[node name="CeilingLight144" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.77654, 6.6341915, -20.81437)
+flicker_enabled = false
+
+[node name="CeilingLight145" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.77654, 6.6341915, -9.412994)
+flicker_enabled = false
+
+[node name="CeilingLight146" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.194305, 6.6341915, -32.295265)
+flicker_enabled = false
+
+[node name="CeilingLight147" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.194305, 6.6341915, -20.81437)
+flicker_enabled = false
+
+[node name="CeilingLight148" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.194305, 6.6341915, -9.412994)
+flicker_enabled = false
+
+[node name="CeilingLight149" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.35607, 6.6341915, -32.295265)
+flicker_enabled = false
+
+[node name="CeilingLight150" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.35607, 6.6341915, -20.81437)
+flicker_enabled = false
+
+[node name="CeilingLight151" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.35607, 6.6341915, -9.412994)
+flicker_enabled = false
+
+[node name="CeilingLight137" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.93803, 6.6341915, 0.7840462)
+flicker_enabled = false
+
+[node name="CeilingLight138" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8419724, 6.6341915, 0.7840462)
+flicker_enabled = false
+
+[node name="CeilingLight139" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.80286, 6.6341915, 0.7840462)
+flicker_enabled = false
+
+[node name="CeilingLight105" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.09636, 6.6341915, 54.79954)
+flicker_enabled = false
+
+[node name="CeilingLight106" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.82417, 6.6341915, 54.79954)
+flicker_enabled = false
+
+[node name="CeilingLight107" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.82417, 6.6341915, 48.996048)
+flicker_enabled = false
+
+[node name="CeilingLight108" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.82417, 6.6341915, 40.547123)
+flicker_enabled = false
+
+[node name="CeilingLight109" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.12257, 6.6341915, 40.547123)
+flicker_enabled = false
+
+[node name="CeilingLight110" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.96355, 6.6341915, 30.64304)
+flicker_enabled = false
+
+[node name="CeilingLight111" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.21169, 6.6341915, 30.64304)
+flicker_enabled = false
+
+[node name="CeilingLight124" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.77307, 12.985387, 30.64304)
+flicker_enabled = false
+
+[node name="CeilingLight125" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.40662, 12.985387, 30.64304)
+
+[node name="CeilingLight126" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.11925, 12.985387, 30.64304)
+flicker_enabled = false
+
+[node name="CeilingLight127" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.11925, 13.033007, 26.872082)
+flicker_enabled = false
+
+[node name="CeilingLight128" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.05966, 13.056189, 26.872082)
+flicker_enabled = false
+
+[node name="CeilingLight112" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.21169, 6.6341915, 14.801788)
+flicker_enabled = false
+
+[node name="CeilingLight113" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.21169, 6.6341915, -2.2214513)
+flicker_enabled = false
+
+[node name="CeilingLight79" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.25563, 6.6341915, 3.5832767)
+flicker_enabled = false
+
+[node name="CeilingLight48" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.25627, 6.6341915, 13.314173)
+flicker_enabled = false
+
+[node name="CeilingLight44" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.07855, 6.6341915, -5.1417317)
+flicker_enabled = false
+
+[node name="Player" parent="." instance=ExtResource("5_lh4tq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.30173, 0.6140933, -42.33208)
+velocidad_caminando = 4.0
+
+[node name="VHSShader" parent="." instance=ExtResource("6_hoeqm")]
