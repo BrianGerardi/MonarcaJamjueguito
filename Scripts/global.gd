@@ -7,6 +7,7 @@ var forzar_mouse_visible: bool =false #por si hay algun bug con el mouse cuando 
 signal streamer_set_input_mode(estado_bool : bool)
 signal mostrar_cursor_mano_abierta #escuchada por HUD
 signal mostrar_cursor_punto #escuchada por HUD
+signal game_over
 var posicion_player : Vector3 = Vector3.ZERO
 var camara_principal : Camera3D
 

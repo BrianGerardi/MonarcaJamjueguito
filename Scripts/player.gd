@@ -237,3 +237,9 @@ func aumentar_zoom_camara_op2(delta : float):
 
 func set_player_escondido(estado : bool): #agregas area3d 
 	player_escondido = estado
+
+
+func _on_timer_curar_sanity_timeout() -> void:
+	var probabilidad : int = randi_range(1,100)
+	if probabilidad>20:
+		Global.modificar_sanity.emit(2) #curo de a 2 
