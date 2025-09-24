@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dl4on5emwu5u7"
-path="res://.godot/imported/old_tv.glb-909889a711a4b14c9f699384d80313f8.scn"
+path="res://.godot/imported/old_tv.glb-5cfce6c6bb7b13b219a352827e2c8d35.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/televisor test/old_tv.glb"
-dest_files=["res://.godot/imported/old_tv.glb-909889a711a4b14c9f699384d80313f8.scn"]
+source_file="res://Assets/modelos3d/televisor test/old_tv.glb"
+dest_files=["res://.godot/imported/old_tv.glb-5cfce6c6bb7b13b219a352827e2c8d35.scn"]
 
 [params]
 
