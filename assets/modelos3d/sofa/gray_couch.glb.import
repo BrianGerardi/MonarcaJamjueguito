@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b206o12bd4jn4"
-path="res://.godot/imported/gray_couch.glb-cad6319111f7b4666ea93ae53881a8d4.scn"
+path="res://.godot/imported/gray_couch.glb-39b81a3002ca1f41cd46c758f7d759db.scn"
 
 [deps]
 
-source_file="res://Assets/modelos3d/sofa/gray_couch.glb"
-dest_files=["res://.godot/imported/gray_couch.glb-cad6319111f7b4666ea93ae53881a8d4.scn"]
+source_file="res://assets/modelos3d/sofa/gray_couch.glb"
+dest_files=["res://.godot/imported/gray_couch.glb-39b81a3002ca1f41cd46c758f7d759db.scn"]
 
 [params]
 
