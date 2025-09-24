@@ -9,11 +9,13 @@ var grille_opacity: float # empieza en 0.17
 var noise_opacity: float  # empieza en 0.4
 var static_noise_intensity: float # empieza en 0.06
 var vignette_intensity: float  # empieza en 0.4, se setean en ready
+var roll_speed : float #nuevo, empieza en 0.5 y va hasta 3.0
 
 var target_grille_opacity: float
 var target_noise_opacity: float
 var target_static_noise_intensity: float
 var target_vignette_intensity: float
+var target_roll_speed : float #va hasta 3.0
 
 @export var velocidad_de_transicion: float = 2.0
 
@@ -40,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	noise_opacity = lerp(noise_opacity, target_noise_opacity, delta * velocidad_de_transicion)
 	static_noise_intensity = lerp(static_noise_intensity, target_static_noise_intensity, delta * velocidad_de_transicion)
 	vignette_intensity = lerp(vignette_intensity, target_vignette_intensity, delta * velocidad_de_transicion)
+	roll_speed = lerp(roll_speed, target_roll_speed, delta * velocidad_de_transicion)
 
 	# aplicar al shader
 	material.set_shader_parameter("grille_opacity", grille_opacity)
@@ -69,3 +72,4 @@ func update_shader_effects():
 	target_noise_opacity = lerp(0.4, 0.7, 1.0 - normalized_sanity)
 	target_static_noise_intensity = lerp(0.06, 0.5, 1.0 - normalized_sanity)
 	target_vignette_intensity = lerp(0.4, 0.7, 1.0 - normalized_sanity)
+	target_roll_speed = lerp(0.5, 3.0, 1.0 - normalized_sanity)

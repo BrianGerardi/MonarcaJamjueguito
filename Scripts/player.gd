@@ -4,6 +4,8 @@ var velocidad := 5.0 #velocidad actual
 @export var camara_zoom_normal : float = 70
 @export var camara_zoom_maximo : float = 15
 @export var velocidad_zoom: float = 27
+@onready var collision_parado: CollisionShape3D = %CollisionParado
+@onready var collision_agachado: CollisionShape3D = %CollisionAgachado
 var zoom_actual : float
 var haciendo_zoom : bool = false
 @onready var audio_zoom: AudioStreamPlayer = %AudioZoom
@@ -31,6 +33,7 @@ var player_escondido: bool = false
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
+	collision_agachado.disabled = true
 	zoom_actual = camara_zoom_normal
 	Global.set_camara_principal(camara) #se usa para transiciones de camara
 	Global.poner_vhs_tv.connect(_on_poner_vhs_tv)
@@ -51,8 +54,10 @@ func _input(event) -> void:
 
 	if Input.is_action_pressed("control"):
 		esta_agachado = true
+		activar_collision_agachado()
 	elif Input.is_action_just_released("control") and esta_agachado:
 		esta_agachado = false
+		activar_collision_parado()
 
 func interactuar_con_objeto():
 	var objeto_colisionando = raycast_objetos.get_collider()
@@ -85,7 +90,6 @@ func _physics_process(delta: float) -> void:
 		audio_zoom.stop()
 	if Input.is_action_pressed("x"):
 		quitar_zoom_camara(delta)
-		Global.modificar_sanity.emit(10) #probando
 	if Input.is_action_just_released("x"):
 		haciendo_zoom = false
 		audio_zoom.stop()
@@ -243,3 +247,11 @@ func _on_timer_curar_sanity_timeout() -> void:
 	var probabilidad : int = randi_range(1,100)
 	if probabilidad>20:
 		Global.modificar_sanity.emit(2) #curo de a 2 
+
+func activar_collision_parado():
+	collision_agachado.disabled= true
+	collision_parado.disabled = false
+
+func activar_collision_agachado():
+	collision_parado.disabled = true
+	collision_agachado.disabled= false
