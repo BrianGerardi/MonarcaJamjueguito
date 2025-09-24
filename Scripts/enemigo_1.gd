@@ -41,8 +41,11 @@ func _physics_process(delta):
 				empezar_a_patrullar()
 			estados_enemigo.persiguiendo:
 				#significa que alcanzo al player
-				print("toco al player")
-				Global.game_over.emit() #todavia no hace nada
+				if !Global.player_esta_escondido():
+					print("toco al player")
+					Global.game_over.emit() #todavia no hace nada
+				else:
+					estado_actual = estados_enemigo.desorientado
 	
 	match estado_actual:
 		estados_enemigo.patrullando:
@@ -139,6 +142,8 @@ func set_estado_desorientado(): #se llama desde area segura
 
 
 func _on_timer_desorientado_timeout() -> void:
+	print("sono el timer")
+	estado_actual = estados_enemigo.patrullando
 	empezar_a_patrullar()
 
 

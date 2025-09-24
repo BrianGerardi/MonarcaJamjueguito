@@ -8,6 +8,7 @@ signal streamer_set_input_mode(estado_bool : bool)
 signal mostrar_cursor_mano_abierta #escuchada por HUD
 signal mostrar_cursor_punto #escuchada por HUD
 signal game_over
+var player_esta_escondido_bool :bool = false
 var posicion_player : Vector3 = Vector3.ZERO
 var camara_principal : Camera3D
 
@@ -39,3 +40,9 @@ func set_camara_principal(camara : Camera3D):
 
 func get_camara_principal():
 	return camara_principal
+
+func player_esta_escondido():
+	return player_esta_escondido_bool
+
+func set_player_escondido(estado: bool):
+	player_esta_escondido_bool = estado
