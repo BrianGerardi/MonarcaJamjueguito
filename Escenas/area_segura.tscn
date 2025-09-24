@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c22t1ybhp44gw"]
+
+[ext_resource type="Script" uid="uid://dx67xbrl50xch" path="res://Scripts/area_segura.gd" id="1_r2d6r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu3a5"]
+size = Vector3(7.8273926, 1, 10.921631)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r2d6r"]
+size = Vector2(8, 11)
+
+[node name="AreaSegura" type="Node3D"]
+script = ExtResource("1_r2d6r")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015474677, 0, 0.011145711)
+shape = SubResource("BoxShape3D_uu3a5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_r2d6r")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

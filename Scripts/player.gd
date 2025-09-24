@@ -17,8 +17,8 @@ var haciendo_zoom : bool = false
 @onready var raycast_objetos : RayCast3D= %RayCastMano
 @onready var mano_marker : Marker3D= %MarkerPosicionObjetos
 @export var HUD : Control
-@export var velocidad_head_bob : float = 3.0
-@export var amplitud_head_bob : float = 0.09
+@export var velocidad_head_bob : float = 2.0
+@export var amplitud_head_bob : float = 0.04
 var tiempo_head_bob: float = 0.0
 var mostrar_mouse: bool = false
 var objeto_señalado_actualmente = null
@@ -85,6 +85,7 @@ func _physics_process(delta: float) -> void:
 		audio_zoom.stop()
 	if Input.is_action_pressed("x"):
 		quitar_zoom_camara(delta)
+		Global.modificar_sanity.emit(10) #probando
 	if Input.is_action_just_released("x"):
 		haciendo_zoom = false
 		audio_zoom.stop()
@@ -236,3 +237,9 @@ func aumentar_zoom_camara_op2(delta : float):
 
 func set_player_escondido(estado : bool): #agregas area3d 
 	player_escondido = estado
+
+
+func _on_timer_curar_sanity_timeout() -> void:
+	var probabilidad : int = randi_range(1,100)
+	if probabilidad>20:
+		Global.modificar_sanity.emit(2) #curo de a 2 
