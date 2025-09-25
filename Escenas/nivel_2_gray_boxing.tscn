@@ -1,0 +1,1307 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt8bd5kve81qg"]
+
+[ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_1bk5c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bk5c"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8tjaj"]
+sky_material = SubResource("ProceduralSkyMaterial_1bk5c")
+
+[sub_resource type="Environment" id="Environment_vtsp3"]
+background_mode = 2
+sky = SubResource("Sky_8tjaj")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Nivel2GrayBoxing" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vtsp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Map"]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="Map/CSGCombiner3D"]
+size = Vector3(200, 1, 200)
+
+[node name="House" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+transform = Transform3D(0.96194667, 0, 0.27323735, 0, 1, 0, -0.27323735, 0, 0.96194667, -12.814163, 0.46860456, -63.040367)
+
+[node name="floor" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+size = Vector3(20, 0.2, 20)
+
+[node name="walls" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.892492, 0.7600174, 0)
+size = Vector3(0.2, 10, 20)
+
+[node name="walls2" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.107508, 0.7600174, 0)
+size = Vector3(0.2, 10, 20)
+
+[node name="walls3" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22712135, 0.7600174, -9.85932)
+size = Vector3(20, 10, 0.2)
+
+[node name="walls4" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7805576, 0.7600174, 10.001238)
+size = Vector3(8.893127, 10, 0.2)
+
+[node name="walls5" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16479683, 0.7600174, 10.001238)
+size = Vector3(20.12465, 10, 0.2)
+
+[node name="rooft" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(0.811421, 0.58446217, 0, -0.58446217, 0.811421, 0, 0, 0, 1, 5.4958196, 9.138336, -0.062145233)
+size = Vector3(13.03125, 0.2, 20)
+
+[node name="rooft2" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(0.8293985, -0.5586574, 0, 0.5586574, 0.8293985, 0, 0, 0, 1, -4.821272, 9.255121, -0.062145233)
+size = Vector3(13.589355, 0.2, 20)
+
+[node name="door" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5389814, 9.83996)
+operation = 2
+size = Vector3(2, 3, 2)
+
+[node name="window" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2416754, 2.722146, 9.83996)
+operation = 2
+size = Vector3(3.5396118, 2.55188, 2)
+
+[node name="window2" type="CSGBox3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0513926, 2.722146, 9.83996)
+operation = 2
+size = Vector3(3.5396118, 2.55188, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27547562, 8.291166, 10.0692005)
+polygon = PackedVector2Array(-10.024388, -2.6338167, 10.587599, -2.6522388, 0.7720195, 4.3768253)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Map/CSGCombiner3D/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27547562, 8.291166, -9.0828495)
+polygon = PackedVector2Array(-10.024388, -2.6338167, 10.587599, -2.6522388, 0.7720195, 4.3768253)
+
+[node name="trees" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+
+[node name="Tree" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.554379, 3.9123526, 0)
+height = 7.590576
+
+[node name="Tree2" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.096651, 3.9123526, -6.509837)
+height = 7.590576
+
+[node name="Tree3" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.767841, 3.9123526, -16.906963)
+height = 7.590576
+
+[node name="Tree4" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.22203, 3.9123526, -25.478594)
+height = 7.590576
+
+[node name="Tree5" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.22203, 3.9123526, -10.04397)
+height = 7.590576
+
+[node name="Tree6" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.983345, 3.9123526, 2.5727959)
+height = 7.590576
+
+[node name="Tree7" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.41552, 3.9123526, 12.547867)
+height = 7.590576
+
+[node name="Tree131" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.85112, 3.9123526, -16.906963)
+height = 7.590576
+
+[node name="Tree132" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, -26.04406)
+height = 7.590576
+
+[node name="Tree133" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, -10.04397)
+height = 7.590576
+
+[node name="Tree134" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.63562, 3.9123526, 2.5727959)
+height = 7.590576
+
+[node name="Tree136" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, -60.33445)
+height = 7.590576
+
+[node name="Tree137" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, -44.33436)
+height = 7.590576
+
+[node name="Tree138" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.63562, 3.9123526, -31.717594)
+height = 7.590576
+
+[node name="Tree139" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, -88.635056)
+height = 7.590576
+
+[node name="Tree140" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, -72.634964)
+height = 7.590576
+
+[node name="Tree141" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.63562, 3.9123526, -60.0182)
+height = 7.590576
+
+[node name="Tree142" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, 23.921837)
+height = 7.590576
+
+[node name="Tree143" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, 39.92193)
+height = 7.590576
+
+[node name="Tree144" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.63562, 3.9123526, 52.538692)
+height = 7.590576
+
+[node name="Tree145" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, 56.906048)
+height = 7.590576
+
+[node name="Tree146" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.396935, 3.9123526, 72.90614)
+height = 7.590576
+
+[node name="Tree147" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.63562, 3.9123526, 85.5229)
+height = 7.590576
+
+[node name="Tree135" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.203445, 3.9123526, 12.547867)
+height = 7.590576
+
+[node name="Tree8" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.92116, 3.9123526, 20.105623)
+height = 7.590576
+
+[node name="Tree9" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.404987, 3.9123526, 8.536482)
+height = 7.590576
+
+[node name="Tree10" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.484276, 3.9123526, -4.043604)
+height = 7.590576
+
+[node name="Tree11" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.484276, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree12" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6110764, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree13" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.645998, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree14" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.64565, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree15" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.64565, 3.9123526, -1.4723434)
+height = 7.590576
+
+[node name="Tree16" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.96453, 3.9123526, -1.4723434)
+height = 7.590576
+
+[node name="Tree17" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.348648, 3.9123526, 11.527657)
+height = 7.590576
+
+[node name="Tree18" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.348648, 3.9123526, 11.527657)
+height = 7.590576
+
+[node name="Tree19" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.348648, 3.9123526, 18.527657)
+height = 7.590576
+
+[node name="Tree20" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.627438, 3.9123526, 18.527657)
+height = 7.590576
+
+[node name="Tree21" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.627438, 3.9123526, 13.527657)
+height = 7.590576
+
+[node name="Tree22" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.627438, 3.9123526, 2.0752602)
+height = 7.590576
+
+[node name="Tree23" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.627438, 3.9123526, 2.0752602)
+height = 7.590576
+
+[node name="Tree24" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.627438, 3.9123526, -17.177069)
+height = 7.590576
+
+[node name="Tree107" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2517, 3.9123526, 0)
+height = 7.590576
+
+[node name="Tree108" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.793976, 3.9123526, -6.509837)
+height = 7.590576
+
+[node name="Tree109" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.465164, 3.9123526, -16.906963)
+height = 7.590576
+
+[node name="Tree110" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.919353, 3.9123526, -25.478594)
+height = 7.590576
+
+[node name="Tree111" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.919353, 3.9123526, -10.04397)
+height = 7.590576
+
+[node name="Tree112" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.680668, 3.9123526, 2.5727959)
+height = 7.590576
+
+[node name="Tree113" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.112843, 3.9123526, 12.547867)
+height = 7.590576
+
+[node name="Tree114" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.618484, 3.9123526, 20.105623)
+height = 7.590576
+
+[node name="Tree115" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.10231, 3.9123526, 8.536482)
+height = 7.590576
+
+[node name="Tree116" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.181595, 3.9123526, -4.043604)
+height = 7.590576
+
+[node name="Tree117" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.181595, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree118" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3084, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree119" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.051325, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree120" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.948326, 3.9123526, -22.342665)
+height = 7.590576
+
+[node name="Tree121" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.948326, 3.9123526, -1.4723434)
+height = 7.590576
+
+[node name="Tree122" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.732792, 3.9123526, -1.4723434)
+height = 7.590576
+
+[node name="Tree123" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.348675, 3.9123526, 11.527657)
+height = 7.590576
+
+[node name="Tree124" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6513252, 3.9123526, 11.527657)
+height = 7.590576
+
+[node name="Tree125" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6513252, 3.9123526, 18.527657)
+height = 7.590576
+
+[node name="Tree126" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.930115, 3.9123526, 18.527657)
+height = 7.590576
+
+[node name="Tree127" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.930115, 3.9123526, 13.527657)
+height = 7.590576
+
+[node name="Tree128" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.930115, 3.9123526, 2.0752602)
+height = 7.590576
+
+[node name="Tree129" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.930115, 3.9123526, 2.0752602)
+height = 7.590576
+
+[node name="Tree130" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.930115, 3.9123526, -17.177069)
+height = 7.590576
+
+[node name="Tree25" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.627438, 3.9123526, 15.900789)
+height = 7.590576
+
+[node name="Tree26" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -57.659637, 3.9123526, 47.37378)
+height = 7.590576
+
+[node name="Tree27" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -51.881638, 3.9123526, 43.422234)
+height = 7.590576
+
+[node name="Tree28" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -55.83318, 3.9123526, 37.644234)
+height = 7.590576
+
+[node name="Tree29" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -48.999626, 3.9123526, 32.970802)
+height = 7.590576
+
+[node name="Tree30" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -46.177097, 3.9123526, 37.097946)
+height = 7.590576
+
+[node name="Tree31" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -39.712147, 3.9123526, 46.55109)
+height = 7.590576
+
+[node name="Tree32" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -23.203568, 3.9123526, 35.260967)
+height = 7.590576
+
+[node name="Tree33" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -12.33551, 3.9123526, 51.152393)
+height = 7.590576
+
+[node name="Tree34" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -31.008165, 3.9123526, 23.848974)
+height = 7.590576
+
+[node name="Tree35" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -8.090683, 3.9123526, 47.37378)
+height = 7.590576
+
+[node name="Tree36" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -2.312683, 3.9123526, 43.422234)
+height = 7.590576
+
+[node name="Tree37" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -6.264225, 3.9123526, 37.644234)
+height = 7.590576
+
+[node name="Tree38" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 0.5693283, 3.9123526, 32.970802)
+height = 7.590576
+
+[node name="Tree39" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 3.3918571, 3.9123526, 37.097946)
+height = 7.590576
+
+[node name="Tree40" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 9.856808, 3.9123526, 46.55109)
+height = 7.590576
+
+[node name="Tree41" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 26.365387, 3.9123526, 35.260967)
+height = 7.590576
+
+[node name="Tree42" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 37.233444, 3.9123526, 51.152393)
+height = 7.590576
+
+[node name="Tree43" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 18.56079, 3.9123526, 23.848974)
+height = 7.590576
+
+[node name="Tree44" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 39.277485, 3.9123526, 47.37378)
+height = 7.590576
+
+[node name="Tree45" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 45.055485, 3.9123526, 43.422234)
+height = 7.590576
+
+[node name="Tree46" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 41.103943, 3.9123526, 37.644234)
+height = 7.590576
+
+[node name="Tree47" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 47.937496, 3.9123526, 32.970802)
+height = 7.590576
+
+[node name="Tree48" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 50.760025, 3.9123526, 37.097946)
+height = 7.590576
+
+[node name="Tree49" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 57.224976, 3.9123526, 46.55109)
+height = 7.590576
+
+[node name="Tree50" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 73.73355, 3.9123526, 35.260967)
+height = 7.590576
+
+[node name="Tree51" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 84.60161, 3.9123526, 51.152393)
+height = 7.590576
+
+[node name="Tree52" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 65.928955, 3.9123526, 23.848974)
+height = 7.590576
+
+[node name="Tree53" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 39.277485, 3.9123526, 79.35098)
+height = 7.590576
+
+[node name="Tree54" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 45.055485, 3.9123526, 75.399445)
+height = 7.590576
+
+[node name="Tree55" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 41.103943, 3.9123526, 69.621445)
+height = 7.590576
+
+[node name="Tree56" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 47.937496, 3.9123526, 64.94801)
+height = 7.590576
+
+[node name="Tree57" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 50.760025, 3.9123526, 69.07515)
+height = 7.590576
+
+[node name="Tree58" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 57.224976, 3.9123526, 78.5283)
+height = 7.590576
+
+[node name="Tree59" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 73.73355, 3.9123526, 67.238174)
+height = 7.590576
+
+[node name="Tree60" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 84.60161, 3.9123526, 83.1296)
+height = 7.590576
+
+[node name="Tree61" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 65.928955, 3.9123526, 55.82618)
+height = 7.590576
+
+[node name="Tree62" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -28.722515, 3.9123526, 79.35098)
+height = 7.590576
+
+[node name="Tree63" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -22.944515, 3.9123526, 75.399445)
+height = 7.590576
+
+[node name="Tree64" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -26.896057, 3.9123526, 69.621445)
+height = 7.590576
+
+[node name="Tree65" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -20.062504, 3.9123526, 64.94801)
+height = 7.590576
+
+[node name="Tree66" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -17.239975, 3.9123526, 69.07515)
+height = 7.590576
+
+[node name="Tree67" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -10.775024, 3.9123526, 78.5283)
+height = 7.590576
+
+[node name="Tree68" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 5.733551, 3.9123526, 67.238174)
+height = 7.590576
+
+[node name="Tree69" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 16.601608, 3.9123526, 83.1296)
+height = 7.590576
+
+[node name="Tree70" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -2.071045, 3.9123526, 55.82618)
+height = 7.590576
+
+[node name="Tree71" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -70.72252, 3.9123526, 79.35098)
+height = 7.590576
+
+[node name="Tree72" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -64.94452, 3.9123526, 75.399445)
+height = 7.590576
+
+[node name="Tree73" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -68.89606, 3.9123526, 69.621445)
+height = 7.590576
+
+[node name="Tree74" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -62.062504, 3.9123526, 64.94801)
+height = 7.590576
+
+[node name="Tree75" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -59.239975, 3.9123526, 69.07515)
+height = 7.590576
+
+[node name="Tree76" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -52.775024, 3.9123526, 78.5283)
+height = 7.590576
+
+[node name="Tree77" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -36.26645, 3.9123526, 67.238174)
+height = 7.590576
+
+[node name="Tree78" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -25.398392, 3.9123526, 83.1296)
+height = 7.590576
+
+[node name="Tree79" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -44.071045, 3.9123526, 55.82618)
+height = 7.590576
+
+[node name="Tree80" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -70.72252, 3.9123526, -42.812218)
+height = 7.590576
+
+[node name="Tree81" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -64.94452, 3.9123526, -46.763756)
+height = 7.590576
+
+[node name="Tree82" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -68.89606, 3.9123526, -52.541756)
+height = 7.590576
+
+[node name="Tree83" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -62.062504, 3.9123526, -57.215187)
+height = 7.590576
+
+[node name="Tree84" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -59.239975, 3.9123526, -53.08805)
+height = 7.590576
+
+[node name="Tree85" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -52.775024, 3.9123526, -43.634903)
+height = 7.590576
+
+[node name="Tree86" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -36.26645, 3.9123526, -54.925026)
+height = 7.590576
+
+[node name="Tree87" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -25.398392, 3.9123526, -39.0336)
+height = 7.590576
+
+[node name="Tree88" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, -44.071045, 3.9123526, -66.33702)
+height = 7.590576
+
+[node name="Tree89" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 4.673973, 3.9123526, -42.812218)
+height = 7.590576
+
+[node name="Tree90" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 10.451973, 3.9123526, -46.763756)
+height = 7.590576
+
+[node name="Tree91" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 6.500435, 3.9123526, -52.541756)
+height = 7.590576
+
+[node name="Tree92" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 13.333988, 3.9123526, -57.215187)
+height = 7.590576
+
+[node name="Tree93" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 16.156517, 3.9123526, -53.08805)
+height = 7.590576
+
+[node name="Tree94" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 22.621468, 3.9123526, -43.634903)
+height = 7.590576
+
+[node name="Tree95" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 39.130043, 3.9123526, -54.925026)
+height = 7.590576
+
+[node name="Tree96" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 49.9981, 3.9123526, -39.0336)
+height = 7.590576
+
+[node name="Tree97" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 31.325447, 3.9123526, -66.33702)
+height = 7.590576
+
+[node name="Tree98" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 42.5844, 3.9123526, -42.812218)
+height = 7.590576
+
+[node name="Tree99" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 48.3624, 3.9123526, -46.763756)
+height = 7.590576
+
+[node name="Tree100" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 44.410862, 3.9123526, -52.541756)
+height = 7.590576
+
+[node name="Tree101" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 51.244415, 3.9123526, -57.215187)
+height = 7.590576
+
+[node name="Tree102" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 54.066944, 3.9123526, -53.08805)
+height = 7.590576
+
+[node name="Tree103" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 60.531895, 3.9123526, -43.634903)
+height = 7.590576
+
+[node name="Tree104" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 77.04047, 3.9123526, -54.925026)
+height = 7.590576
+
+[node name="Tree105" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 87.90852, 3.9123526, -39.0336)
+height = 7.590576
+
+[node name="Tree106" type="CSGCylinder3D" parent="Map/CSGCombiner3D/trees"]
+transform = Transform3D(-0.82542884, 0, -0.5645062, 0, 1, 0, 0.5645062, 0, -0.82542884, 69.23587, 3.9123526, -66.33702)
+height = 7.590576
+
+[node name="mapBorders" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+
+[node name="Fence" type="CSGBox3D" parent="Map/CSGCombiner3D/mapBorders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6528499, -99.97341)
+size = Vector3(200, 4, 0.2)
+
+[node name="Fence2" type="CSGBox3D" parent="Map/CSGCombiner3D/mapBorders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6528499, 99.87229)
+size = Vector3(200, 4, 0.2)
+
+[node name="Fence3" type="CSGBox3D" parent="Map/CSGCombiner3D/mapBorders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5924, 1.6528499, -0.0049591064)
+size = Vector3(0.2, 4, 200)
+
+[node name="Fence4" type="CSGBox3D" parent="Map/CSGCombiner3D/mapBorders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.03667, 1.6528499, -0.0049591064)
+size = Vector3(0.2, 4, 200)
+
+[node name="roads" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+
+[node name="brick" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.94674486, 0, -0.3219848, 0, 1, 0, 0.3219848, 0, 0.94674486, 1.0531956, 0.11104727, -6.33096)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick2" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.053677976, 0, -0.9985583, 0, 1, 0, 0.9985583, 0, 0.053677976, -1.7703723, 0.11104727, -8.871998)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick3" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.94674486, 0, -0.3219848, 0, 1, 0, 0.3219848, 0, 0.94674486, -1.7703723, 0.11104727, -6.204091)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick4" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9994144, 0, 0.034219235, 0, 1, 0, -0.034219235, 0, 0.9994144, -1.7703723, 0.11104727, -13.641629)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick5" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9950626, 0, -0.09925029, 0, 1, 0, 0.09925029, 0, 0.9950626, 1.5880662, 0.11104727, -13.641629)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick6" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.94674486, 0, -0.3219848, 0, 1, 0, 0.3219848, 0, 0.94674486, 1.5880662, 0.11104727, -8.362301)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick7" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.94674486, 0, -0.3219848, 0, 1, 0, 0.3219848, 0, 0.94674486, 1.5880662, 0.11104727, -10.649718)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick8" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.94674486, 0, -0.3219848, 0, 1, 0, 0.3219848, 0, 0.94674486, 1.5880662, 0.11104727, -16.88905)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick9" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.98766375, 0, -0.1565896, 0, 1, 0, 0.1565896, 0, 0.98766375, 1.7620037, 0.11104727, -19.987118)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick10" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.2224164, 0, -0.97495174, 0, 1, 0, 0.97495174, 0, 0.2224164, -1.4519527, 0.11104727, -22.011938)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick11" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.98766375, 0, -0.1565896, 0, 1, 0, 0.1565896, 0, 0.98766375, -0.9990428, 0.11104727, -19.382757)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick12" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.97909874, 0, 0.20338541, 0, 1, 0, -0.20338541, 0, 0.97909874, -2.2616565, 0.11104727, -26.71234)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick25" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.97909874, 0, 0.20338541, 0, 1, 0, -0.20338541, 0, 0.97909874, -2.2616565, 0.11104727, -24.43908)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick13" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.99746823, 0, 0.07111445, 0, 1, 0, -0.07111445, 0, 0.99746823, 1.0480342, 0.11104727, -27.282476)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick14" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.98766375, 0, -0.1565896, 0, 1, 0, 0.1565896, 0, 0.98766375, 1.9442654, 0.11104727, -22.079777)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick15" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.98766375, 0, -0.1565896, 0, 1, 0, 0.1565896, 0, 0.98766375, 1.5559483, 0.11104727, -24.33399)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick16" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.98766375, 0, -0.1565896, 0, 1, 0, 0.1565896, 0, 0.98766375, 0.4967448, 0.11104727, -30.48276)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick17" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9941171, 0, 0.10831168, 0, 1, 0, -0.10831168, 0, 0.9941171, -0.7482157, 0.11104727, -32.754044)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick18" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.47067317, 0, -0.8823077, 0, 1, 0, 0.8823077, 0, 0.47067317, -4.381146, 0.11104727, -33.863655)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick19" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9941171, 0, 0.10831168, 0, 1, 0, -0.10831168, 0, 0.9941171, -3.2535977, 0.11104727, -31.445732)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick20" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.89130753, 0, 0.45339948, 0, 1, 0, -0.45339948, 0, 0.89130753, -6.396955, 0.11104727, -38.18637)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick21" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.94377214, 0, 0.33059677, 0, 1, 0, -0.33059677, 0, 0.94377214, -3.353201, 0.11104727, -39.605766)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick22" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9941171, 0, 0.10831168, 0, 1, 0, -0.10831168, 0, 0.9941171, -1.1219766, 0.11104727, -34.821106)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick23" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9941171, 0, 0.10831168, 0, 1, 0, -0.10831168, 0, 0.9941171, -2.0887165, 0.11104727, -36.894196)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="brick24" type="CSGBox3D" parent="Map/CSGCombiner3D/roads"]
+transform = Transform3D(0.9941171, 0, 0.10831168, 0, 1, 0, -0.10831168, 0, 0.9941171, -4.7256713, 0.11104727, -42.548904)
+size = Vector3(1.5, 1, 1.5)
+
+[node name="FenceArea" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+
+[node name="fence" type="CSGCombiner3D" parent="Map/CSGCombiner3D/FenceArea"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 0.57815194, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 0.9277363, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.395096, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.521965, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.765564, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.452415, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.25485, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.01298, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.66504, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.66504, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.66375, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.44615, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 1.403084, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 1.823062, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 2.2659001, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 2.7009816, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.90624, 3.339859, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="fence2" type="CSGCombiner3D" parent="Map/CSGCombiner3D/FenceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.03831, 0, 15.031939)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 0.57815194, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 0.9277363, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.895867, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7689977, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5253987, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8385472, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0361104, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2779851, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3740764, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3740764, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.372787, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.155189, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 1.403084, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 1.823062, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 2.2659001, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 2.7009816, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 3.339859, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="fence4" type="CSGCombiner3D" parent="Map/CSGCombiner3D/FenceArea"]
+transform = Transform3D(0.46249154, 0, -0.8866237, 0, 1, 0, 0.8866237, 0, 0.46249154, -72.20351, 0, 6.4074755)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 0.57815194, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 0.9277363, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.895867, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7689977, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5253987, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8385472, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0361104, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2779851, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3740764, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3740764, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.372787, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.155189, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 1.403084, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 1.823062, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 2.2659001, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 2.7009816, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 3.339859, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="fence3" type="CSGCombiner3D" parent="Map/CSGCombiner3D/FenceArea"]
+transform = Transform3D(0.018185284, 0, -0.99983466, 0, 1, 0, 0.99983466, 0, 0.018185284, -88.434, 0, 7.021512)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 0.57815194, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 0.9277363, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.895867, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7689977, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5253987, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8385472, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0361104, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2779851, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3740764, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3740764, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.372787, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.155189, 0.9277363, -0.08340931)
+size = Vector3(0.1, 5, 0.11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 1.403084, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 1.823062, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 2.2659001, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 2.7009816, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Map/CSGCombiner3D/FenceArea/fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38472033, 3.339859, -0.08340931)
+size = Vector3(15, 0.1, 0.11)
+
+[node name="abandonedcar" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+transform = Transform3D(0.74742717, 0, -0.6643438, 0, 1, 0, 0.6643438, 0, 0.74742717, 11.956289, 0.94908285, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGCombiner3D/abandonedcar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53186035, 0, 1.7090454)
+size = Vector3(2.0637207, 1, 4.418091)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGCombiner3D/abandonedcar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53186035, 0.42814827, 1.7088089)
+size = Vector3(2.0637207, 1, 2.7133942)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGCombiner3D/abandonedcar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5757483, -0.20689535, 3.488093)
+size = Vector3(2.519287, 0.5316162, 0.81215)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGCombiner3D/abandonedcar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5757483, -0.20689535, -0.05326128)
+size = Vector3(2.519287, 0.5316162, 0.81215)
+
+[node name="Rocks" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0432014, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.161667, -3.5847616, 0)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.161667, -3.5847616, 7.7267866)
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.762135, -3.5847616, 7.7267866)
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.762135, -3.5847616, 1.6980839)
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.753569, -3.5847616, 1.6980839)
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.753569, -3.5847616, 11.007024)
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.753569, -3.5847616, -7.1913157)
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.83229, -3.5847616, -7.1913157)
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.161667, -3.5847616, 21.417986)
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.161667, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.762135, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.762135, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.753569, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.753569, -3.5847616, 32.42501)
+
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.753569, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D16" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.83229, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D17" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5533257, -3.5847616, 21.417986)
+
+[node name="CSGSphere3D18" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5533257, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D19" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8462067, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D20" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8462067, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D21" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14522743, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D22" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14522743, -3.5847616, 32.42501)
+
+[node name="CSGSphere3D23" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14522743, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D24" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.22395, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D42" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 26.214308, -3.5847616, 55.075153)
+
+[node name="CSGSphere3D43" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 36.636223, -3.5847616, 68.605354)
+
+[node name="CSGSphere3D44" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 6.969951, -3.5847616, 41.875893)
+
+[node name="CSGSphere3D45" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 0.84859276, -3.5847616, 46.590996)
+
+[node name="CSGSphere3D46" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -6.107723, -3.5847616, 37.55999)
+
+[node name="CSGSphere3D47" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -1.3316307, -3.5847616, 33.881107)
+
+[node name="CSGSphere3D48" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 2.3245115, -3.5847616, 38.627678)
+
+[node name="CSGSphere3D49" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -5.05027, -3.5847616, 44.308254)
+
+[node name="CSGSphere3D50" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 9.366922, -3.5847616, 33.203117)
+
+[node name="CSGSphere3D51" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 19.78884, -3.5847616, 46.73332)
+
+[node name="CSGSphere3D52" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -9.785692, -3.5847616, 55.075153)
+
+[node name="CSGSphere3D53" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, 0.63622284, -3.5847616, 68.605354)
+
+[node name="CSGSphere3D54" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -29.030048, -3.5847616, 41.875893)
+
+[node name="CSGSphere3D55" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -35.151405, -3.5847616, 46.590996)
+
+[node name="CSGSphere3D56" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -42.107723, -3.5847616, 37.55999)
+
+[node name="CSGSphere3D57" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -37.33163, -3.5847616, 33.881107)
+
+[node name="CSGSphere3D58" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -33.675488, -3.5847616, 38.627678)
+
+[node name="CSGSphere3D59" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -41.05027, -3.5847616, 44.308254)
+
+[node name="CSGSphere3D60" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -26.633078, -3.5847616, 33.203117)
+
+[node name="CSGSphere3D61" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(0.6102281, 0, -0.7922257, 0, 1, 0, 0.7922257, 0, 0.6102281, -16.21116, -3.5847616, 46.73332)
+
+[node name="CSGSphere3D25" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1091423, -3.5847616, -7.1913157)
+
+[node name="CSGSphere3D26" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.779766, -3.5847616, 21.417986)
+
+[node name="CSGSphere3D27" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.779766, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D28" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.179298, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D29" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.179298, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D30" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.187864, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D31" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.187864, -3.5847616, 32.42501)
+
+[node name="CSGSphere3D32" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.187864, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D33" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1091423, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D34" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.388107, -3.5847616, 21.417986)
+
+[node name="CSGSphere3D35" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.388107, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D36" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.78764, -3.5847616, 29.144772)
+
+[node name="CSGSphere3D37" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.78764, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D38" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.796204, -3.5847616, 23.11607)
+
+[node name="CSGSphere3D39" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.796204, -3.5847616, 32.42501)
+
+[node name="CSGSphere3D40" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.796204, -3.5847616, 14.22667)
+
+[node name="CSGSphere3D41" type="CSGSphere3D" parent="Map/CSGCombiner3D/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.717484, -3.5847616, 14.22667)
+
+[node name="bigrock" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.50665, 1.5028074, 50.994946)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Map/CSGCombiner3D/bigrock"]
+radius = 4.0
+
+[node name="BigTree" type="CSGCombiner3D" parent="Map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 72.77316)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Map/CSGCombiner3D/BigTree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1443133, 0)
+radius = 2.0
+height = 20.0
+
+[node name="Player" parent="." instance=ExtResource("1_1bk5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5395926, 0.8488848)
