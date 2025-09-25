@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhpfkac482s5y"]
+
+[ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://assets/cursores mouse/dot_small.svg" id="1_fgs67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2in0g"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.23392546, 0.23392546, 0.23392543, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.23529412, 0.23529412, 0.23529412, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Obj1" type="TextureRect"]
+z_index = 3
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_fgs67")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2in0g")

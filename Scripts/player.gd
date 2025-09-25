@@ -77,8 +77,10 @@ func interactuar_con_objeto():
 func esta_señalando_interactuable(): #para cambiar del cursor a la manito en el hud
 	var objeto_colisionando = raycast_objetos.get_collider()
 	if objeto_colisionando != null and objeto_colisionando.is_in_group("interactuable") and objeto_interactuado== null: 
+		objeto_señalado_actualmente = objeto_colisionando
 		return true
 	else:
+		objeto_señalado_actualmente = null
 		return false
 
 func _physics_process(delta: float) -> void:
@@ -104,6 +106,7 @@ func _physics_process(delta: float) -> void:
 		if objeto_señalado_actualmente.has_method("interactuar"):
 			if Input.is_action_just_pressed("f"):
 				objeto_señalado_actualmente.interactuar() #por si necesitamos usarlo mas adelante
+				print("se presiono f en objeto con funcion interactuar")
 
 	if Input.is_action_just_pressed("escape"): #para pausa y mostrar mouse # de ultima aca agregar que solamente intercambia el a captured de nuevo cosas externas
 		if Global.get_forzar_mouse_visible() == true: #si esta en modo forzar visible

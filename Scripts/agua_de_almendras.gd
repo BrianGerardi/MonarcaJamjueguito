@@ -19,6 +19,7 @@ func _on_area_3d_agua_body_entered(body: Node3D) -> void:
 
 
 func interactuar():
+	print("interactuar anda en agua de almendras")
 	if Hud.add_item(item_data):
 		call_deferred("queue_free")
 	else:
