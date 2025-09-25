@@ -2,7 +2,7 @@ extends Node3D
 
 @export var flicker_enabled: bool = true     # Para activar/desactivar desde el inspector
 @export var flicker_speed: float = 0.5       # Velocidad del parpadeo (segundos)
-
+@export var audio_luz : AudioStreamPlayer3D
 @onready var omni_light: OmniLight3D = $OmniLight3D
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
@@ -38,3 +38,8 @@ func _set_light_state(state: bool):
 	if state:
 		emissive_material.emission = Color(1, 1, 0.6) # amarillento
 		emissive_material.emission_energy = 2.0
+
+
+func _on_audio_luz_finished() -> void:
+	if audio_luz != null:
+		audio_luz.play()

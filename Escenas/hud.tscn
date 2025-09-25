@@ -1,10 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1maqyy1m4dy2"]
+[gd_scene load_steps=14 format=3 uid="uid://c1maqyy1m4dy2"]
 
 [ext_resource type="Script" uid="uid://fs0a4hj8joy3" path="res://Scripts/hud.gd" id="1_5x6hg"]
 [ext_resource type="Texture2D" uid="uid://ho4asb7kxfql" path="res://assets/cursores mouse/hand_open.svg" id="1_v1vk6"]
 [ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://assets/cursores mouse/dot_small.svg" id="2_5x6hg"]
+[ext_resource type="Script" uid="uid://cgcxpqejjb6t5" path="res://Scripts/hbox_inventario.gd" id="4_2in0g"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_2in0g"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_qd6er"]
+events = [SubResource("InputEventKey_2in0g")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2in0g"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.23392546, 0.23392546, 0.23392543, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.23529412, 0.23529412, 0.23529412, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="InputEventKey" id="InputEventKey_hqa34"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_pwpan"]
+events = [SubResource("InputEventKey_hqa34")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_y7i4r"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_77dy6"]
+events = [SubResource("InputEventKey_y7i4r")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_osmvk"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_ovr2b"]
+events = [SubResource("InputEventKey_osmvk")]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("cursor_mano_abierta", "cursor_punto")]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +67,7 @@ cursor_mano_abierta = NodePath("LayerCursores/ManoAb")
 cursor_punto = NodePath("LayerCursores/CursorPunto")
 
 [node name="LayerCursores" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="ManoAb" type="TextureRect" parent="LayerCursores"]
 visible = false
@@ -49,8 +101,9 @@ grow_vertical = 2
 texture = ExtResource("2_5x6hg")
 stretch_mode = 3
 
-[node name="HboxInventario" type="HBoxContainer" parent="LayerCursores"]
+[node name="HboxInventario" type="HBoxContainer" parent="LayerCursores" node_paths=PackedStringArray("HUD")]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -59,27 +112,62 @@ offset_top = 25.0
 offset_right = -25.0
 offset_bottom = 65.0
 grow_horizontal = 0
+theme_override_constants/separation = 11
+script = ExtResource("4_2in0g")
+HUD = NodePath("../..")
 
-[node name="Obj1" type="TextureRect" parent="LayerCursores/HboxInventario"]
+[node name="Obj1" type="TextureButton" parent="LayerCursores/HboxInventario"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("2_5x6hg")
-expand_mode = 3
+shortcut = SubResource("Shortcut_qd6er")
+texture_normal = ExtResource("2_5x6hg")
 stretch_mode = 5
 
-[node name="Obj2" type="TextureRect" parent="LayerCursores/HboxInventario"]
+[node name="Panel" type="Panel" parent="LayerCursores/HboxInventario/Obj1"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2in0g")
+
+[node name="Obj2" type="TextureButton" parent="LayerCursores/HboxInventario"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("2_5x6hg")
-expand_mode = 3
+shortcut = SubResource("Shortcut_pwpan")
+texture_normal = ExtResource("2_5x6hg")
 stretch_mode = 5
 
-[node name="Obj3" type="TextureRect" parent="LayerCursores/HboxInventario"]
+[node name="Panel" type="Panel" parent="LayerCursores/HboxInventario/Obj2"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2in0g")
+
+[node name="Obj3" type="TextureButton" parent="LayerCursores/HboxInventario"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("2_5x6hg")
-expand_mode = 3
+shortcut = SubResource("Shortcut_77dy6")
+texture_normal = ExtResource("2_5x6hg")
 stretch_mode = 5
 
-[node name="Obj4" type="TextureRect" parent="LayerCursores/HboxInventario"]
+[node name="Panel" type="Panel" parent="LayerCursores/HboxInventario/Obj3"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2in0g")
+
+[node name="Obj4" type="TextureButton" parent="LayerCursores/HboxInventario"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("2_5x6hg")
-expand_mode = 3
+shortcut = SubResource("Shortcut_ovr2b")
+texture_normal = ExtResource("2_5x6hg")
 stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="LayerCursores/HboxInventario/Obj4"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2in0g")

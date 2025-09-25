@@ -153,3 +153,9 @@ func vi_al_enemigo_cerca():
 	estado_actual = estados_enemigo.persiguiendo
 	if %AudioPerseguir.playing==false:
 		%AudioPerseguir.play()
+
+
+func _on_timer_audio_miedo_timeout() -> void:
+	var probabilidad : int = randi_range(1,100)
+	if probabilidad>40:
+		%AudioMiedoAleatorio.play()

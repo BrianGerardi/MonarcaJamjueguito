@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv53lkd0nlsqn"]
+[gd_scene load_steps=8 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
-[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://Assets/sonidos/clickboton.wav" id="2_i8vih"]
-[ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://Assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
-[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://Assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
+[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
+[ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
+[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
+[ext_resource type="AudioStream" uid="uid://ddrfbdyv3c4qe" path="res://assets/sonidos/pasos1_cc0.wav" id="5_cgfde"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkc8"]
 height = 2.5
@@ -73,4 +74,13 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78528696, 0)
 shape = SubResource("CapsuleShape3D_6njrx")
 
+[node name="AudioPasos" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_cgfde")
+
+[node name="TimerPasos" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+
 [connection signal="timeout" from="TimerCurarSanity" to="." method="_on_timer_curar_sanity_timeout"]
+[connection signal="timeout" from="TimerPasos" to="." method="_on_timer_pasos_timeout"]

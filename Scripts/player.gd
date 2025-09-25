@@ -4,6 +4,8 @@ var velocidad := 5.0 #velocidad actual
 @export var camara_zoom_normal : float = 70
 @export var camara_zoom_maximo : float = 15
 @export var velocidad_zoom: float = 27
+@export var tiempo_pasos_caminando : float = 0.6
+@export var tiempo_pasos_corriendo : float = 0.25
 @onready var collision_parado: CollisionShape3D = %CollisionParado
 @onready var collision_agachado: CollisionShape3D = %CollisionAgachado
 var zoom_actual : float
@@ -33,6 +35,7 @@ var player_escondido: bool = false
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
+	%TimerPasos.start(velocidad_caminando)
 	collision_agachado.disabled = true
 	zoom_actual = camara_zoom_normal
 	Global.set_camara_principal(camara) #se usa para transiciones de camara
@@ -122,8 +125,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shift"): #correr
 	#	print("SE PRESIONO EL SHIFT")
 	#aca despues voy a agregar movimiento de camara onda balanceo
+		%TimerPasos.wait_time = tiempo_pasos_corriendo
 		velocidad = velocidad_corriendo
 	else:
+		%TimerPasos.wait_time = tiempo_pasos_caminando
 		velocidad = velocidad_caminando
 
 	if esta_agachado: #agacharse
@@ -159,6 +164,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	tiempo_head_bob += delta * velocity.length() * float(is_on_floor())
 	camara.transform.origin = headbob(tiempo_head_bob)
+	if velocity!= Vector3.ZERO and is_on_floor() :
+		if %TimerPasos.is_stopped():
+			%TimerPasos.start()
+	else:
+		%TimerPasos.stop()
 
 
 
@@ -255,3 +265,13 @@ func activar_collision_parado():
 func activar_collision_agachado():
 	collision_parado.disabled = true
 	collision_agachado.disabled= false
+
+
+func audio_pasos():
+	var volumen : float = randf_range(0.6,1.0)
+	%AudioPasos.volume_db = linear_to_db(volumen)
+	%AudioPasos.play()
+
+
+func _on_timer_pasos_timeout() -> void:
+	audio_pasos()

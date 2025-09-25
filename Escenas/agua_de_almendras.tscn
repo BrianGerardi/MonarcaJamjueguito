@@ -1,21 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd4eh0qc3ua5d"]
+[gd_scene load_steps=5 format=3 uid="uid://bd4eh0qc3ua5d"]
 
 [ext_resource type="Script" uid="uid://c8xkoukjyxjo4" path="res://Scripts/agua_de_almendras.gd" id="1_1q3s4"]
 [ext_resource type="PackedScene" uid="uid://dh5p0t2dev7er" path="res://assets/modelos3d/agua de almendras/almond_water_backrooms.glb" id="1_3l6l4"]
+[ext_resource type="Resource" uid="uid://cs64qxhxcfhd3" path="res://Scripts/items/agua_de_almendras_item.tres" id="2_aiqh8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3l6l4"]
-size = Vector3(0.6635742, 0.95586777, 0.6478882)
+size = Vector3(0.4498291, 0.8780284, 0.38401794)
 
-[node name="AguaDeAlmendras" type="Node3D"]
+[node name="AguaDeAlmendras" type="RigidBody3D" groups=["interactuable", "presionar_f"]]
+collision_layer = 2
+collision_mask = 3
+mass = 3.0
 script = ExtResource("1_1q3s4")
+item_data = ExtResource("2_aiqh8")
 
 [node name="SkinAgua" parent="." instance=ExtResource("1_3l6l4")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Area3DAgua" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DAgua"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013427734, 0.022130966, -0.013519287)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3DAgua"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02532959, 0.023842573, -0.007545471)
+shape = SubResource("BoxShape3D_3l6l4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02532959, 0.023842573, -0.007545471)
 shape = SubResource("BoxShape3D_3l6l4")
 
 [connection signal="body_entered" from="Area3DAgua" to="." method="_on_area_3d_agua_body_entered"]

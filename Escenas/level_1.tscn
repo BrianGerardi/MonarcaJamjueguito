@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb83fxwlgtiv7"]
+[gd_scene load_steps=12 format=3 uid="uid://cb83fxwlgtiv7"]
 
 [ext_resource type="Material" uid="uid://c5knq4veqlb2o" path="res://Materials/level_1FloorMaterial.tres" id="1_nthp5"]
 [ext_resource type="Material" uid="uid://cur6afie3tapt" path="res://Materials/level_1WallMAterial.tres" id="3_lh4tq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c22t1ybhp44gw" path="res://Escenas/area_segura.tscn" id="4_n7kdt"]
 [ext_resource type="PackedScene" uid="uid://beokty6tl1c3l" path="res://Escenas/ceiling_light.tscn" id="4_nthp5"]
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="5_lh4tq"]
+[ext_resource type="AudioStream" uid="uid://dbov421wp34kp" path="res://assets/sonidos/sonido_luces_cc0.wav" id="6_cku01"]
 [ext_resource type="PackedScene" uid="uid://cwgnvfvxfl8tf" path="res://Visuals/VHSSHader.tscn" id="6_hoeqm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8kpc"]
@@ -1860,8 +1861,14 @@ flicker_enabled = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.66103, 6.6341915, -37.954433)
 flicker_enabled = false
 
-[node name="CeilingLight69" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+[node name="CeilingLight69" parent="Map/Lights" node_paths=PackedStringArray("audio_luz") instance=ExtResource("4_nthp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.79025, 6.6341915, -29.44126)
+audio_luz = NodePath("../CeilingLight135/AudioLuz")
+
+[node name="AudioLuz" type="AudioStreamPlayer3D" parent="Map/Lights/CeilingLight69"]
+stream = ExtResource("6_cku01")
+volume_db = -7.0
+autoplay = true
 
 [node name="CeilingLight34" parent="Map/Lights" instance=ExtResource("4_nthp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.966, 6.6341915, -57.932545)
@@ -2035,8 +2042,14 @@ flicker_enabled = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.981094, 6.6341915, 77.720184)
 flicker_enabled = false
 
-[node name="CeilingLight135" parent="Map/Lights" instance=ExtResource("4_nthp5")]
+[node name="CeilingLight135" parent="Map/Lights" node_paths=PackedStringArray("audio_luz") instance=ExtResource("4_nthp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.981094, 6.6341915, 24.970673)
+audio_luz = NodePath("AudioLuz")
+
+[node name="AudioLuz" type="AudioStreamPlayer3D" parent="Map/Lights/CeilingLight135"]
+stream = ExtResource("6_cku01")
+volume_db = -7.0
+autoplay = true
 
 [node name="CeilingLight136" parent="Map/Lights" instance=ExtResource("4_nthp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.153385, 6.6341915, 0.7840462)
@@ -2174,3 +2187,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.30173, 0.6140933, -42.332
 velocidad_caminando = 4.0
 
 [node name="VHSShader" parent="." instance=ExtResource("6_hoeqm")]
+
+[connection signal="finished" from="Map/Lights/CeilingLight135/AudioLuz" to="Map/Lights/CeilingLight113" method="_on_audio_luz_finished"]
