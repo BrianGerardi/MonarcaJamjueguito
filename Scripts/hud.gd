@@ -46,3 +46,25 @@ func mostrar_cursor_mano_ab():
 func mostrar_cursor_punto():
 	cursor_punto.show()
 	cursor_mano_abierta.hide()
+
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("1"):
+		var hijo = get_child_inventario(1)
+		if hijo:
+			hijo.modulate
+	if Input.is_action_just_pressed("2"):
+		pass
+	if Input.is_action_just_pressed("3"):
+		pass
+	if Input.is_action_just_pressed("4"):
+		pass
+
+func get_child_inventario(id : int):
+	var hijo = %HboxInventario.get_child(id-1)
+	if hijo:
+		return hijo
+	return null
+
+#aprieto 1 2 3 4 y resalta que icono veia
+#si existia un icono es pq el inventario tiene un objeto en ese lugar, lo equipo
