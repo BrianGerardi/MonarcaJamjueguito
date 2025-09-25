@@ -23,7 +23,6 @@ var target_roll_speed : float #va hasta 3.0
 func _ready() -> void:
 	material = shader_color_rect.material
 	Global.modificar_sanity.connect(_on_modificar_sanity)
-	
 	update_shader_effects()
 	#grille_opacity = material.get_shader_parameter("grille_opacity")
 	#noise_opacity = material.get_shader_parameter("noise_opacity")
@@ -55,6 +54,8 @@ func _on_modificar_sanity(cantidad: float): #
 	sanity = clamp(sanity + cantidad, 0, 100)
 	print("Nueva sanidad: ", sanity)
 	update_shader_effects()
+	if (sanity <=0):
+		Global.emit_signal("game_over")
 
 
 func set_distorsion_maxima(): #ya no lo uso. lo dejo nomas para saber los valores maximos

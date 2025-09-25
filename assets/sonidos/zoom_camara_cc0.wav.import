@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ddpp11t1f2p6"
-path="res://.godot/imported/zoom_camara_cc0.wav-b77db4e356b73c634b280a962d147be0.sample"
+path="res://.godot/imported/zoom_camara_cc0.wav-7424337330e26005bff240820b9b5784.sample"
 
 [deps]
 
-source_file="res://assets/sonidos/zoom_camara_cc0.wav"
-dest_files=["res://.godot/imported/zoom_camara_cc0.wav-b77db4e356b73c634b280a962d147be0.sample"]
+source_file="res://Assets/sonidos/zoom_camara_cc0.wav"
+dest_files=["res://.godot/imported/zoom_camara_cc0.wav-7424337330e26005bff240820b9b5784.sample"]
 
 [params]
 

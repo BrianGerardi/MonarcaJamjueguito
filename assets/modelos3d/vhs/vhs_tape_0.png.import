@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4q37roifguon"
-path.s3tc="res://.godot/imported/vhs_tape_0.png-f416a2c0b81a317ad2d495a1f8bc45af.s3tc.ctex"
+path.s3tc="res://.godot/imported/vhs_tape_0.png-ad0678d646af284e0b2f4d99e327028a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/modelos3d/vhs/vhs_tape_0.png"
-dest_files=["res://.godot/imported/vhs_tape_0.png-f416a2c0b81a317ad2d495a1f8bc45af.s3tc.ctex"]
+source_file="res://Assets/modelos3d/vhs/vhs_tape_0.png"
+dest_files=["res://.godot/imported/vhs_tape_0.png-ad0678d646af284e0b2f4d99e327028a.s3tc.ctex"]
 
 [params]
 
