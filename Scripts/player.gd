@@ -45,19 +45,19 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #captura al mouse para que no salga de la pantalla
 	posicion_pivot_camara_inicial = cabeza_pivot.position #para cuando se agacha
 	respawn_position = global_transform.origin
-	#Global.checkpoint_reached.connect(_on_checkpoint_checkpoint_reached)
-	#Global.game_over.connect (respawn)
+	Global.checkpoint_reached.connect(_on_checkpoint_checkpoint_reached)
+	Global.game_over.connect (respawn)
 
 
-#func set_checkpoint(pos: Vector3) -> void:
-	##respawn_position = pos
-	#
-#func respawn() -> void:
-	#global_transform.origin = respawn_position
-	#velocity = Vector3.ZERO 
-	#
-#func _on_checkpoint_checkpoint_reached(position: Vector3) -> void:
-	#set_checkpoint(position)
+func set_checkpoint(pos: Vector3) -> void:
+	respawn_position = pos
+
+func respawn() -> void:
+	global_transform.origin = respawn_position
+	velocity = Vector3.ZERO 
+	
+func _on_checkpoint_checkpoint_reached(position: Vector3) -> void:
+	set_checkpoint(position)
 	
 func _input(event) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -112,8 +112,8 @@ func _physics_process(delta: float) -> void:
 		haciendo_zoom = false
 		audio_zoom.stop()
 	
-	#if !player_escondido:
-	Global.set_posicion_player(global_position)
+	if !player_escondido:
+		Global.set_posicion_player(global_position)
 	print("POSICION DEL JUGADOR EN JUGADORRRRRRRR VALE: ", global_position)
 	
 	if objeto_señalado_actualmente!= null and objeto_señalado_actualmente.is_in_group("presionar_f"):
