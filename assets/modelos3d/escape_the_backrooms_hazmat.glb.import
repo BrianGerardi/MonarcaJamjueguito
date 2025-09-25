@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bxcbr7am1auj"
-path="res://.godot/imported/escape_the_backrooms_hazmat.glb-e6366eaf6f1ae69bd6ed2d53ec5357f4.scn"
+path="res://.godot/imported/escape_the_backrooms_hazmat.glb-cf7e253d4a666b49ac5911aa0db3ea0c.scn"
 
 [deps]
 
-source_file="res://Assets/modelos3d/escape_the_backrooms_hazmat.glb"
-dest_files=["res://.godot/imported/escape_the_backrooms_hazmat.glb-e6366eaf6f1ae69bd6ed2d53ec5357f4.scn"]
+source_file="res://assets/modelos3d/escape_the_backrooms_hazmat.glb"
+dest_files=["res://.godot/imported/escape_the_backrooms_hazmat.glb-cf7e253d4a666b49ac5911aa0db3ea0c.scn"]
 
 [params]
 

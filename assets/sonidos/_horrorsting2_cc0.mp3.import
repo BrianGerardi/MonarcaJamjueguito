@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://iuxbqev72e8i"
-path="res://.godot/imported/_horrorsting2_cc0.mp3-59dab1d65d00fb8884d046ca531b20bc.mp3str"
+path="res://.godot/imported/_horrorsting2_cc0.mp3-41fcc6377c4ad5eaf10c068859866e93.mp3str"
 
 [deps]
 
-source_file="res://Assets/sonidos/_horrorsting2_cc0.mp3"
-dest_files=["res://.godot/imported/_horrorsting2_cc0.mp3-59dab1d65d00fb8884d046ca531b20bc.mp3str"]
+source_file="res://assets/sonidos/_horrorsting2_cc0.mp3"
+dest_files=["res://.godot/imported/_horrorsting2_cc0.mp3-41fcc6377c4ad5eaf10c068859866e93.mp3str"]
 
 [params]
 

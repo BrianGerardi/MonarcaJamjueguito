@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bugb7unk7eh75"
-path.s3tc="res://.godot/imported/gray_couch_1.png-787957d23d78676ae0303d55f69aba7b.s3tc.ctex"
+path.s3tc="res://.godot/imported/gray_couch_1.png-b68a016fcab97c3738a9b65825c98963.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/modelos3d/sofa/gray_couch_1.png"
-dest_files=["res://.godot/imported/gray_couch_1.png-787957d23d78676ae0303d55f69aba7b.s3tc.ctex"]
+source_file="res://assets/modelos3d/sofa/gray_couch_1.png"
+dest_files=["res://.godot/imported/gray_couch_1.png-b68a016fcab97c3738a9b65825c98963.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhu0udek2j1xw"
-path.s3tc="res://.godot/imported/psx_wooden_table_0.png-2fc3143cd3299c69c3c6e386eda35754.s3tc.ctex"
+path.s3tc="res://.godot/imported/psx_wooden_table_0.png-d50081c0701a6a6ba35859edf52031bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/modelos3d/psx_wooden_table_0.png"
-dest_files=["res://.godot/imported/psx_wooden_table_0.png-2fc3143cd3299c69c3c6e386eda35754.s3tc.ctex"]
+source_file="res://assets/modelos3d/psx_wooden_table_0.png"
+dest_files=["res://.godot/imported/psx_wooden_table_0.png-d50081c0701a6a6ba35859edf52031bc.s3tc.ctex"]
 
 [params]
 

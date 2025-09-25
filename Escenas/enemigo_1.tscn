@@ -17,7 +17,7 @@ size = Vector3(0.7, 0.2, 0.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1gjjp"]
 height = 1.0
-radius = 8.5
+radius = 14.0
 
 [node name="Enemigo1" type="CharacterBody3D" groups=["enemigo"]]
 script = ExtResource("1_1gjjp")
@@ -32,6 +32,7 @@ shape = SubResource("CapsuleShape3D_ih3cp")
 
 [node name="NavigationAgentEnemigo" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.2
+debug_enabled = true
 
 [node name="TimerPatrulla" type="Timer" parent="."]
 wait_time = 4.0

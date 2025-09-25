@@ -69,7 +69,7 @@ func update_shader_effects():
 
 	# Definir los parámetros del shader según el valor de sanidad
 	target_grille_opacity = lerp(0.17, 1.0, 1.0 - normalized_sanity)
-	print("TARGET GRILLE OP VALE :", target_grille_opacity)
+	#print("TARGET GRILLE OP VALE :", target_grille_opacity)
 	target_noise_opacity = lerp(0.4, 0.7, 1.0 - normalized_sanity)
 	target_static_noise_intensity = lerp(0.06, 0.5, 1.0 - normalized_sanity)
 	target_vignette_intensity = lerp(0.4, 0.7, 1.0 - normalized_sanity)

@@ -35,6 +35,7 @@ func _physics_process(delta):
 		return
 	
 	posicion_jugador_global = Global.get_posicion_player()
+	print("POSICION DEL JUGADOR VALE: ", posicion_jugador_global)
 	if navigation_agent_enemigo.is_navigation_finished(): #cuando el pj esta muuuy cerca del target se emite navigation finished
 		match estado_actual:
 			estados_enemigo.patrullando: #si estaba patruyando que siga patruyando
@@ -54,11 +55,14 @@ func _physics_process(delta):
 				if global_position.distance_to(posicion_jugador_global) < 35: #y ademas esta cerca
 					vi_al_enemigo_cerca()
 		estados_enemigo.persiguiendo:
+			print("-------- ESTADO PERSIGUIENDOOOOOOOOOOO. .................................................")
 			seguir_al_jugador() #esto actualiza siempre la posicion
 			velocidad_actual = velocidad_corriendo
 			#tambien animacion para cuando la tengamos
-			if global_position.distance_to(posicion_jugador_global) > 50: #si lo estaba persiguiendo pero se me fue lejos
+			if global_position.distance_to(posicion_jugador_global) > 100: #si lo estaba persiguiendo pero se me fue lejos
+				print("DEJAR DE PERSEGUIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
 				estado_actual = estados_enemigo.desorientado
+				#TODO ARREGLAR
 		estados_enemigo.desorientado:
 			velocidad_actual = 0.0
 			#animacion de desorientado o idle
@@ -108,7 +112,7 @@ func set_markers_enemigo(markers):
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	#avisa si estoy viendo al enemigo
 	if global_position.distance_to(posicion_jugador_global) < 35: #ademas de verlo, esta cerca
-		print("viste al enemigo")
+		print("viste al enemigo -----------------------------------------------------------")
 		Global.modificar_sanity.emit(-5)
 		estado_actual = estados_enemigo.persiguiendo
 		if %AudioPerseguir.playing==false:
@@ -117,6 +121,7 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 
 func _on_area_enemigo_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		print("ENTRO AL AREA DEL ENEMIGO")
 		Global.modificar_sanity.emit(-25)
 		if estado_actual== estados_enemigo.patrullando:
 			Global.modificar_sanity.emit(-25)
