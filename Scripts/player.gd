@@ -32,6 +32,7 @@ var objeto_interactuado : RigidBody3D = null #NOTAAAAAAA ------ Solo podemos aga
 var esta_agachado : bool = false
 var rotacion_relativa_objeto : Quaternion #si, esto es basicamente brujeria brian
 var player_escondido: bool = false
+var respawn_position: Vector3
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
@@ -43,8 +44,21 @@ func _ready() -> void:
 	Global.streamer_set_input_mode.connect(_cambiar_set_input_mode) #por ahora sin uso pero por las dudas
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #captura al mouse para que no salga de la pantalla
 	posicion_pivot_camara_inicial = cabeza_pivot.position #para cuando se agacha
+	respawn_position = global_transform.origin
+	Global.checkpoint_reached.connect(_on_checkpoint_checkpoint_reached)
+	Global.game_over.connect (respawn)
 
 
+func set_checkpoint(pos: Vector3) -> void:
+	respawn_position = pos
+	
+func respawn() -> void:
+	global_transform.origin = respawn_position
+	velocity = Vector3.ZERO 
+	
+func _on_checkpoint_checkpoint_reached(position: Vector3) -> void:
+	set_checkpoint(position)
+	
 func _input(event) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 	#	print("EL MOUSE ESTA EN MODO VISIBLEEEEE")
