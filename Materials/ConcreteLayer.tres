@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bn4td37wkhe4o"]
+
+[ext_resource type="Texture2D" uid="uid://bni2wgot65fjo" path="res://Assets/texturas/GarageTextures/ConcreteLayer/textures/concrete_layers_02_diff_1k.jpg" id="1_5s5q4"]
+[ext_resource type="Texture2D" uid="uid://cy7s1s4uw6pqu" path="res://Assets/texturas/GarageTextures/ConcreteLayer/textures/concrete_layers_02_arm_1k.jpg" id="2_ojnet"]
+[ext_resource type="Texture2D" uid="uid://lkiy1ly6lper" path="res://Assets/texturas/GarageTextures/ConcreteLayer/textures/concrete_layers_02_nor_gl_1k.jpg" id="3_4r42v"]
+
+[resource]
+albedo_texture = ExtResource("1_5s5q4")
+normal_enabled = true
+normal_texture = ExtResource("3_4r42v")
+rim_texture = ExtResource("2_ojnet")
+ao_enabled = true
+ao_texture = ExtResource("2_ojnet")
+refraction_enabled = true
+refraction_texture = ExtResource("2_ojnet")
+uv1_triplanar = true
+uv1_world_triplanar = true

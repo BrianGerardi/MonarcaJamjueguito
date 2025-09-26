@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="itemdata" load_steps=4 format=3 uid="uid://13g26ihgn2ss"]
+
+[ext_resource type="Texture2D" uid="uid://carxd164g728i" path="res://icon.svg" id="1_n0f7m"]
+[ext_resource type="PackedScene" uid="uid://dh5p0t2dev7er" path="res://Assets/modelos3d/agua de almendras/almond_water_backrooms.glb" id="2_l8mdg"]
+[ext_resource type="Script" uid="uid://ckgsm263gi7bp" path="res://Scripts/itemdata.gd" id="3_pejtl"]
+
+[resource]
+script = ExtResource("3_pejtl")
+modelo_3d = ExtResource("2_l8mdg")
+metadata/_custom_type_script = "uid://ckgsm263gi7bp"

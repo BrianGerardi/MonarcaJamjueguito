@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://c1maqyy1m4dy2"]
 
 [ext_resource type="Script" uid="uid://fs0a4hj8joy3" path="res://Scripts/hud.gd" id="1_5x6hg"]
-[ext_resource type="Texture2D" uid="uid://ho4asb7kxfql" path="res://assets/cursores mouse/hand_open.svg" id="1_v1vk6"]
-[ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://assets/cursores mouse/dot_small.svg" id="2_5x6hg"]
+[ext_resource type="Texture2D" uid="uid://ho4asb7kxfql" path="res://Assets/cursores mouse/hand_open.svg" id="1_v1vk6"]
+[ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://Assets/cursores mouse/dot_small.svg" id="2_5x6hg"]
 [ext_resource type="Script" uid="uid://cgcxpqejjb6t5" path="res://Scripts/hbox_inventario.gd" id="4_2in0g"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_2in0g"]
