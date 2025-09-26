@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 
 #@export var seguir_a_jugador_debug: bool = false
+@onready var animation_tree_bacteria: AnimationTree = %AnimationTreeBacteria
+var state_machine_animaciones
+@onready var animation_player_bacteria  = %AnimationPlayer
 @onready var navigation_agent_enemigo: NavigationAgent3D = $NavigationAgentEnemigo
 @export var velocidad_caminando : float = 3.0
 @export var velocidad_corriendo : float = 5.0
@@ -22,6 +25,7 @@ var estado_actual : estados_enemigo
 
 
 func _ready() -> void:
+	state_machine_animaciones = animation_tree_bacteria["parameters/playback"]
 	posicion_jugador_global = Global.get_posicion_player()
 #	navigation_agent_enemigo.velocity_computed.connect(Callable(_on_velocity_computed))
 	for hijo in markers_patrullar.get_children():
@@ -35,11 +39,12 @@ func _physics_process(delta):
 		return
 	
 	posicion_jugador_global = Global.get_posicion_player()
-	print("POSICION DEL JUGADOR VALE: ", posicion_jugador_global)
+	#print("POSICION DEL JUGADOR VALE: ", posicion_jugador_global)
 	if navigation_agent_enemigo.is_navigation_finished(): #cuando el pj esta muuuy cerca del target se emite navigation finished
 		match estado_actual:
 			estados_enemigo.patrullando: #si estaba patruyando que siga patruyando
 				empezar_a_patrullar()
+				cambiar_animacion("caminando_2")
 			estados_enemigo.persiguiendo:
 				#significa que alcanzo al player
 				if !Global.player_esta_escondido():
@@ -55,22 +60,21 @@ func _physics_process(delta):
 				if global_position.distance_to(posicion_jugador_global) < 35: #y ademas esta cerca
 					vi_al_enemigo_cerca()
 		estados_enemigo.persiguiendo:
-			print("-------- ESTADO PERSIGUIENDOOOOOOOOOOO. .................................................")
+			#print("-------- ESTADO PERSIGUIENDOOOOOOOOOOO. .................................................")
 			seguir_al_jugador() #esto actualiza siempre la posicion
 			velocidad_actual = velocidad_corriendo
-			#tambien animacion para cuando la tengamos
+			cambiar_animacion("corriendo")
 			if global_position.distance_to(posicion_jugador_global) > 100: #si lo estaba persiguiendo pero se me fue lejos
-				print("DEJAR DE PERSEGUIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
+				#print("DEJAR DE PERSEGUIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
 				estado_actual = estados_enemigo.desorientado
-				#TODO ARREGLAR
+
 		estados_enemigo.desorientado:
 			velocidad_actual = 0.0
-			#animacion de desorientado o idle
+			cambiar_animacion("desorientado")
 			%TimerDesorientado.start() #aca va a esperar 3 segunditos y se va a ir a patrullar de nuevo
 			estado_actual = estados_enemigo.quieto
 		estados_enemigo.quieto:
-			#solo animacion de idle cuando la tengamos
-			pass
+			cambiar_animacion("desorientado")
 
 	var next_path_position: Vector3 = navigation_agent_enemigo.get_next_path_position()
 	var direction = (next_path_position - global_transform.origin).normalized()
@@ -91,6 +95,12 @@ func empezar_a_patrullar():
 	set_target_position_enemigo(target_position_nuevo)
 
 func seleccionar_target_aleatorio():
+	if probabilidad_numero_random_mayor_que(50): #numeros del 1 al 100, si es mayor que 50
+		var marker_cercano = seleccionar_marker_mas_cercano() #busco el marker mas cercano al player
+		if marker_cercano!= null:
+			target_position_nuevo= marker_cercano
+			print("Busque el marker mas cercano al player y se lo mande al enemigo")
+			return
 	target_position_nuevo= posiciones_markers.pick_random()
 	
 
@@ -164,3 +174,33 @@ func _on_timer_audio_miedo_timeout() -> void:
 	var probabilidad : int = randi_range(1,100)
 	if probabilidad>40:
 		%AudioMiedoAleatorio.play()
+
+
+func seleccionar_marker_mas_cercano():
+	var distancia_menor = INF
+	var calculo_de_distancia
+	var indice_menor = -1
+	for i in range(posiciones_markers.size()):
+		var distancia = posicion_jugador_global.distance_to(posiciones_markers[i])
+		if distancia< distancia_menor:
+			distancia_menor = distancia
+			indice_menor = i
+	print("Marker más cercano encontrado en índice:", indice_menor, "con distancia:", distancia_menor)
+	if indice_menor>= 0:
+		return posiciones_markers[indice_menor]
+	else:
+		return null
+
+
+func probabilidad_numero_random_mayor_que(numero : int):
+	var numero_random = randi_range(1,100)
+	if numero_random>numero:
+		return true
+	else:
+		return false
+
+
+func cambiar_animacion(nueva_animacion: String):
+	#if animation_player_bacteria.current_animation != nueva_animacion:
+	state_machine_animaciones.travel(nueva_animacion)
+	#animation_player_bacteria.play(nueva_animacion)

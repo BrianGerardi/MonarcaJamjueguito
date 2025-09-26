@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb83fxwlgtiv7"]
+[gd_scene load_steps=13 format=3 uid="uid://cb83fxwlgtiv7"]
 
 [ext_resource type="Material" uid="uid://c5knq4veqlb2o" path="res://Materials/level_1FloorMaterial.tres" id="1_nthp5"]
 [ext_resource type="Material" uid="uid://cur6afie3tapt" path="res://Materials/level_1WallMAterial.tres" id="3_lh4tq"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="5_lh4tq"]
 [ext_resource type="AudioStream" uid="uid://dbov421wp34kp" path="res://assets/sonidos/sonido_luces_cc0.wav" id="6_cku01"]
 [ext_resource type="PackedScene" uid="uid://cwgnvfvxfl8tf" path="res://Visuals/VHSSHader.tscn" id="6_hoeqm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cku01"]
+points = PackedVector3Array(0.10299438, 1.7411201, 3.3081276, -3.450305, -1.8499999, -3.450305, -3.450305, -1.8499999, 3.450305, 3.450305, -1.8499999, -3.450305, 3.5548596, -1.6829418, 3.5548596, -0.10299438, 1.7411201, -3.3081276, -3.5548596, -1.6833116, 3.5548596, 3.5548596, -1.6829418, -3.5548596, -3.5548596, -1.6833116, -3.5548596, 3.450305, -1.8499999, 3.450305, -0.10299438, 1.7411201, 3.3081276, 0.10299438, 1.7411201, -3.3081276)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8kpc"]
 
@@ -624,6 +627,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.1014, 1.863595, -12.12015
 use_collision = true
 size = Vector3(7.2163086, 3, 25)
 material = ExtResource("3_lh4tq")
+
+[node name="Rampa" type="StaticBody3D" parent="Map/GridMap/CSGCombiner3D/walls140"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/GridMap/CSGCombiner3D/walls140/Rampa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5739746, 0, 17.45957)
+debug_color = Color(0.9913735, 0, 0.27240235, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/GridMap/CSGCombiner3D/walls140/Rampa"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.23706198, 12.843565)
+shape = SubResource("ConvexPolygonShape3D_cku01")
 
 [node name="walls105" type="CSGBox3D" parent="Map/GridMap/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.72643, 4.397375, 33.018055)

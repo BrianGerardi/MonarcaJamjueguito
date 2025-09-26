@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://s7n1okiwlnvq"
-path="res://.godot/imported/dadoBlender.fbx-bdf61ce076ab66e486bc23e6aa9194af.scn"
+uid="uid://e6std6kfwbgu"
+path="res://.godot/imported/BacteriaMixamo.fbx-2a4546a3fa4e21a9866ec812f981b74c.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/dadoBlender.fbx"
-dest_files=["res://.godot/imported/dadoBlender.fbx-bdf61ce076ab66e486bc23e6aa9194af.scn"]
+source_file="res://assets/modelos3d/bacteria/BacteriaMixamo.fbx"
+dest_files=["res://.godot/imported/BacteriaMixamo.fbx-2a4546a3fa4e21a9866ec812f981b74c.scn"]
 
 [params]
 
@@ -37,7 +37,16 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Camera": {
+"import/skip_import": true
+},
+"PATH:Point": {
+"import/skip_import": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bnhqs702rlgt8" path="res://assets/modelos3d/vhs/vhs_tape.glb" id="10_mnpw2"]
 [ext_resource type="PackedScene" uid="uid://drfq4vnofcw5h" path="res://Escenas/camera_transition.tscn" id="11_0efjf"]
 [ext_resource type="Texture2D" uid="uid://cy1ui04fehew0" path="res://assets/texturas/the_backrooms_wallpaper_texture_0.jpg" id="13_7wwkt"]
-[ext_resource type="PackedScene" uid="uid://bd4eh0qc3ua5d" path="res://Escenas/agua_de_almendras.tscn" id="14_afd6m"]
+[ext_resource type="PackedScene" uid="uid://dfbgq5tawkag1" path="res://Escenas/botella_agua_almendras.tscn" id="14_afd6m"]
 [ext_resource type="Script" uid="uid://cshnijsge3tl6" path="res://Scripts/vhss_hader.gd" id="15_5aopq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_0efjf"]
