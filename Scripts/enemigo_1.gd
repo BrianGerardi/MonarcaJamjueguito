@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 
 #@export var seguir_a_jugador_debug: bool = false
+@onready var animation_tree_bacteria: AnimationTree = %AnimationTreeBacteria
+var state_machine_animaciones
+@onready var animation_player_bacteria  = %AnimationPlayer
 @onready var navigation_agent_enemigo: NavigationAgent3D = $NavigationAgentEnemigo
 @export var velocidad_caminando : float = 3.0
 @export var velocidad_corriendo : float = 5.0
@@ -22,6 +25,7 @@ var estado_actual : estados_enemigo
 
 
 func _ready() -> void:
+	state_machine_animaciones = animation_tree_bacteria["parameters/playback"]
 	posicion_jugador_global = Global.get_posicion_player()
 #	navigation_agent_enemigo.velocity_computed.connect(Callable(_on_velocity_computed))
 	for hijo in markers_patrullar.get_children():
@@ -40,6 +44,7 @@ func _physics_process(delta):
 		match estado_actual:
 			estados_enemigo.patrullando: #si estaba patruyando que siga patruyando
 				empezar_a_patrullar()
+				cambiar_animacion("caminando_2")
 			estados_enemigo.persiguiendo:
 				#significa que alcanzo al player
 				if !Global.player_esta_escondido():
@@ -58,19 +63,18 @@ func _physics_process(delta):
 			#print("-------- ESTADO PERSIGUIENDOOOOOOOOOOO. .................................................")
 			seguir_al_jugador() #esto actualiza siempre la posicion
 			velocidad_actual = velocidad_corriendo
-			#tambien animacion para cuando la tengamos
+			cambiar_animacion("corriendo")
 			if global_position.distance_to(posicion_jugador_global) > 100: #si lo estaba persiguiendo pero se me fue lejos
 				#print("DEJAR DE PERSEGUIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
 				estado_actual = estados_enemigo.desorientado
 
 		estados_enemigo.desorientado:
 			velocidad_actual = 0.0
-			#animacion de desorientado o idle
+			cambiar_animacion("desorientado")
 			%TimerDesorientado.start() #aca va a esperar 3 segunditos y se va a ir a patrullar de nuevo
 			estado_actual = estados_enemigo.quieto
 		estados_enemigo.quieto:
-			#solo animacion de idle cuando la tengamos
-			pass
+			cambiar_animacion("desorientado")
 
 	var next_path_position: Vector3 = navigation_agent_enemigo.get_next_path_position()
 	var direction = (next_path_position - global_transform.origin).normalized()
@@ -194,3 +198,9 @@ func probabilidad_numero_random_mayor_que(numero : int):
 		return true
 	else:
 		return false
+
+
+func cambiar_animacion(nueva_animacion: String):
+	#if animation_player_bacteria.current_animation != nueva_animacion:
+	state_machine_animaciones.travel(nueva_animacion)
+	#animation_player_bacteria.play(nueva_animacion)

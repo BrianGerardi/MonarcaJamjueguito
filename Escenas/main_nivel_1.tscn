@@ -103,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("5_3ce0a")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 217.30289, 1.3851581, 40.571682)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 74.528, 2.162467, 78.19416)
 
 [node name="AreaSegura" parent="." instance=ExtResource("6_l5w34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2936114, 106.246765, 0.46194172, -4.345587)
@@ -124,5 +124,17 @@ transform = Transform3D(3.430768, 0, 0, 0, 1, 0, 0, 0, 3.7332447, -56.287216, 2.
 [node name="Enemigo1" parent="." node_paths=PackedStringArray("markers_patrullar") instance=ExtResource("2_4dm3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.592926, 1.3079519, 6.239772)
 markers_patrullar = NodePath("../MarkersPatrullar")
+
+[node name="Camera3D" type="Camera3D" parent="Enemigo1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7997627, 2.9002342)
+current = true
+far = 1000.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Enemigo1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.7227516)
+light_energy = 2.775
+light_volumetric_fog_energy = 0.0
+spot_range = 6.08
+spot_attenuation = 0.72
 
 [connection signal="finished" from="Ambiente" to="Ambiente" method="_on_finished"]
