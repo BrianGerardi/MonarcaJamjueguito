@@ -291,3 +291,6 @@ func audio_pasos():
 
 func _on_timer_pasos_timeout() -> void:
 	audio_pasos()
+
+func tomar_agua():
+	%AudioUsarAgua.play()

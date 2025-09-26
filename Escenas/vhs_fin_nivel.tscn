@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxucv7sm7rfyb"]
+
+[ext_resource type="Script" uid="uid://d1uxmsfbj8x7m" path="res://Escenas/vhs_fin_nivel.gd" id="1_o8dpq"]
+[ext_resource type="PackedScene" uid="uid://bnhqs702rlgt8" path="res://assets/modelos3d/vhs/vhs_tape.glb" id="2_u3n2b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbgmk"]
+size = Vector3(0.72, 0.08, 0.38)
+
+[node name="VHSFinNivel" type="RigidBody3D" groups=["interactuable"]]
+collision_layer = 2
+collision_mask = 3
+mass = 3.0
+script = ExtResource("1_o8dpq")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_u3n2b")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.16981441, -0.16597545, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010871887, 0.028316498, 0.013549805)
+shape = SubResource("BoxShape3D_rbgmk")

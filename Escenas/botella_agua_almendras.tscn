@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfbgq5tawkag1"]
+
+[ext_resource type="Script" uid="uid://c8xkoukjyxjo4" path="res://Scripts/agua_de_almendras.gd" id="1_awi6l"]
+[ext_resource type="PackedScene" uid="uid://dh5p0t2dev7er" path="res://assets/modelos3d/agua de almendras/almond_water_backrooms.glb" id="1_tvf5o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_awi6l"]
+radius = 0.29296875
+height = 1.4104004
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awi6l"]
+size = Vector3(1, 1.4541016, 0.77819824)
+
+[node name="BotellaAguaAlmendras" type="RigidBody3D" groups=["interactuable"]]
+collision_layer = 2
+collision_mask = 3
+mass = 3.0
+script = ExtResource("1_awi6l")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_tvf5o")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1035156e-05, -0.01940918, 0)
+shape = SubResource("CapsuleShape3D_awi6l")
+
+[node name="Area3DAgua" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DAgua"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028808594, -0.021057129)
+shape = SubResource("BoxShape3D_awi6l")
+
+[connection signal="body_entered" from="Area3DAgua" to="." method="_on_area_3d_agua_body_entered"]
