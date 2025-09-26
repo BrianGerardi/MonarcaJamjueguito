@@ -114,7 +114,7 @@ func _physics_process(delta: float) -> void:
 	
 	if !player_escondido:
 		Global.set_posicion_player(global_position)
-	print("POSICION DEL JUGADOR EN JUGADORRRRRRRR VALE: ", global_position)
+	#print("POSICION DEL JUGADOR EN JUGADORRRRRRRR VALE: ", global_position)
 	
 	if objeto_señalado_actualmente!= null and objeto_señalado_actualmente.is_in_group("presionar_f"):
 		if objeto_señalado_actualmente.has_method("interactuar"):

@@ -84,6 +84,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.528, 2.162467, 78.19416)
 [node name="Marker3D11" type="Marker3D" parent="MarkersPatrullar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.50809, 2.162467, 86.11656)
 
+[node name="Marker3D12" type="Marker3D" parent="MarkersPatrullar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.633575, 2.162467, 91.180824)
+
+[node name="Marker3D13" type="Marker3D" parent="MarkersPatrullar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.97832, 2.162467, -6.2038956)
+
 [node name="VHSShader" type="CanvasLayer" parent="."]
 script = ExtResource("3_hlu4k")
 
@@ -97,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("5_3ce0a")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 82.60833, 1.3851581, 14.671332)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 217.30289, 1.3851581, 40.571682)
 
 [node name="AreaSegura" parent="." instance=ExtResource("6_l5w34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2936114, 106.246765, 0.46194172, -4.345587)

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cutvp0tl00gpr"
-path="res://.godot/imported/bacteria_grito_cc0.mp3-cbbdfb7509ba20266de7e26e42b9bb5f.mp3str"
+path="res://.godot/imported/bacteria_grito_cc0.mp3-1cbe33330aa54a0818dd612a341c0207.mp3str"
 
 [deps]
 
-source_file="res://Assets/sonidos/bacteria_grito_cc0.mp3"
-dest_files=["res://.godot/imported/bacteria_grito_cc0.mp3-cbbdfb7509ba20266de7e26e42b9bb5f.mp3str"]
+source_file="res://assets/sonidos/bacteria_grito_cc0.mp3"
+dest_files=["res://.godot/imported/bacteria_grito_cc0.mp3-1cbe33330aa54a0818dd612a341c0207.mp3str"]
 
 [params]
 

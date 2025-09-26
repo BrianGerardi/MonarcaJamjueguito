@@ -32,7 +32,6 @@ shape = SubResource("CapsuleShape3D_ih3cp")
 
 [node name="NavigationAgentEnemigo" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.2
-debug_enabled = true
 
 [node name="TimerPatrulla" type="Timer" parent="."]
 wait_time = 4.0

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lkiy1ly6lper"
-path.s3tc="res://.godot/imported/concrete_layers_02_nor_gl_1k.jpg-8d7e9971e49fac34322cea5d29982936.s3tc.ctex"
+path.s3tc="res://.godot/imported/concrete_layers_02_nor_gl_1k.jpg-8707f1283eb919e031ad6bd12d970ed5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/texturas/GarageTextures/ConcreteLayer/textures/concrete_layers_02_nor_gl_1k.jpg"
-dest_files=["res://.godot/imported/concrete_layers_02_nor_gl_1k.jpg-8d7e9971e49fac34322cea5d29982936.s3tc.ctex"]
+source_file="res://assets/texturas/GarageTextures/ConcreteLayer/textures/concrete_layers_02_nor_gl_1k.jpg"
+dest_files=["res://.godot/imported/concrete_layers_02_nor_gl_1k.jpg-8707f1283eb919e031ad6bd12d970ed5.s3tc.ctex"]
 
 [params]
 
