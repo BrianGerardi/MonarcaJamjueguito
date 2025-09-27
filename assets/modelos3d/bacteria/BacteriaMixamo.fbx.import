@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://e6std6kfwbgu"
-path="res://.godot/imported/BacteriaMixamo.fbx-2a4546a3fa4e21a9866ec812f981b74c.scn"
+path="res://.godot/imported/BacteriaMixamo.fbx-82ffe7ccb8e7d9a5da4d0399b656ecbd.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/bacteria/BacteriaMixamo.fbx"
-dest_files=["res://.godot/imported/BacteriaMixamo.fbx-2a4546a3fa4e21a9866ec812f981b74c.scn"]
+source_file="res://Assets/modelos3d/bacteria/BacteriaMixamo.fbx"
+dest_files=["res://.godot/imported/BacteriaMixamo.fbx-82ffe7ccb8e7d9a5da4d0399b656ecbd.scn"]
 
 [params]
 

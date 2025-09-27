@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
-[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
-[ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
-[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
-[ext_resource type="AudioStream" uid="uid://ddrfbdyv3c4qe" path="res://assets/sonidos/pasos1_cc0.wav" id="5_cgfde"]
-[ext_resource type="AudioStream" uid="uid://cbjoaksvnk7f3" path="res://assets/sonidos/tomar_agua_cc0.wav" id="6_xlwfv"]
+[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://Assets/sonidos/clickboton.wav" id="2_i8vih"]
+[ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://Assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
+[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://Assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
+[ext_resource type="AudioStream" uid="uid://ddrfbdyv3c4qe" path="res://Assets/sonidos/pasos1_cc0.wav" id="5_cgfde"]
+[ext_resource type="AudioStream" uid="uid://cbjoaksvnk7f3" path="res://Assets/sonidos/tomar_agua_cc0.wav" id="6_xlwfv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkc8"]
 height = 2.5
@@ -38,6 +38,7 @@ target_position = Vector3(0, 0, -4)
 collision_mask = 3
 
 [node name="LuzLinterna" type="SpotLight3D" parent="PivotCamara/CameraPrincipal"]
+visible = false
 light_energy = 4.0
 light_volumetric_fog_energy = 0.1
 spot_range = 14.359
