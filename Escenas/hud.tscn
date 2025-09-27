@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1maqyy1m4dy2"]
+[gd_scene load_steps=15 format=3 uid="uid://c1maqyy1m4dy2"]
 
 [ext_resource type="Script" uid="uid://fs0a4hj8joy3" path="res://Scripts/hud.gd" id="1_5x6hg"]
-[ext_resource type="Texture2D" uid="uid://ho4asb7kxfql" path="res://Assets/cursores mouse/hand_open.svg" id="1_v1vk6"]
-[ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://Assets/cursores mouse/dot_small.svg" id="2_5x6hg"]
+[ext_resource type="Texture2D" uid="uid://ho4asb7kxfql" path="res://assets/cursores mouse/hand_open.svg" id="1_v1vk6"]
+[ext_resource type="Texture2D" uid="uid://cgc77b171whsh" path="res://assets/cursores mouse/dot_small.svg" id="2_5x6hg"]
 [ext_resource type="Script" uid="uid://cgcxpqejjb6t5" path="res://Scripts/hbox_inventario.gd" id="4_2in0g"]
+[ext_resource type="PackedScene" uid="uid://b8wfdak1a6f1a" path="res://Escenas/test_scene.tscn" id="5_qd6er"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_2in0g"]
 device = -1
@@ -55,7 +56,7 @@ unicode = 52
 events = [SubResource("InputEventKey_osmvk")]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("cursor_mano_abierta", "cursor_punto")]
-z_index = 1
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +104,7 @@ stretch_mode = 3
 
 [node name="HboxInventario" type="HBoxContainer" parent="LayerCursores" node_paths=PackedStringArray("HUD")]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -171,3 +173,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2in0g")
+
+[node name="TestScene" parent="." instance=ExtResource("5_qd6er")]
+unique_name_in_owner = true
+z_index = 3

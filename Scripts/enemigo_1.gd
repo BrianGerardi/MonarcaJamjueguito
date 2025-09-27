@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 
 #@export var seguir_a_jugador_debug: bool = false
+var puede_quitar_sanity: bool = true
 var animacion_actual :String = "" 
 @onready var animation_tree_bacteria: AnimationTree = %AnimationTreeBacteria
 var state_machine_animaciones
@@ -62,9 +63,11 @@ func _physics_process(delta):
 					vi_al_enemigo_cerca()
 		estados_enemigo.persiguiendo:
 			#print("-------- ESTADO PERSIGUIENDOOOOOOOOOOO. .................................................")
-			seguir_al_jugador() #esto actualiza siempre la posicion
-			velocidad_actual = velocidad_corriendo
-		#	cambiar_animacion("corriendo")
+			if Global.player_esta_escondido:
+				estado_actual = estados_enemigo.patrullando
+			else:
+				seguir_al_jugador() #esto actualiza siempre la posicion
+				velocidad_actual = velocidad_corriendo
 			if global_position.distance_to(posicion_jugador_global) > 100: #si lo estaba persiguiendo pero se me fue lejos
 				#print("DEJAR DE PERSEGUIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
 				estado_actual = estados_enemigo.desorientado
@@ -72,7 +75,8 @@ func _physics_process(delta):
 		estados_enemigo.desorientado:
 			velocidad_actual = 0.0
 			cambiar_animacion("desorientado")
-			%TimerDesorientado.start() #aca va a esperar 3 segunditos y se va a ir a patrullar de nuevo
+			if !%TimerDesorientado.time_left > 0:
+				%TimerDesorientado.start() #aca va a esperar 3 segunditos y se va a ir a patrullar de nuevo
 			estado_actual = estados_enemigo.quieto
 		estados_enemigo.quieto:
 			cambiar_animacion("desorientado")
@@ -92,6 +96,7 @@ func set_target_position_enemigo(movement_target: Vector3):
 	navigation_agent_enemigo.set_target_position(movement_target)
 
 func empezar_a_patrullar():
+	print("se empezo a patrullar")
 	seleccionar_target_aleatorio()
 	set_target_position_enemigo(target_position_nuevo)
 
@@ -122,6 +127,8 @@ func set_markers_enemigo(markers):
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	#avisa si estoy viendo al enemigo
+	if Global.player_esta_escondido():
+		return
 	if global_position.distance_to(posicion_jugador_global) < 35: #ademas de verlo, esta cerca
 		print("viste al enemigo -----------------------------------------------------------")
 		Global.modificar_sanity.emit(-5)
@@ -132,8 +139,10 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 
 func _on_area_enemigo_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		if Global.player_esta_escondido():
+			return
 		print("ENTRO AL AREA DEL ENEMIGO")
-		Global.modificar_sanity.emit(-25)
+	#	Global.modificar_sanity.emit(-25)
 		if estado_actual== estados_enemigo.patrullando:
 			Global.modificar_sanity.emit(-25)
 			estado_actual = estados_enemigo.persiguiendo
@@ -159,18 +168,24 @@ func set_estado_desorientado(): #se llama desde area segura
 
 
 func _on_timer_desorientado_timeout() -> void:
-	print("sono el timer")
+	print("sono el timer de desorientado")
 	estado_actual = estados_enemigo.patrullando
 	empezar_a_patrullar()
 
 
 func vi_al_enemigo_cerca():
 	print("viste al enemigo")
-	Global.modificar_sanity.emit(-5)
-	estado_actual = estados_enemigo.persiguiendo
-	cambiar_animacion("corriendo")
-	if %AudioPerseguir.playing==false:
-		%AudioPerseguir.play()
+	if Global.player_esta_escondido():
+		return
+	if puede_quitar_sanity:
+		Global.modificar_sanity.emit(-10)
+		puede_quitar_sanity = false
+		%TimerQuitarSanity.start()
+	if estado_actual!= estados_enemigo.persiguiendo:
+		estado_actual = estados_enemigo.persiguiendo
+		cambiar_animacion("corriendo")
+		if %AudioPerseguir.playing==false:
+			%AudioPerseguir.play()
 
 
 func _on_timer_audio_miedo_timeout() -> void:
@@ -212,3 +227,7 @@ func cambiar_animacion(nueva_animacion: String):
 #	state_machine_animaciones.travel(nueva_animacion)
 	animation_player_bacteria.play(nueva_animacion)
 	#animation_player_bacteria.play(nueva_animacion)
+
+
+func _on_timer_quitar_sanity_timeout() -> void:
+	puede_quitar_sanity = true

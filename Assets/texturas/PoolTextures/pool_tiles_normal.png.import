@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dginv2fw84cuw"
-path.s3tc="res://.godot/imported/pool_tiles_normal.png-d729676eb85ad42b9da3181a1ffb294a.s3tc.ctex"
+path.s3tc="res://.godot/imported/pool_tiles_normal.png-15dc3711185d2f46233140405c3ecd65.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/texturas/PoolTextures/pool_tiles_normal.png"
-dest_files=["res://.godot/imported/pool_tiles_normal.png-d729676eb85ad42b9da3181a1ffb294a.s3tc.ctex"]
+source_file="res://assets/texturas/PoolTextures/pool_tiles_normal.png"
+dest_files=["res://.godot/imported/pool_tiles_normal.png-15dc3711185d2f46233140405c3ecd65.s3tc.ctex"]
 
 [params]
 

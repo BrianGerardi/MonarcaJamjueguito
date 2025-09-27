@@ -48,6 +48,8 @@ func _physics_process(delta: float) -> void:
 	material.set_shader_parameter("noise_opacity", noise_opacity)
 	material.set_shader_parameter("static_noise_intensity", static_noise_intensity)
 	material.set_shader_parameter("vignette_intensity", vignette_intensity)
+	Global.set_sanity(sanity)
+
 
 
 func _on_modificar_sanity(cantidad: float): #

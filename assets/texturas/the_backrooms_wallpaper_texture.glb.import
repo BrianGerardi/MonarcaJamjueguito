@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dxtkyuwm7imm"
-path="res://.godot/imported/the_backrooms_wallpaper_texture.glb-f95deed387eec1d88d842654efadcda5.scn"
+path="res://.godot/imported/the_backrooms_wallpaper_texture.glb-b16b1041fb9fb64d94ef1f0e615cbb63.scn"
 
 [deps]
 
-source_file="res://Assets/texturas/the_backrooms_wallpaper_texture.glb"
-dest_files=["res://.godot/imported/the_backrooms_wallpaper_texture.glb-f95deed387eec1d88d842654efadcda5.scn"]
+source_file="res://assets/texturas/the_backrooms_wallpaper_texture.glb"
+dest_files=["res://.godot/imported/the_backrooms_wallpaper_texture.glb-b16b1041fb9fb64d94ef1f0e615cbb63.scn"]
 
 [params]
 
