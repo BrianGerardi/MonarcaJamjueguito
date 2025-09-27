@@ -4,7 +4,7 @@ extends CharacterBody3D
 #@export var seguir_a_jugador_debug: bool = false
 @onready var animation_tree_bacteria: AnimationTree = %AnimationTreeBacteria
 var state_machine_animaciones
-@onready var animation_player_bacteria  = %AnimationPlayer
+@onready var animation_player_bacteria  = %AnimationBacteria
 @onready var navigation_agent_enemigo: NavigationAgent3D = $NavigationAgentEnemigo
 @export var velocidad_caminando : float = 3.0
 @export var velocidad_corriendo : float = 5.0
