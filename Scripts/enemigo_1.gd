@@ -209,5 +209,6 @@ func cambiar_animacion(nueva_animacion: String):
 	animacion_actual = nueva_animacion
 	print("CAMBIAR ANIMACION A : ", nueva_animacion)
 	#if animation_player_bacteria.current_animation != nueva_animacion:
-	state_machine_animaciones.travel(nueva_animacion)
+#	state_machine_animaciones.travel(nueva_animacion)
+	animation_player_bacteria.play(nueva_animacion)
 	#animation_player_bacteria.play(nueva_animacion)
