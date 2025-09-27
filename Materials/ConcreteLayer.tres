@@ -13,5 +13,6 @@ ao_enabled = true
 ao_texture = ExtResource("2_ojnet")
 refraction_enabled = true
 refraction_texture = ExtResource("2_ojnet")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
 uv1_triplanar = true
 uv1_world_triplanar = true

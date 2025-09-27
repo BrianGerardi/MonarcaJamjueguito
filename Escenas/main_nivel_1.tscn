@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://bbewmj24r4xsl" path="res://Visuals/CRTShader.gdshader" id="4_3ce0a"]
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="5_3ce0a"]
 [ext_resource type="PackedScene" uid="uid://c22t1ybhp44gw" path="res://Escenas/area_segura.tscn" id="6_l5w34"]
-[ext_resource type="AudioStream" uid="uid://c6gkj4watuyc" path="res://assets/sonidos/background_sounds_cc0.wav" id="7_suwya"]
+[ext_resource type="AudioStream" uid="uid://c6gkj4watuyc" path="res://Assets/sonidos/background_sounds_cc0.wav" id="7_suwya"]
 [ext_resource type="Script" uid="uid://d0ocrisd3iui5" path="res://Scripts/ambiente.gd" id="8_ahkd6"]
 [ext_resource type="PackedScene" uid="uid://bb77r82w7vbhh" path="res://Escenas/checkpoint.tscn" id="9_bkosu"]
 [ext_resource type="PackedScene" uid="uid://dfbgq5tawkag1" path="res://Escenas/botella_agua_almendras.tscn" id="10_t35tq"]
@@ -146,6 +146,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.648445, 2.162467, 20.78462
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1749, 2.162467, -23.851227)
 
 [node name="VHSFinNivel" parent="." instance=ExtResource("11_rxbog")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.35956, 1.3531318, -20.176048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.35956, 0.8220267, -20.176048)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -148.73236, 4.226976, -20.154148)
 
 [connection signal="finished" from="Ambiente" to="Ambiente" method="_on_finished"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c6wtom0bgmj1v"
-path="res://.godot/imported/psx_wooden_table.glb-e308fcccdd0de24b062fb49bc3a22e1b.scn"
+path="res://.godot/imported/psx_wooden_table.glb-d34ac2a582d1ad17fad1d63538b2381a.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/psx_wooden_table.glb"
-dest_files=["res://.godot/imported/psx_wooden_table.glb-e308fcccdd0de24b062fb49bc3a22e1b.scn"]
+source_file="res://Assets/modelos3d/psx_wooden_table.glb"
+dest_files=["res://.godot/imported/psx_wooden_table.glb-d34ac2a582d1ad17fad1d63538b2381a.scn"]
 
 [params]
 

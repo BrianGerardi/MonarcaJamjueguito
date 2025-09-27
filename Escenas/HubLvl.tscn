@@ -1,0 +1,276 @@
+[gd_scene load_steps=28 format=3 uid="uid://by2eulxbdbsgs"]
+
+[ext_resource type="Script" uid="uid://b3yayh5lglaef" path="res://Scripts/nivel_test_cosas.gd" id="1_stu1d"]
+[ext_resource type="PackedScene" uid="uid://c1maqyy1m4dy2" path="res://Escenas/hud.tscn" id="2_y5ijb"]
+[ext_resource type="Shader" uid="uid://bbewmj24r4xsl" path="res://Visuals/CRTShader.gdshader" id="3_vy0dp"]
+[ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="4_fgdmg"]
+[ext_resource type="PackedScene" uid="uid://b206o12bd4jn4" path="res://Assets/modelos3d/sofa/gray_couch.glb" id="6_jfa1a"]
+[ext_resource type="PackedScene" uid="uid://dxab6opwqet34" path="res://Escenas/televisor.tscn" id="7_bs4b0"]
+[ext_resource type="PackedScene" uid="uid://c6wtom0bgmj1v" path="res://Assets/modelos3d/psx_wooden_table.glb" id="8_3auih"]
+[ext_resource type="PackedScene" uid="uid://ceow2xxsswr2s" path="res://Escenas/vhs.tscn" id="9_x5vlp"]
+[ext_resource type="PackedScene" uid="uid://bnhqs702rlgt8" path="res://Assets/modelos3d/vhs/vhs_tape.glb" id="10_53pvp"]
+[ext_resource type="PackedScene" uid="uid://drfq4vnofcw5h" path="res://Escenas/camera_transition.tscn" id="11_anac5"]
+[ext_resource type="PackedScene" uid="uid://dfbgq5tawkag1" path="res://Escenas/botella_agua_almendras.tscn" id="13_hftg6"]
+[ext_resource type="Material" uid="uid://buwq7yovyst70" path="res://Materials/dirtyCarpet.tres" id="13_hp63s"]
+[ext_resource type="Script" uid="uid://cshnijsge3tl6" path="res://Scripts/vhss_hader.gd" id="14_qtfr2"]
+[ext_resource type="Material" uid="uid://c478sy3lfy55n" path="res://Materials/RedBrick.tres" id="14_stu1d"]
+[ext_resource type="Material" uid="uid://bn4td37wkhe4o" path="res://Materials/ConcreteLayer.tres" id="15_vy0dp"]
+[ext_resource type="Material" uid="uid://csixvt4f7k2fi" path="res://Materials/ConcreteFloor.tres" id="16_fgdmg"]
+
+[sub_resource type="Environment" id="Environment_v8hp2"]
+background_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yan54"]
+size = Vector3(2.0439453, 1, 5.020355)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0wfyr"]
+size = Vector3(2.508545, 1.1459961, 1)
+
+[sub_resource type="Animation" id="Animation_0wfyr"]
+resource_name = "poner_vhs"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VHS_Visual:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00999999, 0.17666666, 0.6433333, 0.8433333, 1.01),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.38391376, 0.42682183, 10.146286), Vector3(0.38391376, 0.31490052, 10.236165), Vector3(0.38391376, 0.26718846, 10.860988), Vector3(0.38391376, 0.27383524, 10.900475), Vector3(0.38391376, 0.31490052, 11.158305)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VHS_Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VHS_Visual:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mnpw2"]
+_data = {
+&"poner_vhs": SubResource("Animation_0wfyr")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72520"]
+shader = ExtResource("3_vy0dp")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.150000007125
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.170000008075
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.5
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_stu1d"]
+material = ExtResource("13_hp63s")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hp63s"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y5ijb"]
+material = ExtResource("14_stu1d")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvu4d"]
+material = ExtResource("15_vy0dp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jfa1a"]
+material = ExtResource("16_fgdmg")
+
+[node name="NivelTestCosas" type="Node3D"]
+script = ExtResource("1_stu1d")
+
+[node name="HUD" parent="." instance=ExtResource("2_y5ijb")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("4_fgdmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.116865)
+velocidad_corriendo = 8.4
+velocidad_caminando = 5.5
+velocidad_agachado = 3.3
+JUMP_VELOCITY = 5.8
+HUD = NodePath("../HUD")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v8hp2")
+
+[node name="Sofa" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.2947964e-07, 1, 3.5943398)
+
+[node name="Sketchfab_Scene" parent="Sofa" instance=ExtResource("6_jfa1a")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sofa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0063476563, 0, 0.020767212)
+shape = SubResource("BoxShape3D_yan54")
+
+[node name="Televisor" parent="." instance=ExtResource("7_bs4b0")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1.2839208, 11.890358)
+
+[node name="Mesa" type="StaticBody3D" parent="."]
+transform = Transform3D(-8.283308e-08, 0, 1.177, 0, 1.177, 0, -1.895, 0, -5.1448307e-08, 5.6159906, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048950195, 0.62700194, 0)
+shape = SubResource("BoxShape3D_0wfyr")
+
+[node name="Sketchfab_Scene" parent="Mesa" instance=ExtResource("8_3auih")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="VHS" parent="." instance=ExtResource("9_x5vlp")]
+transform = Transform3D(0.9094685, 0, -0.4157729, 0, 1, 0, 0.4157729, 0, 0.9094685, 8.223528, 0.2279684, 3.5661302)
+
+[node name="VHS2" parent="." instance=ExtResource("9_x5vlp")]
+transform = Transform3D(-0.108745456, 0, -0.9940696, 0, 1, 0, 0.9940696, 0, -0.108745456, 5.1870713, 1.5550708, 9.867788)
+
+[node name="VHS3" parent="." instance=ExtResource("9_x5vlp")]
+transform = Transform3D(-0.108745456, 0, -0.9940696, 0, 1, 0, 0.9940696, 0, -0.108745456, -4.7403984, 0.12592685, 12.410388)
+
+[node name="AnimationTele" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_mnpw2")
+}
+
+[node name="VHS_Visual" parent="." instance=ExtResource("10_53pvp")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.38391376, 0.42682183, 10.146286)
+visible = false
+
+[node name="CameraTele" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.037580967, 1.3486788, 9.4058485)
+far = 200.0
+
+[node name="CameraTransition" parent="." instance=ExtResource("11_anac5")]
+unique_name_in_owner = true
+
+[node name="AguaDeAlmendras" parent="." instance=ExtResource("13_hftg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.349196, 0.63359046, 8.147966)
+
+[node name="AguaDeAlmendras2" parent="." instance=ExtResource("13_hftg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8192673, 0.53988874, 7.771929)
+
+[node name="VHSShader" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("14_qtfr2")
+
+[node name="ColorRect" type="ColorRect" parent="VHSShader"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_72520")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(31.594011, 0, 0, 0, 1, 0, 0, 0, 31.710844, 0, -0.4435501, 0)
+mesh = SubResource("BoxMesh_stu1d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hp63s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 7.83173, 0, 0, 0, 32.703396, -7.8447585, 3.647542, -0.004450083)
+mesh = SubResource("BoxMesh_y5ijb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 7.83173, 0, 0, 0, 32.703396, 15.208925, 3.647542, 0)
+mesh = SubResource("BoxMesh_y5ijb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(40, 0, 0, 0, 10.148089, 0, 0, 0, 1, 0, 2.4993105, -1.8219185)
+mesh = SubResource("BoxMesh_rvu4d")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(40, 0, 0, 0, 10.148089, 0, 0, 0, 1, 0, 2.4993105, 16.271439)
+mesh = SubResource("BoxMesh_rvu4d")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(43.661674, 0, 0, 0, 1.3775841, 0, 0, 0, 25.614439, 0, 8.341426, 4.137453)
+mesh = SubResource("BoxMesh_jfa1a")
+
+[node name="Luces" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.1506157, 11.657213)
+light_energy = 2.372
+light_specular = 5.381
+spot_range = 14.394
+spot_attenuation = 1.51
+spot_angle = 31.27
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.734811, 5.1506157, 10.284855)
+light_energy = 2.372
+light_specular = 5.381
+spot_range = 14.394
+spot_attenuation = 1.51
+spot_angle = 31.27
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.42696476, 5.150615, 3.698092)
+light_energy = 2.372
+light_specular = 5.381
+spot_range = 14.394
+spot_attenuation = 1.51
+spot_angle = 31.27
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.527191, 5.150615, 7.6757765)
+light_energy = 2.372
+light_specular = 5.381
+spot_range = 14.394
+spot_attenuation = 1.51
+spot_angle = 31.27
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.793374, 2.1468372, 12.438568)
+light_energy = 2.372
+light_specular = 5.381
+spot_range = 14.394
+spot_attenuation = 1.51
+spot_angle = 31.27
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 8.577697, 2.146837, 3.6127293)
+light_energy = 2.372
+light_specular = 5.381
+spot_range = 14.394
+spot_attenuation = 1.51
+spot_angle = 31.27
