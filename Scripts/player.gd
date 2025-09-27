@@ -1,11 +1,15 @@
 extends CharacterBody3D
 
+
+var corriendo : bool = false
 var velocidad := 5.0 #velocidad actual
 @export var camara_zoom_normal : float = 70
 @export var camara_zoom_maximo : float = 15
 @export var velocidad_zoom: float = 27
-@export var tiempo_pasos_caminando : float = 0.6
-@export var tiempo_pasos_corriendo : float = 0.25
+var tiempo_pasos_actual : float = 0.0
+var intervalo_pasos : float = 0.6
+@export var tiempo_pasos_caminando : float = 1.1
+@export var tiempo_pasos_corriendo : float = 0.5
 @onready var collision_parado: CollisionShape3D = %CollisionParado
 @onready var collision_agachado: CollisionShape3D = %CollisionAgachado
 var zoom_actual : float
@@ -23,6 +27,8 @@ var haciendo_zoom : bool = false
 @export var HUD : Control
 @export var velocidad_head_bob : float = 2.0
 @export var amplitud_head_bob : float = 0.04
+var amplitud_headbob_inicial : float
+var velocidad_headbob_inicial : float
 var tiempo_head_bob: float = 0.0
 var mostrar_mouse: bool = false
 var objeto_señalado_actualmente = null
@@ -36,6 +42,7 @@ var respawn_position: Vector3
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
+	setear_headbob_inicial()
 	%TimerPasos.start(velocidad_caminando)
 	collision_agachado.disabled = true
 	zoom_actual = camara_zoom_normal
@@ -140,12 +147,19 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("shift"): #correr
 	#	print("SE PRESIONO EL SHIFT")
-	#aca despues voy a agregar movimiento de camara onda balanceo
-		%TimerPasos.wait_time = tiempo_pasos_corriendo
+		if !corriendo:
+			aumentar_headbob(0.6)
+		#%TimerPasos.wait_time = tiempo_pasos_corriendo
+		intervalo_pasos = tiempo_pasos_corriendo
 		velocidad = velocidad_corriendo
+		corriendo = true
 	else:
-		%TimerPasos.wait_time = tiempo_pasos_caminando
+	#	%TimerPasos.wait_time = tiempo_pasos_caminando
+		if corriendo:
+			reiniciar_headbob()
+		intervalo_pasos = tiempo_pasos_caminando
 		velocidad = velocidad_caminando
+		corriendo = false
 
 	if esta_agachado: #agacharse
 		cabeza_pivot.position = cabeza_pivot.position.move_toward(posicion_pivot_camara_agachado, 3 * delta)
@@ -180,13 +194,26 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	tiempo_head_bob += delta * velocity.length() * float(is_on_floor())
 	camara.transform.origin = headbob(tiempo_head_bob)
-	if velocity!= Vector3.ZERO and is_on_floor() :
-		if %TimerPasos.is_stopped():
-			%TimerPasos.start()
+	tiempo_pasos_actual += delta
+	if is_on_floor() and velocity.length() > 0.2: # movimiento mínimo
+		tiempo_pasos_actual += delta
+		var intervalo = obtener_intervalo_pasos()
+		if tiempo_pasos_actual >= intervalo:
+			audio_pasos()
+			tiempo_pasos_actual = 0.0
 	else:
-		%TimerPasos.stop()
+		tiempo_pasos_actual = 0.0
+
+func audio_pasos():
+	var volumen : float = randf_range(0.6, 1.0)
+	%AudioPasos.volume_db = linear_to_db(volumen)
+	%AudioPasos.play()
 
 
+
+#func _on_timer_pasos_timeout() -> void: #ahora sin uso
+	#audio_pasos()
+	#ejecutando_sonido_pasos = false
 
 func headbob(tiempo_headbob):
 	var headbob_position = Vector3.ZERO
@@ -283,14 +310,25 @@ func activar_collision_agachado():
 	collision_agachado.disabled= false
 
 
-func audio_pasos():
-	var volumen : float = randf_range(0.6,1.0)
-	%AudioPasos.volume_db = linear_to_db(volumen)
-	%AudioPasos.play()
-
-
-func _on_timer_pasos_timeout() -> void:
-	audio_pasos()
-
 func tomar_agua():
 	%AudioUsarAgua.play()
+
+func setear_headbob_inicial():
+	amplitud_headbob_inicial = amplitud_head_bob
+	velocidad_headbob_inicial = velocidad_head_bob
+
+func reiniciar_headbob():
+	amplitud_head_bob = amplitud_headbob_inicial
+	velocidad_head_bob = velocidad_headbob_inicial
+
+func aumentar_headbob(multiplicador : float):
+	amplitud_head_bob += amplitud_head_bob * multiplicador
+	velocidad_head_bob += velocidad_head_bob * multiplicador
+
+
+
+func obtener_intervalo_pasos() -> float:
+	if corriendo:
+		return tiempo_pasos_corriendo
+	else:
+		return tiempo_pasos_caminando

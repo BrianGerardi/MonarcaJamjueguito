@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
-[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://Assets/sonidos/clickboton.wav" id="2_i8vih"]
-[ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://Assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
-[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://Assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
-[ext_resource type="AudioStream" uid="uid://ddrfbdyv3c4qe" path="res://Assets/sonidos/pasos1_cc0.wav" id="5_cgfde"]
-[ext_resource type="AudioStream" uid="uid://cbjoaksvnk7f3" path="res://Assets/sonidos/tomar_agua_cc0.wav" id="6_xlwfv"]
+[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
+[ext_resource type="PackedScene" uid="uid://bxcbr7am1auj" path="res://assets/modelos3d/escape_the_backrooms_hazmat.glb" id="3_qgqwx"]
+[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
+[ext_resource type="AudioStream" uid="uid://cruka1bms8lqj" path="res://assets/sonidos/_pisadas_cc3.wav" id="5_xlwfv"]
+[ext_resource type="AudioStream" uid="uid://cbjoaksvnk7f3" path="res://assets/sonidos/tomar_agua_cc0.wav" id="6_xlwfv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkc8"]
 height = 2.5
@@ -16,7 +16,6 @@ height = 1.5
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 9
 script = ExtResource("1_cnkc8")
-tiempo_pasos_caminando = 0.8
 
 [node name="CollisionParado" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
@@ -77,7 +76,7 @@ shape = SubResource("CapsuleShape3D_6njrx")
 
 [node name="AudioPasos" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("5_cgfde")
+stream = ExtResource("5_xlwfv")
 
 [node name="TimerPasos" type="Timer" parent="."]
 unique_name_in_owner = true

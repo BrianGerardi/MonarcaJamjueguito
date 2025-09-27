@@ -237,6 +237,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_g4vds")
 
 [node name="Player" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("1_masba")]
+tiempo_pasos_caminando = 1.5
 velocidad_corriendo = 8.4
 velocidad_caminando = 5.5
 velocidad_agachado = 3.3

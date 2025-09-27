@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 
 #@export var seguir_a_jugador_debug: bool = false
+var animacion_actual :String = "" 
 @onready var animation_tree_bacteria: AnimationTree = %AnimationTreeBacteria
 var state_machine_animaciones
 @onready var animation_player_bacteria  = %AnimationBacteria
@@ -44,7 +45,7 @@ func _physics_process(delta):
 		match estado_actual:
 			estados_enemigo.patrullando: #si estaba patruyando que siga patruyando
 				empezar_a_patrullar()
-				cambiar_animacion("caminando_2")
+			#	cambiar_animacion("caminando_2")
 			estados_enemigo.persiguiendo:
 				#significa que alcanzo al player
 				if !Global.player_esta_escondido():
@@ -63,7 +64,7 @@ func _physics_process(delta):
 			#print("-------- ESTADO PERSIGUIENDOOOOOOOOOOO. .................................................")
 			seguir_al_jugador() #esto actualiza siempre la posicion
 			velocidad_actual = velocidad_corriendo
-			cambiar_animacion("corriendo")
+		#	cambiar_animacion("corriendo")
 			if global_position.distance_to(posicion_jugador_global) > 100: #si lo estaba persiguiendo pero se me fue lejos
 				#print("DEJAR DE PERSEGUIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
 				estado_actual = estados_enemigo.desorientado
@@ -136,6 +137,7 @@ func _on_area_enemigo_body_entered(body: Node3D) -> void:
 		if estado_actual== estados_enemigo.patrullando:
 			Global.modificar_sanity.emit(-25)
 			estado_actual = estados_enemigo.persiguiendo
+			cambiar_animacion("corriendo")
 			if %AudioPerseguir.playing==false:
 				%AudioPerseguir.play()
 
@@ -166,6 +168,7 @@ func vi_al_enemigo_cerca():
 	print("viste al enemigo")
 	Global.modificar_sanity.emit(-5)
 	estado_actual = estados_enemigo.persiguiendo
+	cambiar_animacion("corriendo")
 	if %AudioPerseguir.playing==false:
 		%AudioPerseguir.play()
 
@@ -201,6 +204,11 @@ func probabilidad_numero_random_mayor_que(numero : int):
 
 
 func cambiar_animacion(nueva_animacion: String):
+	if animacion_actual == nueva_animacion:
+		return
+	animacion_actual = nueva_animacion
+	print("CAMBIAR ANIMACION A : ", nueva_animacion)
 	#if animation_player_bacteria.current_animation != nueva_animacion:
-	state_machine_animaciones.travel(nueva_animacion)
+#	state_machine_animaciones.travel(nueva_animacion)
+	animation_player_bacteria.play(nueva_animacion)
 	#animation_player_bacteria.play(nueva_animacion)
