@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfn0qxg8ugiio"
-path="res://.godot/imported/dirty_carpet_arm_1k.jpg-b4f3e75dddb5436c162e5386897164ad.ctex"
+path="res://.godot/imported/dirty_carpet_arm_1k.jpg-352af26c28d33aa369981a630bbfedfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/texturas/HubTextures/dirtyCarpet/dirty_carpet_arm_1k.jpg"
-dest_files=["res://.godot/imported/dirty_carpet_arm_1k.jpg-b4f3e75dddb5436c162e5386897164ad.ctex"]
+source_file="res://assets/texturas/HubTextures/dirtyCarpet/dirty_carpet_arm_1k.jpg"
+dest_files=["res://.godot/imported/dirty_carpet_arm_1k.jpg-352af26c28d33aa369981a630bbfedfa.ctex"]
 
 [params]
 

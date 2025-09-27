@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 
+@onready var linterna : SpotLight3D = %LuzLinterna
 var corriendo : bool = false
 var velocidad := 5.0 #velocidad actual
 @export var camara_zoom_normal : float = 70
@@ -42,6 +43,8 @@ var respawn_position: Vector3
 #vamo que ganamos la jam loco vamo
 
 func _ready() -> void:
+#	Global.pausa.connect(_on_pausa)
+#	process_mode = $".".PROCESS_MODE_PAUSABLE
 	setear_headbob_inicial()
 	%TimerPasos.start(velocidad_caminando)
 	collision_agachado.disabled = true
@@ -60,6 +63,7 @@ func set_checkpoint(pos: Vector3) -> void:
 	respawn_position = pos
 
 func respawn() -> void:
+	Global.modificar_sanity.emit(100)
 	global_transform.origin = respawn_position
 	velocity = Vector3.ZERO 
 	
@@ -113,14 +117,20 @@ func _physics_process(delta: float) -> void:
 		haciendo_zoom = false
 		audio_zoom.stop()
 	if Input.is_action_pressed("x"):
-		Global.modificar_sanity.emit(20)
+	#	Global.modificar_sanity.emit(20)
 		quitar_zoom_camara(delta)
 	if Input.is_action_just_released("x"):
 		haciendo_zoom = false
 		audio_zoom.stop()
-	
+	if Input.is_action_just_pressed("f"):
+		linterna.visible = !linterna.visible
+		%AudioLinterna.play()
 	if !player_escondido:
 		Global.set_posicion_player(global_position)
+	else:
+		if Global.get_sanity()!= 100:
+			print("valor de sanity en global es: ", Global.get_sanity())
+			curar_sanity()
 	#print("POSICION DEL JUGADOR EN JUGADORRRRRRRR VALE: ", global_position)
 	
 	if objeto_señalado_actualmente!= null and objeto_señalado_actualmente.is_in_group("presionar_f"):
@@ -132,6 +142,8 @@ func _physics_process(delta: float) -> void:
 		if Global.get_forzar_mouse_visible() == true: #si esta en modo forzar visible
 			print("Otra cosa esta mostrando el mouse, ignoro este escape")
 		else:
+			Global.pausa.emit()
+		#	get_tree().paused = 
 			mostrar_mouse = !mostrar_mouse
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if mostrar_mouse else Input.MOUSE_MODE_CAPTURED)
 			#el ternario es: resultado_si_verdadero if CONDICION else resultado_si_falso
@@ -295,11 +307,18 @@ func aumentar_zoom_camara_op2(delta : float):
 func set_player_escondido(estado : bool): #agregas area3d 
 	player_escondido = estado
 
+func curar_sanity():
+	var probabilidad : int = randi_range(1,100)
+	if probabilidad>70: #se ejecuta en physic process asiq es una cantidad exagerada de veces por eso la probabilidad
+		_on_timer_curar_sanity_timeout()
 
 func _on_timer_curar_sanity_timeout() -> void:
+	if Global.get_sanity()== 100:
+		return
 	var probabilidad : int = randi_range(1,100)
-	if probabilidad>20:
-		Global.modificar_sanity.emit(2) #curo de a 2 
+	if probabilidad>30:
+		print("*** curar sanity desde el timer en player ***")
+		Global.modificar_sanity.emit(5) 
 
 func activar_collision_parado():
 	collision_agachado.disabled= true
@@ -332,3 +351,9 @@ func obtener_intervalo_pasos() -> float:
 		return tiempo_pasos_corriendo
 	else:
 		return tiempo_pasos_caminando
+
+#
+#func _on_pausa():
+	#mostrar_mouse = !mostrar_mouse
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if mostrar_mouse else Input.MOUSE_MODE_CAPTURED)
+	#

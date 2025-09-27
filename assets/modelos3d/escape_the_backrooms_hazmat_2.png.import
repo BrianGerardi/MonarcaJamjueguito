@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c58wbf4m3e6u0"
-path.s3tc="res://.godot/imported/escape_the_backrooms_hazmat_2.png-381103d67e0b76bb3104d397fae312ef.s3tc.ctex"
+path.s3tc="res://.godot/imported/escape_the_backrooms_hazmat_2.png-a02a0c8099071724926a762b79191b6e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/modelos3d/escape_the_backrooms_hazmat_2.png"
-dest_files=["res://.godot/imported/escape_the_backrooms_hazmat_2.png-381103d67e0b76bb3104d397fae312ef.s3tc.ctex"]
+source_file="res://assets/modelos3d/escape_the_backrooms_hazmat_2.png"
+dest_files=["res://.godot/imported/escape_the_backrooms_hazmat_2.png-a02a0c8099071724926a762b79191b6e.s3tc.ctex"]
 
 [params]
 

@@ -236,13 +236,12 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piso4"]
 shape = SubResource("ConvexPolygonShape3D_g4vds")
 
-[node name="Player" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("1_masba")]
+[node name="Player" parent="." instance=ExtResource("1_masba")]
 tiempo_pasos_caminando = 1.5
 velocidad_corriendo = 8.4
 velocidad_caminando = 5.5
 velocidad_agachado = 3.3
 JUMP_VELOCITY = 5.8
-HUD = NodePath("../HUD")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v8hp2")

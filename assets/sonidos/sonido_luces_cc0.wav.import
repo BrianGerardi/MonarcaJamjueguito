@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dbov421wp34kp"
-path="res://.godot/imported/sonido_luces_cc0.wav-2e01aac5b7b65bc19ab5c132146b8c01.sample"
+path="res://.godot/imported/sonido_luces_cc0.wav-5a8368a5d5b4002960248399910ae86a.sample"
 
 [deps]
 
-source_file="res://Assets/sonidos/sonido_luces_cc0.wav"
-dest_files=["res://.godot/imported/sonido_luces_cc0.wav-2e01aac5b7b65bc19ab5c132146b8c01.sample"]
+source_file="res://assets/sonidos/sonido_luces_cc0.wav"
+dest_files=["res://.godot/imported/sonido_luces_cc0.wav-5a8368a5d5b4002960248399910ae86a.sample"]
 
 [params]
 

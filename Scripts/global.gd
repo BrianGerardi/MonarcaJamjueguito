@@ -1,6 +1,9 @@
 extends Node
 
 
+signal pausa
+var sanity_gobal : int = 100
+var player_escondido_global : bool = false
 signal modificar_sanity(cantidad : float) 
 signal poner_vhs_tv
 var forzar_mouse_visible: bool =false #por si hay algun bug con el mouse cuando ponemos pausa y esas cosas
@@ -43,7 +46,15 @@ func get_camara_principal():
 	return camara_principal
 
 func player_esta_escondido():
+	print("-- consulto si player esta escondido, respuesta: ", player_esta_escondido_bool)
 	return player_esta_escondido_bool
 
 func set_player_escondido(estado: bool):
 	player_esta_escondido_bool = estado
+
+
+func set_sanity(cantidad: int):
+	sanity_gobal = cantidad
+
+func get_sanity():
+	return sanity_gobal

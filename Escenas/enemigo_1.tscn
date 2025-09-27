@@ -1822,9 +1822,15 @@ libraries = {
 }
 autoplay = "caminando_2"
 
+[node name="TimerQuitarSanity" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="TimerPatrulla" to="." method="_on_timer_patrulla_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="visibility_changed" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_visibility_changed"]
 [connection signal="body_entered" from="AreaEnemigo" to="." method="_on_area_enemigo_body_entered"]
 [connection signal="timeout" from="TimerDesorientado" to="." method="_on_timer_desorientado_timeout"]
 [connection signal="timeout" from="TimerAudioMiedo" to="." method="_on_timer_audio_miedo_timeout"]
+[connection signal="timeout" from="TimerQuitarSanity" to="." method="_on_timer_quitar_sanity_timeout"]

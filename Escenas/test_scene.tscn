@@ -1,24 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8wfdak1a6f1a"]
+[gd_scene load_steps=7 format=3 uid="uid://b8wfdak1a6f1a"]
 
 [ext_resource type="Script" uid="uid://12ax0nnmisp0" path="res://Scripts/video.gd" id="1_e6lyq"]
+[ext_resource type="Script" uid="uid://6s57epoe1ffd" path="res://Scripts/test_scene.gd" id="1_mde8h"]
 [ext_resource type="Texture2D" uid="uid://carxd164g728i" path="res://icon.svg" id="1_or7i0"]
 [ext_resource type="Script" uid="uid://deswpj81rgkkm" path="res://Scripts/audio.gd" id="2_cmli1"]
 [ext_resource type="Script" uid="uid://c0o42dwelrgoy" path="res://Scripts/MainMenuLvlButton.gd" id="2_mde8h"]
 [ext_resource type="PackedScene" uid="uid://cld2whxb42kuv" path="res://Escenas/action_button.tscn" id="3_dkwi6"]
 
 [node name="TestScene" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_mde8h")
 
 [node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 6
 
 [node name="Settings" type="TabContainer" parent="UI"]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 2
 
 [node name="Niveles" type="TabBar" parent="UI/Settings"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -129,7 +137,6 @@ popup/item_3/text = "Mailbox"
 popup/item_3/id = 3
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 script = ExtResource("2_cmli1")
 metadata/_tab_index = 2

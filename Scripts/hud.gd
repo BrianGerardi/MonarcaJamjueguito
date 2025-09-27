@@ -31,6 +31,7 @@ func add_item(item_nuevo : itemdata):
 func _ready() -> void:
 	Global.mostrar_cursor_mano_abierta.connect(mostrar_cursor_mano_ab)
 	Global.mostrar_cursor_punto.connect(mostrar_cursor_punto)
+	%HboxInventario.hide()
 
 
 func seleccionar_un_slot(index: int):
