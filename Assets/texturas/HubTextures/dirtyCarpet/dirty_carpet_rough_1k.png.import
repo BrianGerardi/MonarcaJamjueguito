@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1buwvwn0yrh6"
-path.s3tc="res://.godot/imported/dirty_carpet_rough_1k.png-7fa6a1fb25fc85af1c1bebd2edbe28f2.s3tc.ctex"
+path.s3tc="res://.godot/imported/dirty_carpet_rough_1k.png-cbe72a6d3bea47795702beb83d638fcf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/texturas/HubTextures/dirtyCarpet/dirty_carpet_rough_1k.png"
-dest_files=["res://.godot/imported/dirty_carpet_rough_1k.png-7fa6a1fb25fc85af1c1bebd2edbe28f2.s3tc.ctex"]
+source_file="res://Assets/texturas/HubTextures/dirtyCarpet/dirty_carpet_rough_1k.png"
+dest_files=["res://.godot/imported/dirty_carpet_rough_1k.png-cbe72a6d3bea47795702beb83d638fcf.s3tc.ctex"]
 
 [params]
 

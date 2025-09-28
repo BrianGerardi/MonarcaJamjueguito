@@ -1,8 +1,9 @@
-[gd_scene load_steps=188 format=3 uid="uid://dsqs7nisqafhn"]
+[gd_scene load_steps=195 format=3 uid="uid://dsqs7nisqafhn"]
 
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="1_ra704"]
 [ext_resource type="Material" uid="uid://dk5i4nrv453ri" path="res://Materials/PoolMaterial.tres" id="2_cu7g3"]
 [ext_resource type="Material" uid="uid://ch1lm1imk61f0" path="res://Materials/poolLvlWatterblack.tres" id="3_473i4"]
+[ext_resource type="Script" uid="uid://ky7dwbjrjfwf" path="res://Scripts/areaaguamala.gd" id="4_1sjxg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_473i4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -541,6 +542,21 @@ points = PackedVector3Array(-0.21418296, -0.94802845, -0.4511285, 0.022731654, 0
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2emno"]
 points = PackedVector3Array(-0.21418296, -0.94802845, -0.4511285, 0.022731654, 0.9521457, 0.49888662, 0.17148845, 0.9519953, 0.46901843, -0.12593445, 0.9526843, -0.48329136, 0.49966258, -0.95367396, -0.0068888306, -0.3876465, -0.9379602, 0.31565303, -0.48329246, 0.9526857, -0.12593003, 0.37509736, 0.9401282, -0.3298157, 0.17148845, -0.9519953, 0.46901843, 0.14078338, -0.9454848, -0.47957912, 0.4690145, 0.9520113, 0.17149934, -0.3876465, 0.9379602, 0.31565303, -0.48329246, -0.9526857, -0.12593003, -0.18351147, -0.9430759, 0.46469846, 0.40741244, -0.9469937, 0.2889825, 0.37509736, -0.9401282, -0.3298157, -0.39515373, 0.9557608, -0.3055234, -0.479555, 0.9454372, 0.1408799, 0.46469817, 0.94309926, -0.18351227, 0.14078338, 0.9454848, -0.47957912, -0.24320284, 0.9459547, 0.43649116, -0.479555, -0.9454372, 0.1408799, 0.2889712, 0.9469877, 0.4074208, -0.39515373, -0.9557608, -0.3055234, -0.006990604, -0.953641, 0.4996576, 0.49966258, 0.95367396, -0.0068888306, -0.27194828, 0.943071, -0.41921657, 0.46469817, -0.94309926, -0.18351227, -0.12593445, -0.9526843, -0.48329136, 0.31564754, 0.93797344, -0.38765055, 0.4690145, -0.9520113, 0.17149934, 0.40741244, 0.9469937, 0.2889825)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_473i4"]
+size = Vector3(0.09341431, 0.80285645, 0.19080761)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1sjxg"]
+size = Vector3(1, 1, 7.4449463)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umgr6"]
+size = Vector3(12.871819, 1, 2.3210297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4h0m"]
+size = Vector3(12.699219, 1, 1.7935181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q37gr"]
+size = Vector3(9.004227, 1, 10.835083)
+
 [sub_resource type="Shader" id="Shader_vwpvc"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.5.stable's StandardMaterial3D.
 
@@ -680,6 +696,9 @@ material = SubResource("ShaderMaterial_1er1d")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_v1357"]
 material = ExtResource("3_473i4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qyt46"]
+size = Vector3(71.06762, 3.887207, 42.94763)
 
 [node name="Poollevel" type="Node3D"]
 
@@ -2387,6 +2406,72 @@ surface_material_override/0 = ExtResource("2_cu7g3")
 transform = Transform3D(12.854691, 0, 0, 0, 0.8969188, 0, 0, 0, -11.634907, -50.749043, 8.171245, 47.699944)
 shape = SubResource("ConvexPolygonShape3D_2emno")
 
+[node name="StaticBody3D30" type="StaticBody3D" parent="terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(191.10648, 0, 0, 0, 0.8117574, -4.1357517, 0, 0.5839947, 5.7487297, 0.05012679, 7.198517, 85.31356)
+shape = SubResource("BoxShape3D_473i4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(191.10648, 0, 0, 0, 0.8117574, -4.1357517, 0, 0.5839947, 5.7487297, 20.600288, 7.198517, 85.31356)
+shape = SubResource("BoxShape3D_473i4")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(-191.10385, -0.0040863636, -0.023184458, 0, 0.6252427, -5.526877, 1.0006406, -0.7804199, -4.427802, -0.080496326, 7.1907153, 91.022644)
+shape = SubResource("BoxShape3D_473i4")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(-191.10385, -0.0040863636, -0.023184458, 0, 0.6252427, -5.526877, 1.0006406, -0.7804199, -4.427802, 20.523016, 7.1219673, 91.05171)
+shape = SubResource("BoxShape3D_473i4")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(-191.10385, -0.0040863636, -0.023184458, 0, 0.6252427, -5.526877, 1.0006406, -0.7804199, -4.427802, 20.450888, 7.108146, 77.27679)
+shape = SubResource("BoxShape3D_473i4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(0.80990857, -0.58655614, 0, 0.58655614, 0.80990857, 0, 0, 0, 1, 11.45462, 7.2204533, 81.175476)
+shape = SubResource("BoxShape3D_1sjxg")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(0.80990857, -0.58655614, 0, 0.58655614, 0.80990857, 0, 0, 0, 1, 11.45462, 7.2204533, 94.955765)
+shape = SubResource("BoxShape3D_1sjxg")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(0.80990857, -0.58655614, 0, 0.58655614, 0.80990857, 0, 0, 0, 1, -9.00511, 7.1843624, 94.955765)
+shape = SubResource("BoxShape3D_1sjxg")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(0.80990857, -0.58655614, 0, 0.58655614, 0.80990857, 0, 0, 0, 1, -9.00511, 7.1843624, 81.19959)
+shape = SubResource("BoxShape3D_1sjxg")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.73413295, 0.6790058, 0, -0.6790058, 0.73413295, -22.994093, 8.213614, 55.87195)
+shape = SubResource("BoxShape3D_umgr6")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.73413295, 0.6790058, 0, -0.6790058, 0.73413295, -22.994093, 7.839876, 53.962585)
+shape = SubResource("BoxShape3D_umgr6")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.73413295, 0.6790058, 0, -0.6790058, 0.73413295, -22.994093, 7.8823166, 53.95445)
+shape = SubResource("BoxShape3D_umgr6")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.73413295, 0.6790058, 0, -0.6790058, 0.73413295, -22.994093, 7.3757334, 52.57206)
+shape = SubResource("BoxShape3D_umgr6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.9302832, -1.010606, 0, 0.36684227, 2.562818, -23.000303, 8.018045, 60.938072)
+shape = SubResource("BoxShape3D_r4h0m")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.9302832, -1.010606, 0, 0.36684227, 2.562818, -23.000303, 6.4581738, 66.238174)
+shape = SubResource("BoxShape3D_r4h0m")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="terrain/StaticBody3D30"]
+transform = Transform3D(1, 0, 0, 0, 0.86847585, -0.49573156, 0, 0.49573156, 0.86847585, -24.8459, 6.0553274, 20.872036)
+shape = SubResource("BoxShape3D_q37gr")
+
 [node name="watters" type="Node3D" parent="."]
 
 [node name="Watter" type="MeshInstance3D" parent="watters"]
@@ -2427,3 +2512,12 @@ skeleton = NodePath("../..")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="watters"]
 transform = Transform3D(39.364334, 0, 0, 0, 1, 0, 0, 0, 35.87089, -17.384588, 9.149439, -27.154564)
 mesh = SubResource("PlaneMesh_v1357")
+
+[node name="areaaguamala" type="Area3D" parent="."]
+script = ExtResource("4_1sjxg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areaaguamala"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.767, 7.126626, -13.193176)
+shape = SubResource("BoxShape3D_qyt46")
+
+[connection signal="body_entered" from="areaaguamala" to="areaaguamala" method="_on_body_entered"]

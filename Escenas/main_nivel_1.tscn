@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://bbewmj24r4xsl" path="res://Visuals/CRTShader.gdshader" id="4_3ce0a"]
 [ext_resource type="PackedScene" uid="uid://dv53lkd0nlsqn" path="res://Escenas/player.tscn" id="5_3ce0a"]
 [ext_resource type="PackedScene" uid="uid://c22t1ybhp44gw" path="res://Escenas/area_segura.tscn" id="6_l5w34"]
-[ext_resource type="AudioStream" uid="uid://c6gkj4watuyc" path="res://assets/sonidos/background_sounds_cc0.wav" id="7_suwya"]
+[ext_resource type="AudioStream" uid="uid://c6gkj4watuyc" path="res://Assets/sonidos/background_sounds_cc0.wav" id="7_suwya"]
 [ext_resource type="Script" uid="uid://d0ocrisd3iui5" path="res://Scripts/ambiente.gd" id="8_ahkd6"]
 [ext_resource type="PackedScene" uid="uid://bb77r82w7vbhh" path="res://Escenas/checkpoint.tscn" id="9_bkosu"]
 [ext_resource type="PackedScene" uid="uid://dfbgq5tawkag1" path="res://Escenas/botella_agua_almendras.tscn" id="10_t35tq"]
@@ -24,11 +24,11 @@ shader_parameter/overlay = false
 shader_parameter/scanlines_opacity = 0.150000007125
 shader_parameter/scanlines_width = 0.25
 shader_parameter/grille_opacity = 0.170000008075
-shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/resolution = Vector2(1920, 1080)
 shader_parameter/pixelate = true
-shader_parameter/roll = true
+shader_parameter/roll = false
 shader_parameter/roll_speed = 0.5
-shader_parameter/roll_size = 15.0
+shader_parameter/roll_size = 9.274000440515
 shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4

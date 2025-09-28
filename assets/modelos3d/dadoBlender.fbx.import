@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://s7n1okiwlnvq"
-path="res://.godot/imported/dadoBlender.fbx-bdf61ce076ab66e486bc23e6aa9194af.scn"
+path="res://.godot/imported/dadoBlender.fbx-788e3408a8981964c9e2b1fde9c96e85.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/dadoBlender.fbx"
-dest_files=["res://.godot/imported/dadoBlender.fbx-bdf61ce076ab66e486bc23e6aa9194af.scn"]
+source_file="res://Assets/modelos3d/dadoBlender.fbx"
+dest_files=["res://.godot/imported/dadoBlender.fbx-788e3408a8981964c9e2b1fde9c96e85.scn"]
 
 [params]
 

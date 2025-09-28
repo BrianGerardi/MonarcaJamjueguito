@@ -74,5 +74,5 @@ func update_shader_effects():
 	#print("TARGET GRILLE OP VALE :", target_grille_opacity)
 	target_noise_opacity = lerp(0.4, 0.7, 1.0 - normalized_sanity)
 	target_static_noise_intensity = lerp(0.06, 0.5, 1.0 - normalized_sanity)
-	target_vignette_intensity = lerp(0.4, 0.7, 1.0 - normalized_sanity)
+	target_vignette_intensity = lerp(0.2, 0.7, 1.0 - normalized_sanity)
 	target_roll_speed = lerp(0.5, 3.0, 1.0 - normalized_sanity)

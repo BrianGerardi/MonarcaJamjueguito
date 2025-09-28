@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy1ui04fehew0"
-path.s3tc="res://.godot/imported/the_backrooms_wallpaper_texture_0.jpg-2ce01045381126d7a1b7bebc769a6c39.s3tc.ctex"
+path.s3tc="res://.godot/imported/the_backrooms_wallpaper_texture_0.jpg-458480841af9a1954c0e7690a771c4a2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/texturas/the_backrooms_wallpaper_texture_0.jpg"
-dest_files=["res://.godot/imported/the_backrooms_wallpaper_texture_0.jpg-2ce01045381126d7a1b7bebc769a6c39.s3tc.ctex"]
+source_file="res://Assets/texturas/the_backrooms_wallpaper_texture_0.jpg"
+dest_files=["res://.godot/imported/the_backrooms_wallpaper_texture_0.jpg-458480841af9a1954c0e7690a771c4a2.s3tc.ctex"]
 
 [params]
 

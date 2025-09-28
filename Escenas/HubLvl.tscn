@@ -149,13 +149,10 @@ shape = SubResource("BoxShape3D_0wfyr")
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="VHS" parent="." instance=ExtResource("9_x5vlp")]
-transform = Transform3D(0.9094685, 0, -0.4157729, 0, 1, 0, 0.4157729, 0, 0.9094685, 8.223528, 0.2279684, 3.5661302)
+transform = Transform3D(0.9094685, 0, -0.4157729, 0, 1, 0, 0.4157729, 0, 0.9094685, 5.4312963, 1.5676355, 9.6739025)
 
 [node name="VHS2" parent="." instance=ExtResource("9_x5vlp")]
-transform = Transform3D(-0.108745456, 0, -0.9940696, 0, 1, 0, 0.9940696, 0, -0.108745456, 5.1870713, 1.5550708, 9.867788)
-
-[node name="VHS3" parent="." instance=ExtResource("9_x5vlp")]
-transform = Transform3D(-0.108745456, 0, -0.9940696, 0, 1, 0, 0.9940696, 0, -0.108745456, -4.7403984, 0.12592685, 12.410388)
+transform = Transform3D(-0.108745456, 0, -0.9940696, 0, 1, 0, 0.9940696, 0, -0.108745456, -4.35186, 0.18037122, 11.001992)
 
 [node name="AnimationTele" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -261,14 +258,7 @@ spot_angle = 31.27
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.793374, 2.1468372, 12.438568)
-light_energy = 2.372
-light_specular = 5.381
-spot_range = 14.394
-spot_attenuation = 1.51
-spot_angle = 31.27
-
-[node name="SpotLight3D6" type="SpotLight3D" parent="Luces"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 8.577697, 2.146837, 3.6127293)
+visible = false
 light_energy = 2.372
 light_specular = 5.381
 spot_range = 14.394

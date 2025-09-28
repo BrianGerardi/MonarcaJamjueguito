@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://narol35cavi8"
-path="res://.godot/imported/red_brick_plaster_patch_02_bump_1k.png-9c205c04abb236768c53731c6dcd42d7.ctex"
+path="res://.godot/imported/red_brick_plaster_patch_02_bump_1k.png-f4dbb10472a7a4443d184ab63ba4dd9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/texturas/HubTextures/redbrick/red_brick_plaster_patch_02_bump_1k.png"
-dest_files=["res://.godot/imported/red_brick_plaster_patch_02_bump_1k.png-9c205c04abb236768c53731c6dcd42d7.ctex"]
+source_file="res://Assets/texturas/HubTextures/redbrick/red_brick_plaster_patch_02_bump_1k.png"
+dest_files=["res://.godot/imported/red_brick_plaster_patch_02_bump_1k.png-f4dbb10472a7a4443d184ab63ba4dd9a.ctex"]
 
 [params]
 
