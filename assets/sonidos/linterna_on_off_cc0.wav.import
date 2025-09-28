@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bgd8xujqfknyp"
-path="res://.godot/imported/linterna_on_off_cc0.wav-579b9e0d3c6fbce155d2757d7e6e9eb1.sample"
+path="res://.godot/imported/linterna_on_off_cc0.wav-1536a1bdb9c5d78002a76b6f87cd5a55.sample"
 
 [deps]
 
-source_file="res://Assets/sonidos/linterna_on_off_cc0.wav"
-dest_files=["res://.godot/imported/linterna_on_off_cc0.wav-579b9e0d3c6fbce155d2757d7e6e9eb1.sample"]
+source_file="res://assets/sonidos/linterna_on_off_cc0.wav"
+dest_files=["res://.godot/imported/linterna_on_off_cc0.wav-1536a1bdb9c5d78002a76b6f87cd5a55.sample"]
 
 [params]
 
