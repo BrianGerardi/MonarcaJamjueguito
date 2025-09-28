@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 
-var nueva_escena  = "res://Escenas/nivel_test_cosas.tscn"
+var nueva_escena  = "res://Escenas/escenafinal.tscn"
 
 func _ready() -> void:
 	pass # Replace with function body.

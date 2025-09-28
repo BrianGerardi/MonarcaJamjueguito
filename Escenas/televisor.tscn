@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxab6opwqet34"]
 
 [ext_resource type="Script" uid="uid://cp7u0gj28al33" path="res://Scripts/televisor.gd" id="1_1hng1"]
-[ext_resource type="PackedScene" uid="uid://dl4on5emwu5u7" path="res://assets/modelos3d/televisor test/old_tv.glb" id="1_qi25o"]
-[ext_resource type="VideoStream" uid="uid://rh4u240rfwcy" path="res://assets/videos/video-backrooms-juego-jam.ogv" id="3_q3w52"]
+[ext_resource type="PackedScene" uid="uid://dl4on5emwu5u7" path="res://Assets/modelos3d/televisor test/old_tv.glb" id="1_qi25o"]
+[ext_resource type="VideoStream" uid="uid://rh4u240rfwcy" path="res://Assets/videos/video-backrooms-juego-jam.ogv" id="3_q3w52"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qi25o"]
 size = Vector3(2.9779053, 2.2432861, 2.3737183)
@@ -56,9 +56,15 @@ unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.4, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 stream = ExtResource("3_q3w52")
+volume_db = -2.5200002
 
 [connection signal="body_entered" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_entered"]
 [connection signal="body_exited" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_exited"]

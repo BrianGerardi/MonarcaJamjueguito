@@ -1,8 +1,6 @@
 extends Node2D
 
 
-
-
 func _ready() -> void:
 	%UI.hide()
 	Global.pausa.connect(_on_pausa)
@@ -12,6 +10,7 @@ func esconder_menu():
 
 
 func _on_pausa():
+	pass
 	%UI.visible = !%UI.visible
 
 

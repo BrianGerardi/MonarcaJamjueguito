@@ -107,7 +107,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("5_3ce0a")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 68.98898, 1.8640413, 43.636337)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 183.70404, 1.8640413, -52.858246)
 tiempo_pasos_caminando = 1.5
 
 [node name="AreaSegura" parent="." instance=ExtResource("6_l5w34")]

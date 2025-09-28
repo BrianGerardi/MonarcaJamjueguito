@@ -32,7 +32,8 @@ func cambiar_pantalla_tv():
 	await get_tree().create_timer(1.5).timeout
 	%PlanoPantalla.show()
 	%VideoStreamPlayer.play()
-
+	await %VideoStreamPlayer.finished
+	get_tree().change_scene_to_file("res://Escenas/main_nivel_1.tscn")
 
 func _on_video_stream_player_finished() -> void:
 	#aca cambiar de escena ----------------------------------------------------------

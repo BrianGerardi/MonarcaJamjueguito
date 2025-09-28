@@ -151,9 +151,6 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 [node name="VHS" parent="." instance=ExtResource("9_x5vlp")]
 transform = Transform3D(0.9094685, 0, -0.4157729, 0, 1, 0, 0.4157729, 0, 0.9094685, 5.4312963, 1.5676355, 9.6739025)
 
-[node name="VHS2" parent="." instance=ExtResource("9_x5vlp")]
-transform = Transform3D(-0.108745456, 0, -0.9940696, 0, 1, 0, 0.9940696, 0, -0.108745456, -4.35186, 0.18037122, 11.001992)
-
 [node name="AnimationTele" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -161,7 +158,7 @@ libraries = {
 }
 
 [node name="VHS_Visual" parent="." instance=ExtResource("10_53pvp")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.38391376, 0.42682183, 10.146286)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.38391376, 0.27383524, 10.900475)
 visible = false
 
 [node name="CameraTele" type="Camera3D" parent="."]

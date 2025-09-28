@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dv53lkd0nlsqn"]
 
 [ext_resource type="Script" uid="uid://cdfdhlw5w53yk" path="res://Scripts/player.gd" id="1_cnkc8"]
-[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://assets/sonidos/clickboton.wav" id="2_i8vih"]
-[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
-[ext_resource type="AudioStream" uid="uid://cruka1bms8lqj" path="res://assets/sonidos/_pisadas_cc3.wav" id="5_xlwfv"]
-[ext_resource type="AudioStream" uid="uid://bgd8xujqfknyp" path="res://assets/sonidos/linterna_on_off_cc0.wav" id="6_7v5l4"]
-[ext_resource type="AudioStream" uid="uid://cbjoaksvnk7f3" path="res://assets/sonidos/tomar_agua_cc0.wav" id="6_xlwfv"]
+[ext_resource type="AudioStream" uid="uid://dop6jcne7upst" path="res://Assets/sonidos/clickboton.wav" id="2_i8vih"]
+[ext_resource type="AudioStream" uid="uid://ddpp11t1f2p6" path="res://Assets/sonidos/zoom_camara_cc0.wav" id="4_6njrx"]
+[ext_resource type="AudioStream" uid="uid://tv1vilr3ndek" path="res://Assets/sonidos/406737__kretopi__steponwood-001.wav" id="4_xlwfv"]
+[ext_resource type="AudioStream" uid="uid://bgd8xujqfknyp" path="res://Assets/sonidos/linterna_on_off_cc0.wav" id="6_7v5l4"]
+[ext_resource type="AudioStream" uid="uid://cbjoaksvnk7f3" path="res://Assets/sonidos/tomar_agua_cc0.wav" id="6_xlwfv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkc8"]
 height = 2.5
@@ -69,7 +69,7 @@ shape = SubResource("CapsuleShape3D_6njrx")
 
 [node name="AudioPasos" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("5_xlwfv")
+stream = ExtResource("4_xlwfv")
 
 [node name="TimerPasos" type="Timer" parent="."]
 unique_name_in_owner = true
