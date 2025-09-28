@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp7u0gj28al33" path="res://Scripts/televisor.gd" id="1_1hng1"]
 [ext_resource type="PackedScene" uid="uid://dl4on5emwu5u7" path="res://assets/modelos3d/televisor test/old_tv.glb" id="1_qi25o"]
-[ext_resource type="PackedScene" uid="uid://b8wfdak1a6f1a" path="res://Escenas/test_scene.tscn" id="3_q3w52"]
+[ext_resource type="VideoStream" uid="uid://rh4u240rfwcy" path="res://assets/videos/video-backrooms-juego-jam.ogv" id="3_q3w52"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qi25o"]
 size = Vector3(2.9779053, 2.2432861, 2.3737183)
@@ -51,9 +51,17 @@ texture = SubResource("ViewportTexture_h32lq")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
-[node name="TestScene" parent="SubViewport" instance=ExtResource("3_q3w52")]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_q3w52")
 
 [connection signal="body_entered" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_entered"]
 [connection signal="body_exited" from="AreaPonerVHS" to="." method="_on_area_poner_vhs_body_exited"]
+[connection signal="finished" from="SubViewport/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 
 [editable path="Sketchfab_Scene"]

@@ -31,3 +31,9 @@ func cambiar_pantalla_tv():
 	print("cambiar pantalla tv")
 	await get_tree().create_timer(1.5).timeout
 	%PlanoPantalla.show()
+	%VideoStreamPlayer.play()
+
+
+func _on_video_stream_player_finished() -> void:
+	#aca cambiar de escena ----------------------------------------------------------
+	pass # Replace with function body.

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cruka1bms8lqj"
-path="res://.godot/imported/_pisadas_cc3.wav-b398519fee405ef2f29ade9624218181.sample"
+path="res://.godot/imported/_pisadas_cc3.wav-146cbabf887d578ec347624a6ed91bc8.sample"
 
 [deps]
 
-source_file="res://Assets/sonidos/_pisadas_cc3.wav"
-dest_files=["res://.godot/imported/_pisadas_cc3.wav-b398519fee405ef2f29ade9624218181.sample"]
+source_file="res://assets/sonidos/_pisadas_cc3.wav"
+dest_files=["res://.godot/imported/_pisadas_cc3.wav-146cbabf887d578ec347624a6ed91bc8.sample"]
 
 [params]
 
