@@ -13,3 +13,7 @@ func esconder_menu():
 
 func _on_pausa():
 	%UI.visible = !%UI.visible
+
+
+func _on_salir_pressed() -> void:
+	get_tree().quit()

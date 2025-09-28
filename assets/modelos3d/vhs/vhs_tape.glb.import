@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bnhqs702rlgt8"
-path="res://.godot/imported/vhs_tape.glb-34879e18d011234efb29f1330ca39be1.scn"
+path="res://.godot/imported/vhs_tape.glb-a2ec4ab45dc3680f9e267ee0f0776492.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/vhs/vhs_tape.glb"
-dest_files=["res://.godot/imported/vhs_tape.glb-34879e18d011234efb29f1330ca39be1.scn"]
+source_file="res://Assets/modelos3d/vhs/vhs_tape.glb"
+dest_files=["res://.godot/imported/vhs_tape.glb-a2ec4ab45dc3680f9e267ee0f0776492.scn"]
 
 [params]
 

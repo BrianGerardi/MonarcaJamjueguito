@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dh5p0t2dev7er"
-path="res://.godot/imported/almond_water_backrooms.glb-f277f7dfe397629269bc391ea1efa444.scn"
+path="res://.godot/imported/almond_water_backrooms.glb-4db5b5d806c1987a7f9bf47d6ab626cb.scn"
 
 [deps]
 
-source_file="res://assets/modelos3d/agua de almendras/almond_water_backrooms.glb"
-dest_files=["res://.godot/imported/almond_water_backrooms.glb-f277f7dfe397629269bc391ea1efa444.scn"]
+source_file="res://Assets/modelos3d/agua de almendras/almond_water_backrooms.glb"
+dest_files=["res://.godot/imported/almond_water_backrooms.glb-4db5b5d806c1987a7f9bf47d6ab626cb.scn"]
 
 [params]
 
